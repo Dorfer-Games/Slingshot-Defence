@@ -3,6 +3,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Source.Scripts.Data.Enum;
 
 namespace Kuhpik
 {
@@ -12,8 +13,7 @@ namespace Kuhpik
     [Serializable]
     public class SaveData
     {
-        // Example (I use public fields for data, but u free to use properties\methods etc)
-        // [BoxGroup("level")] public int level;
-        // [BoxGroup("currency")] public int money;
+        public Dictionary<ResType, int> PlayerInventory;
+        public Dictionary<UpType, int> Ups;
     }
 }

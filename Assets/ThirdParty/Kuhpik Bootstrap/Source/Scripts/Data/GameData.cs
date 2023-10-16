@@ -4,6 +4,11 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Leopotam.EcsLite;
+using Source.Scripts.System;
+using Source.Scripts.System.Util;
+using Source.Scripts.View;
+using Source.Scripts.View.Cam;
 
 namespace Kuhpik
 {
@@ -13,10 +18,14 @@ namespace Kuhpik
     [Serializable]
     public class GameData
     {
-        // Example (I use public fields for data, but u free to use properties\methods etc)
-        // public float LevelProgress;
-        // public Enemy[] Enemies;
-        public SerializedDictionary<int, Color> Dict = new SerializedDictionary<int, Color>();
-        public int test;
+        public EcsWorld World = new EcsWorld();
+        public EcsWorld EventWorld = new EcsWorld();
+        public Fabric Fabric;
+        public Pools Pools;
+        public int PlayerEntity;
+        
+        public PlayerView PlayerView;
+        public CameraSwitcherView CameraSwitcherView;
+        public Joystick Joystick;
     }
 }

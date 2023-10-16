@@ -5,6 +5,8 @@
     "com.coffee.ui-effect": "4.0.0-preview.9",
     "com.coffee.ui-particle": "4.1.7",
     "com.cysharp.unitask": "2.3.1",
+    "com.leopotam.ecslite": "https://github.com/Leopotam/ecslite.git",
+    "com.leopotam.ecslite.unityeditor": "https://github.com/Leopotam/ecslite-unityeditor.git",
     "com.mackysoft.serializereference-extensions": "1.1.7",
     "com.supyrb.signals": "1.0.0",
     "com.unity.2d.sprite": "1.0.0",

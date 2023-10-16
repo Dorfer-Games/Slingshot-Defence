@@ -9,9 +9,7 @@
         Menu = 1,
         Game = 2,
         Pause = 3,
-        Result = 10,
-        Shop = 20,
-        Settings = 30
+        Shared = 40
 
         // Extend just like that
         //
