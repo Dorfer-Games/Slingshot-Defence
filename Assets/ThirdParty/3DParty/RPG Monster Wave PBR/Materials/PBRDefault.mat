@@ -14,6 +14,7 @@ Material:
   - _GRAYSCALESPECULAR_ON
   - _MAPPINGGRADIENT_OBJECT_SPACE
   - _MAPPINGTEXTURE_UV
+  - _SHOW_SPECULAR_ON
   m_InvalidKeywords:
   - _METALLICGLOSSMAP
   m_LightmapFlags: 4
@@ -92,7 +93,7 @@ Material:
     - _Shin: 3
     - _Show_Fresnel: 0
     - _Show_Gradient: 0
-    - _Show_Specular: 0
+    - _Show_Specular: 1
     - _Smooth: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -100,7 +101,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _grayscaleFactor: 1
-    - _smoothSpec: 1.5
+    - _smoothSpec: 2.96
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.34999996, g: 0.39999998, b: 0.45, a: 1}
@@ -109,8 +110,8 @@ Material:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0.34999996, g: 0.39999998, b: 0.45, a: 1}
-    - _SpecColors: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
+    - _SpecColors: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
     - _Vector: {r: 0, g: 0, b: 0, a: 0}
     - _VectorGradient: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
