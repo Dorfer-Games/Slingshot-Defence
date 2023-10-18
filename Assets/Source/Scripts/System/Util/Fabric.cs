@@ -35,7 +35,7 @@ namespace Source.Scripts.System
             pool.View.Add(entity).Value = baseView;
             pool.Dir.Add(entity).Value = baseView.transform.forward;
 
-            
+
             var rigidbody = baseView.GetComponent<Rigidbody>();
             if (rigidbody != null)
                 pool.Rb.Add(entity).Value = rigidbody;
@@ -63,12 +63,12 @@ namespace Source.Scripts.System
                 foreach (var kv in upsView.Ups)
                     ups.Add(kv.Key, kv.Value);
 
-                if (baseView.Entity == gameData.PlayerEntity && save.Ups != null)
-                    ups = save.Ups;
+                if (baseView.Entity == gameData.PlayerEntity && save.SlingUps != null)
+                    ups = save.SlingUps;
                 else
-                    save.Ups = ups;
+                    save.SlingUps = ups;
 
-                pool.Ups.Add(entity).Value = ups;
+                pool.SlingUps.Add(entity).Value = ups;
 
                 if (baseView.Entity == gameData.PlayerEntity)
                 {
@@ -98,6 +98,24 @@ namespace Source.Scripts.System
                 }
                 
                 pool.Inventory.Add(entity).Value = inventory;
+            }
+
+            var playerView = baseView.GetComponent<PlayerView>();
+            if (playerView!=null)
+            {
+               
+            }
+
+            var levelView = baseView.GetComponent<LevelView>();
+            if (levelView!=null)
+            {
+                pool.Level.Add(entity).Value = levelView.Value.Value;
+            }
+
+            var elementView = baseView.GetComponent<ElementView>();
+            if (elementView!=null)
+            {
+                pool.Element.Add(entity).Value = elementView.Value.Value;
             }
 
             //ui

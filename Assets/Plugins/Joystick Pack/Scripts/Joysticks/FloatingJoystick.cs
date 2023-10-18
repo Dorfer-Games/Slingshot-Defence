@@ -12,6 +12,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnDrag(PointerEventData eventData)
     {
+        base.OnDrag(eventData);
         Vector2 direction = eventData.position - joystickCenter;
         inputVector = (direction.magnitude > background.sizeDelta.x / 2f) ? direction.normalized : direction / (background.sizeDelta.x / 2f);
         ClampJoystick();
@@ -20,7 +21,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        
+        base.OnPointerDown(eventData);
         background.gameObject.SetActive(true);
         background.position = eventData.position;
         handle.anchoredPosition = Vector2.zero;
@@ -29,6 +30,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
+        base.OnPointerUp(eventData);
         background.gameObject.SetActive(false);
         inputVector = Vector2.zero;
     }

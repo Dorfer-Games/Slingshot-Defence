@@ -14,6 +14,6 @@ namespace Kuhpik
     public class SaveData
     {
         public Dictionary<ResType, int> PlayerInventory;
-        public Dictionary<UpType, int> Ups;
+        public Dictionary<UpType, int> SlingUps;
     }
 }

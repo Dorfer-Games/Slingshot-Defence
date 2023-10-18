@@ -17,6 +17,8 @@ namespace Source.Scripts.System
             filtersPools = new ();
          
             AddFilter<HitEvent>();
+            AddFilter<ShotEvent>();
+            AddFilter<ShotCancelEvent>();
         
         }
 

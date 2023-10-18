@@ -22,6 +22,10 @@ public class PlayerLoadingSystem : GameSystem
         game.CameraSwitcherView = cameraSwitcherView;
         game.Joystick = joystick;
         game.PlayerView = playerView;
-
+        var ammoBalls = playerView.AmmoView.GetComponentsInChildren<BaseView>();
+        foreach (var ent in ammoBalls)
+        {
+            game.Fabric.InitView(ent);
+        }
     }
 }

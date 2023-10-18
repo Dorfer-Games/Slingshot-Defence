@@ -3,6 +3,7 @@ using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Component.Movement;
+
 using Source.Scripts.Component.ViewComponent;
 using UnityEngine;
 
@@ -19,10 +20,15 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<CantMoveTag> CantMove;
         public readonly EcsPool<RigidbodyComponent> Rb;
         public readonly EcsPool<DeadTag> Dead;
-        public readonly EcsPool<Ups> Ups;
+        public readonly EcsPool<SlingUps> SlingUps;
+        public readonly EcsPool<Level> Level;
+        public readonly EcsPool<Element> Element;
+     
 
         //events
         public readonly EcsPool<HitEvent> HitEvent;
+        public readonly EcsPool<ShotCancelEvent> ShotCancelEvent;
+        public readonly EcsPool<ShotEvent> ShotEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -35,11 +41,15 @@ namespace Source.Scripts.System.Util
             CantMove = world.GetPool<CantMoveTag>();
             Dead = world.GetPool<DeadTag>();
             Rb = world.GetPool<RigidbodyComponent>();
-            Ups = world.GetPool<Ups>();
-
-
+            SlingUps = world.GetPool<SlingUps>();
+            Level = world.GetPool<Level>();
+            Element = world.GetPool<Element>();
+          
+            
             //events
             HitEvent = eventWorld.GetPool<HitEvent>();
+            ShotCancelEvent = eventWorld.GetPool<ShotCancelEvent>();
+            ShotEvent = eventWorld.GetPool<ShotEvent>();
         }
 
        

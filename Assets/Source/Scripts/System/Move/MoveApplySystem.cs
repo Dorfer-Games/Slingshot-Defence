@@ -11,6 +11,7 @@ namespace Source.Scripts.System.Move
     {
         
         private EcsFilter filter;
+        private EcsFilter filterRot;
         private EcsFilter filterRb;
         private EcsFilter filterRbStop;
         private EcsFilter filterRbStop1;
@@ -21,6 +22,7 @@ namespace Source.Scripts.System.Move
             base.OnInit();
 
             filter = world.Filter<Direction>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
+            filterRot = world.Filter<Direction>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
             filterRb = world.Filter<Direction>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
             filterRbRot = world.Filter<Direction>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
             filterRbStop = world.Filter<Direction>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().End();
@@ -36,6 +38,13 @@ namespace Source.Scripts.System.Move
                 var dir = pool.Dir.Get(ent).Value;
                 var speed = pool.Speed.Get(ent).Value;
                 valueTransform.Translate(dir*(Time.deltaTime*speed));
+            }
+            
+            foreach (var ent in filterRot)
+            {
+                var valueTransform = pool.View.Get(ent).Value.transform;
+                var dir = pool.Dir.Get(ent).Value;
+                valueTransform.rotation=Quaternion.LookRotation(dir);
             }
         }
 

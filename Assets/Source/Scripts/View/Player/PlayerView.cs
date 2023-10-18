@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Source.Scripts.View.Player;
+using TMPro;
 using UnityEngine;
 
 namespace Source.Scripts.View
@@ -7,7 +8,8 @@ namespace Source.Scripts.View
     {
         public GameObject[] Models;
         public TriggerListenerComponent Body;
-        public Transform Backpack;
+        public Transform BallSpawnPos;
+        public AmmoView AmmoView;
         public Canvas Canvas;
 
        

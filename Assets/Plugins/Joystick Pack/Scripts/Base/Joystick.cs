@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
@@ -18,19 +19,23 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     public float Vertical { get { return inputVector.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
+    public event Action PointerUpEvent;
+    public event Action PointerDownEvent;
+    public event Action DragEvent;
+
     public virtual void OnDrag(PointerEventData eventData)
     {
-
+        DragEvent?.Invoke();
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-
+        PointerDownEvent?.Invoke();
     }
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
-
+        PointerUpEvent?.Invoke();
     }
 
     protected void ClampJoystick()
