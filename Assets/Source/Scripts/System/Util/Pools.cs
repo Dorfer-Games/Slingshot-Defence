@@ -1,9 +1,10 @@
 ﻿using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
+using Source.Scripts.Component.Battle;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Component.Movement;
-
+using Source.Scripts.Component.Tome;
 using Source.Scripts.Component.ViewComponent;
 using UnityEngine;
 
@@ -23,12 +24,22 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<SlingUps> SlingUps;
         public readonly EcsPool<Level> Level;
         public readonly EcsPool<Element> Element;
+        public readonly EcsPool<ModelChangerComponent> ModelChangerComponent;
+        public readonly EcsPool<Radius> Radius;
+        public readonly EcsPool<Enemy> Enemy;
+        public readonly EcsPool<Through> Through;
+        public readonly EcsPool<Ricochet> Ricochet;
+        public readonly EcsPool<Obstacle> Obstacle;
+        public readonly EcsPool<Ammo> Ammo;
+        public readonly EcsPool<Moveable> Moveable;
+        public readonly EcsPool<ReloadTick> ReloadTick;
      
 
         //events
         public readonly EcsPool<HitEvent> HitEvent;
         public readonly EcsPool<ShotCancelEvent> ShotCancelEvent;
         public readonly EcsPool<ShotEvent> ShotEvent;
+        public readonly EcsPool<SpawnBallEvent> SpawnBallEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -44,12 +55,22 @@ namespace Source.Scripts.System.Util
             SlingUps = world.GetPool<SlingUps>();
             Level = world.GetPool<Level>();
             Element = world.GetPool<Element>();
+            ModelChangerComponent = world.GetPool<ModelChangerComponent>();
+            Radius = world.GetPool<Radius>();
+            Enemy = world.GetPool<Enemy>();
+            Through = world.GetPool<Through>();
+            Ricochet = world.GetPool<Ricochet>();
+            Obstacle = world.GetPool<Obstacle>();
+            Ammo = world.GetPool<Ammo>();
+            Moveable = world.GetPool<Moveable>();
+            ReloadTick = world.GetPool<ReloadTick>();
           
             
             //events
             HitEvent = eventWorld.GetPool<HitEvent>();
             ShotCancelEvent = eventWorld.GetPool<ShotCancelEvent>();
             ShotEvent = eventWorld.GetPool<ShotEvent>();
+            SpawnBallEvent = eventWorld.GetPool<SpawnBallEvent>();
         }
 
        

@@ -19,6 +19,7 @@ namespace Source.Scripts.System
             AddFilter<HitEvent>();
             AddFilter<ShotEvent>();
             AddFilter<ShotCancelEvent>();
+            AddFilter<SpawnBallEvent>();
         
         }
 

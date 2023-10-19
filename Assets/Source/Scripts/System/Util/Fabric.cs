@@ -99,12 +99,7 @@ namespace Source.Scripts.System
                 
                 pool.Inventory.Add(entity).Value = inventory;
             }
-
-            var playerView = baseView.GetComponent<PlayerView>();
-            if (playerView!=null)
-            {
-               
-            }
+            
 
             var levelView = baseView.GetComponent<LevelView>();
             if (levelView!=null)
@@ -116,6 +111,24 @@ namespace Source.Scripts.System
             if (elementView!=null)
             {
                 pool.Element.Add(entity).Value = elementView.Value.Value;
+            }
+
+            var modelChangerView = baseView.GetComponent<ModelChangerView>();
+            if (modelChangerView!=null)
+            {
+                pool.ModelChangerComponent.Add(entity).Value = modelChangerView;
+            }
+
+            var obstacleView = baseView.GetComponent<ObstacleView>();
+            if (obstacleView!=null)
+            {
+                pool.Obstacle.Add(entity);
+            }
+
+            var moveableView = baseView.GetComponent<MoveableView>();
+            if (moveableView!=null)
+            {
+                pool.Moveable.Add(entity);
             }
 
             //ui

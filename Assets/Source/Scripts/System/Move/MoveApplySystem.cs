@@ -21,12 +21,12 @@ namespace Source.Scripts.System.Move
         {
             base.OnInit();
 
-            filter = world.Filter<Direction>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
-            filterRot = world.Filter<Direction>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
-            filterRb = world.Filter<Direction>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
-            filterRbRot = world.Filter<Direction>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
-            filterRbStop = world.Filter<Direction>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().End();
-            filterRbStop1 = world.Filter<Direction>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
+            filter = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
+            filterRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
+            filterRb = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
+            filterRbRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
+            filterRbStop = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().End();
+            filterRbStop1 = world.Filter<Direction>().Inc<Moveable>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
         }
 
         public override void OnUpdate()

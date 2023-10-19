@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.1
-  EnemySpeed: 0
-  BallSpeed: 0
+  EnemySpeed: 2
+  BallSpeed: 6
+  ReloadTime: 1
   InsectSpawnChance: 0
   KnockbackForce: 0
   EnemyKnockbackForce: 0

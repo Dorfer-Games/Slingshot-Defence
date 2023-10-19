@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Leopotam.EcsLite;
+using Source.Scripts.Service;
 using Source.Scripts.System;
 using Source.Scripts.System.Util;
 using Source.Scripts.View;
@@ -21,6 +22,7 @@ namespace Kuhpik
         public EcsWorld World = new EcsWorld();
         public EcsWorld EventWorld = new EcsWorld();
         public Fabric Fabric;
+        public PositionService PositionService;
         public Pools Pools;
         public int PlayerEntity;
         

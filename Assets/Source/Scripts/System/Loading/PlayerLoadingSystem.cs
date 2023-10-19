@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
@@ -22,10 +23,16 @@ public class PlayerLoadingSystem : GameSystem
         game.CameraSwitcherView = cameraSwitcherView;
         game.Joystick = joystick;
         game.PlayerView = playerView;
-        var ammoBalls = playerView.AmmoView.GetComponentsInChildren<BaseView>();
-        foreach (var ent in ammoBalls)
+        var ammoBalls = playerView.AmmoView.AmmoBalls;
+        var list = new List<int>();
+        foreach (var view in ammoBalls)
         {
-            game.Fabric.InitView(ent);
+            var ent = game.Fabric.InitView(view);
+            list.Add(ent);
         }
+
+        ref var ammo = ref pool.Ammo.Add(game.PlayerEntity);
+        ammo.Value = list;
+        ammo.Count = list.Count;
     }
 }

@@ -8,7 +8,7 @@ namespace Source.Scripts.View
 {
     public class AnimationView : MonoBehaviour
     {
-        public Animator visualAnimator;
+        private Animator visualAnimator;
         [SerializeField] private GameObject visual;
         [SerializeField] private ParticleSystem hitVFX;
         [SerializeField] private float minBounce;
