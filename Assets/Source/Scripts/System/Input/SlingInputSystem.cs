@@ -1,4 +1,5 @@
 ﻿using Kuhpik;
+using Source.Scripts.Data.Enum;
 using UnityEngine;
 
 namespace Source.Scripts.System.Input
@@ -21,12 +22,13 @@ namespace Source.Scripts.System.Input
 
         private void Load()
         {
-            
+            game.CameraSwitcherView.Switch(CameraPositionType.AIMING);
         }
 
         private void Release()
         {
-            if (joystick.Direction.sqrMagnitude>=offset*offset)
+            game.CameraSwitcherView.Switch(CameraPositionType.DEFAULT);
+            if (joystick.Direction.sqrMagnitude >= offset * offset)
             {
                 pool.ShotEvent.Add(eventWorld.NewEntity());
             }
@@ -41,7 +43,7 @@ namespace Source.Scripts.System.Input
             base.OnUpdate();
             if (joystick.Direction.Equals(Vector2.zero))
                 return;
-            
+
             var normalized = joystick.Direction.normalized;
             pool.Dir.Get(game.PlayerEntity).Value =
                 new Vector3(-normalized.x, 0, -normalized.y);

@@ -14,6 +14,7 @@ namespace Kuhpik
         public float EnemySpeed;
         public float BallSpeed;
         public float ReloadTime;
+        public float SlowTimeScale;
         public int InsectSpawnChance;
         public float KnockbackForce;
         public float EnemyKnockbackForce;

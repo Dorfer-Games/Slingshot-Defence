@@ -17,6 +17,7 @@ MonoBehaviour:
   EnemySpeed: 2
   BallSpeed: 6
   ReloadTime: 1
+  SlowTimeScale: 0.4
   InsectSpawnChance: 0
   KnockbackForce: 0
   EnemyKnockbackForce: 0

@@ -866,7 +866,7 @@ PrefabInstance:
     - target: {fileID: 8184352405103757799, guid: 04f3d90dee6a5cb4cac73b37e2bd6add,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.43
+      value: 21.65
       objectReference: {fileID: 0}
     - target: {fileID: 8184352405103757799, guid: 04f3d90dee6a5cb4cac73b37e2bd6add,
         type: 3}
@@ -1645,7 +1645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
   m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
+  m_IgnoreTimeScale: 1
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
@@ -1658,7 +1658,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: d311af5e5fb19a840ac90f5ac02cf0db, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []

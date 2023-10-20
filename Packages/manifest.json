@@ -10,6 +10,8 @@
     "com.mackysoft.serializereference-extensions": "1.1.7",
     "com.supyrb.signals": "1.0.0",
     "com.unity.2d.sprite": "1.0.0",
+    "com.unity.2d.tilemap": "1.0.0",
+    "com.unity.2d.tilemap.extras": "2.2.7",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.formats.fbx": "4.1.2",
     "com.unity.ide.rider": "3.0.16",
