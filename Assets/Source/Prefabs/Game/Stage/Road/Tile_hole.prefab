@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 1441545524442072346, guid: c05a25a9a137e4a4291107ecbf6893fe,
         type: 3}
       propertyPath: tileType
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2869446629793660850, guid: c05a25a9a137e4a4291107ecbf6893fe,
         type: 3}
       propertyPath: m_Name
-      value: Tile_up
+      value: Tile_up 1
       objectReference: {fileID: 0}
     - target: {fileID: 3213742939502716168, guid: c05a25a9a137e4a4291107ecbf6893fe,
         type: 3}
@@ -83,6 +83,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6213939998457640765, guid: c05a25a9a137e4a4291107ecbf6893fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834984533068393614, guid: c05a25a9a137e4a4291107ecbf6893fe,
         type: 3}
       propertyPath: m_IsActive
       value: 1

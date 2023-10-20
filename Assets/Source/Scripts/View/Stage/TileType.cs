@@ -10,6 +10,8 @@
         UP_LEFT,
         UP_RIGHT,
         LEFT_DOWN,
-        RIGHT_DOWN
+        RIGHT_DOWN,
+        END,
+        HOLE
     }
 }
