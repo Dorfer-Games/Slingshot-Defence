@@ -12,3 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0bbf493a6018b41b94c2288283a11a, type: 3}
   m_Name: Game Config
   m_EditorClassIdentifier: 
+  SlingInputOffset: 0.5
+  UnitRotSpeed: 0.1
+  EnemySpeed: 2
+  BallSpeed: 6
+  ReloadTime: 1
+  SlowTimeScale: 0.4
+  InsectSpawnChance: 0
+  KnockbackForce: 0
+  EnemyKnockbackForce: 0
+  ZoneActivationTime: 0
+  PlayerUps:
+    _serializedList: []
+  PlayerUpsCosts:
+    _serializedList: []
+  BallPrefab: {fileID: 1962176878986198001, guid: b74b5bc211e5dea4283f768bde908019,
+    type: 3}

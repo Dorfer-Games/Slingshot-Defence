@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Leopotam.EcsLite;
+using Source.Scripts.System.Util;
+using UnityEngine;
 
 namespace Kuhpik
 {
@@ -7,6 +9,10 @@ namespace Kuhpik
         protected SaveData save;
         protected GameConfig config;
         protected GameData game;
+        
+        protected EcsWorld world => game.World;
+        protected EcsWorld eventWorld => game.EventWorld;
+        protected Pools pool => game.Pools;
 
         public virtual void OnCustomTick() { }
 
