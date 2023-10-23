@@ -7,6 +7,7 @@ using Source.Scripts.System.Util;
 using Source.Scripts.View;
 using Source.Scripts.View.Player;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Source.Scripts.System
 {
@@ -136,8 +137,18 @@ namespace Source.Scripts.System
             {
                 ref var stage =ref pool.Stage.Add(entity);
                 stage.Waves = stageView.Waves;
+                stage.SpawnPos = stageView.SpawnPos;
+                stage.UseCommonSpawnDelay = stageView.UseCommonSpawnDelay;
+                stage.CommonSpawnDelay = stageView.CommonSpawnDelay;
                 stage.AliveEnemies = new List<int>();
             }
+
+            var navMeshAgent = baseView.GetComponent<NavMeshAgent>();
+            if (navMeshAgent!=null)
+            {
+                pool.NavMeshAgentComponent.Add(entity).Value = navMeshAgent;
+            }
+
             //ui
            /* var hpBarView = baseView.GetComponent<HpBarView>();
             if (hpBarView != null)

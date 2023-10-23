@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693693b22e604c13a8278581c6b397e7, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  EnemyUps:
+  LevelStats:
     _serializedList:
     - Key: 0
       Value:
-        Hp: 0
-        Speed: 0
-        Exp: 0
-        SpawnDelay: 0
+        Hp: 50
+        Speed: 2
+        Exp: 1
+        SpawnDelay: 1
         Inventory:
           _serializedList:
           - Key: 0
-            Value: 0
-  Prafab: {fileID: 0}
+            Value: 1
+  Prafab: {fileID: 6317693359021089618, guid: f104c577c809c8e41a03ead11794890c, type: 3}

@@ -4,6 +4,7 @@ using Source.Scripts.Component;
 using Source.Scripts.Component.Movement;
 using Source.Scripts.Component.ViewComponent;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Source.Scripts.System.Move
 {
@@ -16,17 +17,22 @@ namespace Source.Scripts.System.Move
         private EcsFilter filterRbStop;
         private EcsFilter filterRbStop1;
         private EcsFilter filterRbRot;
+        
+        private EcsFilter filterAgent;
 
         public override void OnInit()
         {
             base.OnInit();
 
-            filter = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
-            filterRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().End();
-            filterRb = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
-            filterRbRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
-            filterRbStop = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().End();
-            filterRbStop1 = world.Filter<Direction>().Inc<Moveable>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().End();
+            filter = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().End();
+            filterRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().End();
+            filterRb = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
+            filterRbRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
+            filterRbStop = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().Exc<NavMeshAgentComponent>().End();
+            filterRbStop1 = world.Filter<Direction>().Inc<Moveable>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
+
+            filterAgent = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<Speed>()
+                .Inc<NavMeshAgentComponent>().End();
         }
 
         public override void OnUpdate()
@@ -37,7 +43,7 @@ namespace Source.Scripts.System.Move
                 var valueTransform = pool.View.Get(ent).Value.transform;
                 var dir = pool.Dir.Get(ent).Value;
                 var speed = pool.Speed.Get(ent).Value;
-                valueTransform.Translate(dir*(Time.deltaTime*speed));
+                valueTransform.position+=(dir*(Time.deltaTime*speed));
             }
             
             foreach (var ent in filterRot)
@@ -45,6 +51,12 @@ namespace Source.Scripts.System.Move
                 var valueTransform = pool.View.Get(ent).Value.transform;
                 var dir = pool.Dir.Get(ent).Value;
                 valueTransform.rotation=Quaternion.LookRotation(dir);
+            }
+
+            foreach (var ent in filterAgent)
+            {
+                var speed = pool.Speed.Get(ent).Value;
+                pool.NavMeshAgentComponent.Get(ent).Value.speed = speed;
             }
         }
 

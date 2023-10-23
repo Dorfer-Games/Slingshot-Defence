@@ -7,7 +7,7 @@ namespace Source.Scripts.Data
     [CreateAssetMenu(menuName = "Config/EnemyConfig")]
     public class EnemyConfig : ScriptableObject
     {
-        public SerializedDictionary<int,Stats> EnemyUps;
+        public SerializedDictionary<int,Stats> LevelStats;
         public BaseView Prafab;
     }
 }

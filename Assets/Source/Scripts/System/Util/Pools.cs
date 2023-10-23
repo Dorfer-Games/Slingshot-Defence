@@ -36,6 +36,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<EnemySpawnTick> EnemySpawnTick;
         public readonly EcsPool<WaveDelayTick> WaveDelayTick;
         public readonly EcsPool<Stage> Stage;
+        public readonly EcsPool<NavMeshAgentComponent> NavMeshAgentComponent;
      
 
         //events
@@ -70,6 +71,7 @@ namespace Source.Scripts.System.Util
             EnemySpawnTick = world.GetPool<EnemySpawnTick>();
             WaveDelayTick = world.GetPool<WaveDelayTick>();
             Stage = world.GetPool<Stage>();
+            NavMeshAgentComponent = world.GetPool<NavMeshAgentComponent>();
           
             
             //events
