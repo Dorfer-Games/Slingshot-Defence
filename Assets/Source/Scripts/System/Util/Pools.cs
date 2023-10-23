@@ -33,6 +33,9 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Ammo> Ammo;
         public readonly EcsPool<Moveable> Moveable;
         public readonly EcsPool<ReloadTick> ReloadTick;
+        public readonly EcsPool<EnemySpawnTick> EnemySpawnTick;
+        public readonly EcsPool<WaveDelayTick> WaveDelayTick;
+        public readonly EcsPool<Stage> Stage;
      
 
         //events
@@ -64,6 +67,9 @@ namespace Source.Scripts.System.Util
             Ammo = world.GetPool<Ammo>();
             Moveable = world.GetPool<Moveable>();
             ReloadTick = world.GetPool<ReloadTick>();
+            EnemySpawnTick = world.GetPool<EnemySpawnTick>();
+            WaveDelayTick = world.GetPool<WaveDelayTick>();
+            Stage = world.GetPool<Stage>();
           
             
             //events

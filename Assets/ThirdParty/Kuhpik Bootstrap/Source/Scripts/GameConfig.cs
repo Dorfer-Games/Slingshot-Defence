@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using NaughtyAttributes;
+using Source.Scripts.Data;
 using Source.Scripts.Data.Enum;
 using Source.Scripts.View;
 
@@ -19,6 +20,8 @@ namespace Kuhpik
         public float KnockbackForce;
         public float EnemyKnockbackForce;
         public float ZoneActivationTime;
+        
+        public SerializedDictionary<EnemyType,EnemyConfig> EnemyUps;
 
         public SerializedDictionary<UpType,int[]> PlayerUps;
         public SerializedDictionary<UpType,int[]> PlayerUpsCosts;

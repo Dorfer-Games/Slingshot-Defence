@@ -131,6 +131,13 @@ namespace Source.Scripts.System
                 pool.Moveable.Add(entity);
             }
 
+            var stageView = baseView.GetComponent<StageView>();
+            if (stageView!=null)
+            {
+                ref var stage =ref pool.Stage.Add(entity);
+                stage.Waves = stageView.Waves;
+                stage.AliveEnemies = new List<int>();
+            }
             //ui
            /* var hpBarView = baseView.GetComponent<HpBarView>();
             if (hpBarView != null)
