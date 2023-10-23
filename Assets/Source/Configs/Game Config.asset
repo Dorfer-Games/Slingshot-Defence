@@ -22,6 +22,10 @@ MonoBehaviour:
   KnockbackForce: 0
   EnemyKnockbackForce: 0
   ZoneActivationTime: 0
+  EnemyUps:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 6ce22e4f23cf2504a9f35818ea0a8842, type: 2}
   PlayerUps:
     _serializedList: []
   PlayerUpsCosts:
