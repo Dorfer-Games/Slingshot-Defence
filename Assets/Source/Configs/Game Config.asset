@@ -15,7 +15,7 @@ MonoBehaviour:
   SlingPointsCount: 15
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.1
-  BallSpeed: 8
+  BallSpeed: 10
   BallBaseKnockback: 0
   BallBaseRadius: 1.5
   ReloadTime: 1
