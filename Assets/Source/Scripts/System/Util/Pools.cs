@@ -2,6 +2,7 @@
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Battle;
+using Source.Scripts.Component.Battle.Ball;
 using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Component.Movement;
@@ -41,6 +42,14 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Exp> Exp;
         public readonly EcsPool<Damage> Damage;
         public readonly EcsPool<Knockback> Knockback;
+        public readonly EcsPool<Tomes> Tomes;
+        public readonly EcsPool<Mult> Mult;
+        public readonly EcsPool<Elements> Elements;
+        public readonly EcsPool<Fire> Fire;
+        public readonly EcsPool<Dark> Dark;
+        public readonly EcsPool<Lightning> Lightning;
+        public readonly EcsPool<Slime> Slime;
+        public readonly EcsPool<Boulder> Boulder;
      
 
         //events
@@ -81,6 +90,14 @@ namespace Source.Scripts.System.Util
             Exp = world.GetPool<Exp>();
             Damage = world.GetPool<Damage>();
             Knockback = world.GetPool<Knockback>();
+            Tomes = world.GetPool<Tomes>();
+            Mult = world.GetPool<Mult>();
+            Elements = world.GetPool<Elements>();
+            Fire = world.GetPool<Fire>();
+            Dark = world.GetPool<Dark>();
+            Lightning = world.GetPool<Lightning>();
+            Slime = world.GetPool<Slime>();
+            Boulder = world.GetPool<Boulder>();
           
             
             //events

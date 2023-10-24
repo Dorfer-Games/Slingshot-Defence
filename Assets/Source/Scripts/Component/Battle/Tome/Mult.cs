@@ -3,8 +3,9 @@
 namespace Source.Scripts.Component.Battle.Tome
 {
     [Serializable]
-    public struct Knockback
+    public struct Mult
     {
-        public float Value;
+        public int Value;
+        public int DamagePercent;
     }
 }

@@ -26,6 +26,9 @@ public class PlayerLoadingSystem : GameSystem
         game.CameraSwitcherView = cameraSwitcherView;
         game.Joystick = joystick;
         game.PlayerView = playerView;
+
+        pool.Tomes.Add(game.PlayerEntity);
+        pool.Elements.Add(game.PlayerEntity);
         
         //ammo init
         var ammoBalls = playerView.AmmoView.AmmoBalls;

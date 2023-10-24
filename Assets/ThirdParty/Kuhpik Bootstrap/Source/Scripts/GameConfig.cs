@@ -1,6 +1,9 @@
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using NaughtyAttributes;
+using Source.Scripts.Component.Battle;
+using Source.Scripts.Component.Battle.Tome;
+using Source.Scripts.Component.Tome;
 using Source.Scripts.Data;
 using Source.Scripts.Data.Enum;
 using Source.Scripts.View;
@@ -25,6 +28,13 @@ namespace Kuhpik
 
 
         public int[] ExpProgression;
+
+        public Through[] ThroughTome;
+        public Radius[] RadiusTome;
+        public Ricochet[] RicochetTome;
+        public Knockback[] KnockbackTome;
+        public Mult[] MultTome;
+        
 
         public SerializedDictionary<EnemyType,EnemyConfig> EnemyConfigs;
 
