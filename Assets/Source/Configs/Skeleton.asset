@@ -16,6 +16,16 @@ MonoBehaviour:
     _serializedList:
     - Key: 0
       Value:
+        Hp: 20
+        Speed: 2
+        Exp: 1
+        SpawnDelay: 1
+        Inventory:
+          _serializedList:
+          - Key: 0
+            Value: 1
+    - Key: 1
+      Value:
         Hp: 50
         Speed: 2
         Exp: 1

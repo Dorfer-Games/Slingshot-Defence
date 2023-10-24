@@ -20,6 +20,7 @@ namespace Source.Scripts.System
             AddFilter<ShotEvent>();
             AddFilter<ShotCancelEvent>();
             AddFilter<SpawnBallEvent>();
+            AddFilter<DamageEvent>();
         
         }
 

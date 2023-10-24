@@ -25,6 +25,7 @@ namespace Kuhpik
         public PositionService PositionService;
         public Pools Pools;
         public int PlayerEntity;
+        public int StageEntity;
         
         public PlayerView PlayerView;
         public CameraSwitcherView CameraSwitcherView;

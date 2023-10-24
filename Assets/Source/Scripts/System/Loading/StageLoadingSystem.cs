@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
@@ -17,11 +18,14 @@ public class StageLoadingSystem : GameSystem
         base.OnInit();
         
         var level = FindObjectOfType<StageView>();
-        var views = level.gameObject.GetComponentsInChildren<BaseView>();
+        var views = level.gameObject.GetComponentsInChildren<BaseView>().ToList();
+        game.StageEntity=  game.Fabric.InitView(views[0]);
+        views.RemoveAt(0);
         foreach (var view in views)
         {
             game.Fabric.InitView((BaseView) view);
         }
+      
     }
     
   

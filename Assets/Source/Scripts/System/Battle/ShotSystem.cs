@@ -24,13 +24,7 @@ namespace Source.Scripts.System.Sling.Shot
                 if (ammo.Count == 0)
                     return;
 
-                var ball = Instantiate(config.BallPrefab);
-                ball.transform.position = game.PlayerView.BallSpawnPos.transform.position;
-                var ent = game.Fabric.InitView(ball);
-                pool.Dir.Get(ent).Value = game.PlayerView.transform.forward;
-                pool.Speed.Add(ent).Value = config.BallSpeed;
-                pool.SpawnBallEvent.Add(eventWorld.NewEntity()).Value = ent;
-                pool.Radius.Add(ent).Value = 1;
+                var ent = SpawnBall();
 
                 //ammo
                 var firstAmmo = ammo.Value[^ammo.Count];
@@ -40,7 +34,22 @@ namespace Source.Scripts.System.Sling.Shot
                 //ball perks
                 var elementType = pool.Element.Get(firstAmmo).Value;
                 pool.ModelChangerComponent.Get(ent).Value.SetModel((int)elementType);
+
+                pool.Damage.Add(ent).Value = 10;//!
             }
+        }
+
+        private int SpawnBall()
+        {
+            var ball = Instantiate(config.BallPrefab);
+            ball.transform.position = game.PlayerView.BallSpawnPos.transform.position;
+            var ent = game.Fabric.InitView(ball);
+            pool.Dir.Get(ent).Value = game.PlayerView.transform.forward;
+            pool.Speed.Add(ent).Value = config.BallSpeed;
+            pool.SpawnBallEvent.Add(eventWorld.NewEntity()).Value = ent;
+            pool.Radius.Add(ent).Value = 1;
+
+            return ent;
         }
     }
 }

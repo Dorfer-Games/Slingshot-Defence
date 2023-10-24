@@ -4,6 +4,7 @@ using Leopotam.EcsLite;
 using Source.Scripts.Component.ViewComponent;
 using Source.Scripts.System.Util;
 using Source.Scripts.View;
+using UnityEngine;
 
 namespace Source.Scripts.Service
 {
@@ -29,11 +30,14 @@ namespace Source.Scripts.Service
         public List<int> GetEntInRadius(int startEnt,EcsFilter filter,float radius)
         {
             var list = new List<int>();
-            var startTr = pool.View.Get(startEnt).Value.transform;
+            var startPos = pool.View.Get(startEnt).Value.transform.position;
+            startPos.y = 0;
             foreach (var ent in filter)
             {
-                var transform = pool.View.Get(ent).Value.transform;
-                if ((transform.position-startTr.position).magnitude<= radius)
+                var position = pool.View.Get(ent).Value.transform.position;
+                position.y = 0;
+               
+                if ((position-startPos).magnitude<= radius)
                 {
                     list.Add(ent);
                 }

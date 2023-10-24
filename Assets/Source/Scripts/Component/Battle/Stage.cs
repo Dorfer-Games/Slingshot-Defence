@@ -17,5 +17,6 @@ namespace Source.Scripts.Component.Battle
         public Wave CurrentWave => Waves[CurrentWaveId];
         public bool AllEnemiesSpawned => CurrentWaveEnemiesSpawnedCount == CurrentWave.Enemies.Count;
         public bool AllWavesComplete => CurrentWaveId == Waves.Count;
+        public bool AllEnemiesDead => AliveEnemies.Count == 0;
     }
 }

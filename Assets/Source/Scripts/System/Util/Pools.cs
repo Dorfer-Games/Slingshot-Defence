@@ -37,6 +37,8 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<WaveDelayTick> WaveDelayTick;
         public readonly EcsPool<Stage> Stage;
         public readonly EcsPool<NavMeshAgentComponent> NavMeshAgentComponent;
+        public readonly EcsPool<Exp> Exp;
+        public readonly EcsPool<Damage> Damage;
      
 
         //events
@@ -44,6 +46,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<ShotCancelEvent> ShotCancelEvent;
         public readonly EcsPool<ShotEvent> ShotEvent;
         public readonly EcsPool<SpawnBallEvent> SpawnBallEvent;
+        public readonly EcsPool<DamageEvent> DamageEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -72,6 +75,8 @@ namespace Source.Scripts.System.Util
             WaveDelayTick = world.GetPool<WaveDelayTick>();
             Stage = world.GetPool<Stage>();
             NavMeshAgentComponent = world.GetPool<NavMeshAgentComponent>();
+            Exp = world.GetPool<Exp>();
+            Damage = world.GetPool<Damage>();
           
             
             //events
@@ -79,6 +84,7 @@ namespace Source.Scripts.System.Util
             ShotCancelEvent = eventWorld.GetPool<ShotCancelEvent>();
             ShotEvent = eventWorld.GetPool<ShotEvent>();
             SpawnBallEvent = eventWorld.GetPool<SpawnBallEvent>();
+            DamageEvent = eventWorld.GetPool<DamageEvent>();
         }
 
        

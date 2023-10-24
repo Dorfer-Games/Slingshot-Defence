@@ -70,6 +70,11 @@ namespace Source.Scripts.System.Battle
             var stats = config.EnemyUps[enemy.EnemyType].LevelStats[enemy.Level];
 
             //add other stats
+            pool.Enemy.Add(enemyEnt);
+            ref var hp =ref pool.Hp.Add(enemyEnt);
+            hp.CurHp = hp.MaxHp = stats.Hp;
+            pool.Exp.Add(enemyEnt).Value = stats.Exp;
+            pool.Inventory.Add(enemyEnt);
             pool.Speed.Add(enemyEnt).Value = stats.Speed;
             pool.NavMeshAgentComponent.Get(enemyEnt).Value.destination = game.PlayerView.transform.position;
 

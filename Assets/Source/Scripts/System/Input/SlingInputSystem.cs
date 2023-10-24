@@ -40,7 +40,6 @@ namespace Source.Scripts.System.Input
 
         private void Drag()
         {
-            base.OnUpdate();
             if (joystick.Direction.Equals(Vector2.zero))
                 return;
 

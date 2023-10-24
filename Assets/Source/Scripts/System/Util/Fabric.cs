@@ -84,21 +84,15 @@ namespace Source.Scripts.System
             var inventoryView = baseView.GetComponent<InventoryView>();
             if (inventoryView != null)
             {
-                var inventory = new Dictionary<ResType, int>();
-                var values = Enum.GetValues(typeof(ResType));
-                
-                foreach (var item in values)
-                    inventory.Add((ResType)item,0);
+                 pool.Inventory.Add(entity);
 
                 if (baseView.Entity == gameData.PlayerEntity)
                 {
                     if (save.PlayerInventory != null)
-                        inventory = save.PlayerInventory;
+                        pool.Inventory.Get(entity).Value = save.PlayerInventory;
                     else
-                        save.PlayerInventory = inventory;
+                        save.PlayerInventory = pool.Inventory.Get(entity).Value;
                 }
-                
-                pool.Inventory.Add(entity).Value = inventory;
             }
             
 

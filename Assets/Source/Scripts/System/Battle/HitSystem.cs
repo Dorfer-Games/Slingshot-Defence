@@ -40,7 +40,16 @@ namespace Source.Scripts.System.Battle
                     pool.Dead.Add(sender);
                 }
 
-
+                //var elementType = pool.Element.Get(sender).Value;
+                foreach (var target in targets)
+                {
+                    ref var damageEvent = ref pool.DamageEvent.Add(eventWorld.NewEntity());
+                    damageEvent.Damage = pool.Damage.Get(sender).Value;
+                    damageEvent.Sender = sender;
+                    damageEvent.Target = target;
+                    //proc element
+                }
+              
 
                 list.Add(sender);
             }

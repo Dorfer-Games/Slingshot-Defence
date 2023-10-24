@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CustomBlends:
   - m_From: Default
-    m_To: Player Camera
+    m_To: Player Camera Aim
     m_Blend:
       m_Style: 1
       m_Time: 0.8
@@ -24,7 +24,7 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: Player Camera
+  - m_From: Player Camera Aim
     m_To: Default
     m_Blend:
       m_Style: 1

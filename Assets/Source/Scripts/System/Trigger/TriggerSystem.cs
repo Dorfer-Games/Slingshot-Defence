@@ -48,11 +48,11 @@ namespace Source.Scripts.System.Trigger
         {
             if (!other.tag.Equals(attackable))
                 return;
-            
+         
             var senderE = sender.GetComponentInParent<BaseView>().Entity;
             var hitRadius = pool.Radius.Get(senderE).Value;
             var targets = game.PositionService.GetEntInRadius(senderE, filterEnemy, hitRadius);
-            
+         
             ref var hitEventComponent = ref pool.HitEvent.Add(eventWorld.NewEntity());
             hitEventComponent.Targets = targets;
             hitEventComponent.Sender = senderE;

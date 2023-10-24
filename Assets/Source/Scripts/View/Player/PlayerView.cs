@@ -11,7 +11,8 @@ namespace Source.Scripts.View
         public Transform BallSpawnPos;
         public AmmoView AmmoView;
         public Canvas Canvas;
+        public LineRenderer LineRenderer;
 
-       
+
     }
 }

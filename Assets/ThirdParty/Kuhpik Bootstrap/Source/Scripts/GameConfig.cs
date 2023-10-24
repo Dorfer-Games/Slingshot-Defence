@@ -10,16 +10,16 @@ namespace Kuhpik
     [CreateAssetMenu(menuName = "Config/GameConfig")]
     public sealed class GameConfig : ScriptableObject
     {
+        public int SlingPointsCount;
         public float SlingInputOffset;
         public float UnitRotSpeed;
-        public float EnemySpeed;
+      
         public float BallSpeed;
         public float ReloadTime;
         public float SlowTimeScale;
-        public int InsectSpawnChance;
         public float KnockbackForce;
-        public float EnemyKnockbackForce;
-        public float ZoneActivationTime;
+        
+        public int[] ExpProgression;
         
         public SerializedDictionary<EnemyType,EnemyConfig> EnemyUps;
 
