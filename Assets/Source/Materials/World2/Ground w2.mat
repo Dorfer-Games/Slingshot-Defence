@@ -141,7 +141,7 @@ Material:
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0.48584908, g: 0.74092937, b: 1, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0.37141636, g: 0.4811321, b: 0.21106265, a: 1}
+    - _ShadowColor: {r: 0.06594872, g: 0.48342288, b: 0.735849, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecColors: {r: 1, g: 1, b: 1, a: 1}
     - _Vector: {r: 0, g: 0, b: 0, a: 0}
