@@ -23,7 +23,20 @@ namespace Source.Scripts.System.Trigger
             base.OnInit();
             filterSpawnBallEvent = eventWorld.Filter<SpawnBallEvent>().End();
             filterEnemy = world.Filter<Enemy>().End();
+            
             //sub player
+            game.PlayerView.BodyTriggerListener.OnTriggerEnterEvent += PlayerHit;
+        }
+
+        private void PlayerHit(Transform sender,Transform other)
+        {
+            if (!other.tag.Equals(attackable))
+                return;
+         
+            var otherE = other.GetComponentInParent<BaseView>().Entity;
+
+            ref var hitEvent = ref pool.HitPlayerEvent.Add(eventWorld.NewEntity());
+            hitEvent.Sender = otherE;
         }
 
         public override void OnUpdate()

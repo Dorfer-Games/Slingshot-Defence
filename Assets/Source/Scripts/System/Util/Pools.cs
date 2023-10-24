@@ -2,6 +2,7 @@
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Battle;
+using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Component.Movement;
 using Source.Scripts.Component.Tome;
@@ -39,6 +40,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<NavMeshAgentComponent> NavMeshAgentComponent;
         public readonly EcsPool<Exp> Exp;
         public readonly EcsPool<Damage> Damage;
+        public readonly EcsPool<Knockback> Knockback;
      
 
         //events
@@ -47,6 +49,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<ShotEvent> ShotEvent;
         public readonly EcsPool<SpawnBallEvent> SpawnBallEvent;
         public readonly EcsPool<DamageEvent> DamageEvent;
+        public readonly EcsPool<HitPlayerEvent> HitPlayerEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -77,6 +80,7 @@ namespace Source.Scripts.System.Util
             NavMeshAgentComponent = world.GetPool<NavMeshAgentComponent>();
             Exp = world.GetPool<Exp>();
             Damage = world.GetPool<Damage>();
+            Knockback = world.GetPool<Knockback>();
           
             
             //events
@@ -85,6 +89,7 @@ namespace Source.Scripts.System.Util
             ShotEvent = eventWorld.GetPool<ShotEvent>();
             SpawnBallEvent = eventWorld.GetPool<SpawnBallEvent>();
             DamageEvent = eventWorld.GetPool<DamageEvent>();
+            HitPlayerEvent = eventWorld.GetPool<HitPlayerEvent>();
         }
 
        

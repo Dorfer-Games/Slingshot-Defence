@@ -47,7 +47,8 @@ namespace Source.Scripts.System.Sling.Shot
             pool.Dir.Get(ent).Value = game.PlayerView.transform.forward;
             pool.Speed.Add(ent).Value = config.BallSpeed;
             pool.SpawnBallEvent.Add(eventWorld.NewEntity()).Value = ent;
-            pool.Radius.Add(ent).Value = 1;
+            pool.Radius.Add(ent).Value = config.BallBaseRadius;
+            pool.Knockback.Add(ent).Value = config.BallBaseKnockback;
 
             return ent;
         }

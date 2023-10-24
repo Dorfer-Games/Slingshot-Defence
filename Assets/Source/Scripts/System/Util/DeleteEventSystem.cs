@@ -21,6 +21,7 @@ namespace Source.Scripts.System
             AddFilter<ShotCancelEvent>();
             AddFilter<SpawnBallEvent>();
             AddFilter<DamageEvent>();
+            AddFilter<HitPlayerEvent>();
         
         }
 

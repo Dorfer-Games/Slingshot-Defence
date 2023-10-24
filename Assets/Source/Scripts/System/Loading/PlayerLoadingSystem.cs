@@ -18,11 +18,16 @@ public class PlayerLoadingSystem : GameSystem
         var playerView = FindObjectOfType<PlayerView>();
         var cameraSwitcherView = FindObjectOfType<CameraSwitcherView>();
         var joystick = FindObjectOfType<Joystick>();
+
+        save.Slings ??= new() {SlingType.DEFAULT};
+        
         
         game.PlayerEntity = game.Fabric.InitView(playerView);
         game.CameraSwitcherView = cameraSwitcherView;
         game.Joystick = joystick;
         game.PlayerView = playerView;
+        
+        //ammo init
         var ammoBalls = playerView.AmmoView.AmmoBalls;
         var list = new List<int>();
         foreach (var view in ammoBalls)

@@ -16,17 +16,19 @@ MonoBehaviour:
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.1
   BallSpeed: 8
+  BallBaseKnockback: 0
+  BallBaseRadius: 1.5
   ReloadTime: 1
-  SlowTimeScale: 0.4
-  KnockbackForce: 0
-  ExpProgression: 
-  EnemyUps:
+  SlowTimeScale: 0.5
+  HpToDmgK: 1
+  ExpProgression: 000000000a0000000f000000
+  EnemyConfigs:
     _serializedList:
     - Key: 0
       Value: {fileID: 11400000, guid: 6ce22e4f23cf2504a9f35818ea0a8842, type: 2}
-  PlayerUps:
-    _serializedList: []
-  PlayerUpsCosts:
-    _serializedList: []
+  SlingConfigs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 6e1168c511d87ed448d9940ab52429bb, type: 2}
   BallPrefab: {fileID: 1962176878986198001, guid: b74b5bc211e5dea4283f768bde908019,
     type: 3}

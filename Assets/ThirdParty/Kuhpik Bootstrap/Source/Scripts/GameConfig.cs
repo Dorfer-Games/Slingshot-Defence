@@ -13,18 +13,23 @@ namespace Kuhpik
         public int SlingPointsCount;
         public float SlingInputOffset;
         public float UnitRotSpeed;
-      
         public float BallSpeed;
+        
+        public float BallBaseKnockback;
+        public float BallBaseRadius;
+
+        //settable
         public float ReloadTime;
         public float SlowTimeScale;
-        public float KnockbackForce;
-        
-        public int[] ExpProgression;
-        
-        public SerializedDictionary<EnemyType,EnemyConfig> EnemyUps;
+        public float HpToDmgK;
 
-        public SerializedDictionary<UpType,int[]> PlayerUps;
-        public SerializedDictionary<UpType,int[]> PlayerUpsCosts;
+
+        public int[] ExpProgression;
+
+        public SerializedDictionary<EnemyType,EnemyConfig> EnemyConfigs;
+
+        public SerializedDictionary<SlingType,SlingConfig> SlingConfigs;
+
 
         [Header("Prefabs")]
         public BaseView BallPrefab;

@@ -54,29 +54,18 @@ namespace Source.Scripts.System
             {
                 pool.Anim.Add(entity).Value = animationView;
             }
-
-           
+            
 
             var upsView = baseView.GetComponent<UpsView>();
             if (upsView != null)
             {
-                var ups = new Dictionary<UpType, int>();
-                foreach (var kv in upsView.Ups)
-                    ups.Add(kv.Key, kv.Value);
-
+                pool.SlingUps.Add(entity);
+                
                 if (baseView.Entity == gameData.PlayerEntity && save.SlingUps != null)
-                    ups = save.SlingUps;
+                    pool.SlingUps.Get(entity).Value = save.SlingUps;
                 else
-                    save.SlingUps = ups;
-
-                pool.SlingUps.Add(entity).Value = ups;
-
-                if (baseView.Entity == gameData.PlayerEntity)
-                {
-                    ref var hp = ref pool.Hp.Get(entity);
-                    hp.CurHp = hp.MaxHp = config.PlayerUps[UpType.HP][ups[UpType.HP]];
-                    
-                }
+                    save.SlingUps = pool.SlingUps.Get(entity).Value;
+                
             }
 
           

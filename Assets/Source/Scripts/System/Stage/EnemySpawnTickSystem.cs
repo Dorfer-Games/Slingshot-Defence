@@ -51,7 +51,7 @@ namespace Source.Scripts.System.Battle
                 }
                 else
                     pool.EnemySpawnTick.Get(ent).Value =
-                        config.EnemyUps[enemy.EnemyType].LevelStats[enemy.Level].SpawnDelay;
+                        config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level].SpawnDelay;
             }
             else
             {
@@ -63,11 +63,11 @@ namespace Source.Scripts.System.Battle
         {
             ref var stage = ref pool.Stage.Get(ent);
             var enemy = stage.CurrentWave.Enemies[stage.CurrentWaveEnemiesSpawnedCount];
-            var baseView = Instantiate(config.EnemyUps[enemy.EnemyType].Prafab);
+            var baseView = Instantiate(config.EnemyConfigs[enemy.EnemyType].Prefab);
             baseView.transform.position = stage.SpawnPos.position;
             baseView.transform.rotation = Quaternion.Euler(0, 180, 0);
             var enemyEnt = game.Fabric.InitView(baseView);
-            var stats = config.EnemyUps[enemy.EnemyType].LevelStats[enemy.Level];
+            var stats = config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level];
 
             //add other stats
             pool.Enemy.Add(enemyEnt);

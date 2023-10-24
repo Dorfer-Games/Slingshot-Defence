@@ -2,10 +2,8 @@
 {
     public enum UpType
     {
-        MINE=0,
-        RELOAD=1,
-        ATTACK_SPEED=2,
-        ARMOR=3,
-        HP=4,
+        DAMAGE=0,
+        RELOAD_TIME=1,
+        GOLD_K=2
     }
 }

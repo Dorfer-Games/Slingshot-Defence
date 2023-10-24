@@ -61,7 +61,7 @@ namespace Source.Scripts.System.Battle
                 pool.EnemySpawnTick.Add(ent).Value = stage.CommonSpawnDelay;
             else
                 pool.EnemySpawnTick.Add(ent).Value =
-                    config.EnemyUps[enemy.EnemyType].LevelStats[enemy.Level].SpawnDelay;
+                    config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level].SpawnDelay;
         }
     }
 }
