@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-821791293767188506
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_character
+  m_Name: Rope
   m_Shader: {fileID: 4800000, guid: a2d82c711daf5c74a9e6040320440810, type: 3}
   m_ValidKeywords:
   - _GRAYSCALEFRESNEL_ON
@@ -49,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bf061b2c05185794d9c56e2dd29be3ea, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -97,9 +110,9 @@ Material:
     - _EnvironmentReflections: 1
     - _FresnelExponent: 2
     - _FresnelPower: 3
-    - _GlossMapScale: 1
+    - _GlossMapScale: 0
     - _Glossiness: 0
-    - _GlossyReflections: 1
+    - _GlossyReflections: 0
     - _Grayscale: 0
     - _GrayscaleFresnel: 1
     - _GrayscaleSpecular: 1
@@ -108,16 +121,15 @@ Material:
     - _MappingGradient: 2
     - _MappingTexture: 0
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _QueueOffset: 0
     - _RampSmooth: 1
     - _RampThreshold: 0.8
     - _ReceiveShadows: 1
     - _Saturation: 1
     - _SaturationCompensation: 1
-    - _Shin: 3
+    - _Shin: 4.3
     - _Show_Fresnel: 0
     - _Show_Gradient: 0
     - _Show_Specular: 0
@@ -127,36 +139,22 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _grayscaleFactor: 1
-    - _smoothSpec: 1.5
+    - _smoothSpec: 0.61
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
-    - _Color1: {r: 0.35, g: 0.4, b: 0.45, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0.34999996, g: 0.39999998, b: 0.45, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FresnelColor: {r: 0.6650944, g: 0.9717164, b: 1, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0.46337664, g: 0.6514996, b: 0.8396226, a: 1}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _SpecColors: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
+    - _ShadowColor: {r: 0.501958, g: 0.6283375, b: 0.754717, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecColors: {r: 0.6556604, g: 0.9836545, b: 1, a: 1}
     - _Vector: {r: 0, g: 0, b: 0, a: 0}
     - _VectorGradient: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1348099557955381785
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 4

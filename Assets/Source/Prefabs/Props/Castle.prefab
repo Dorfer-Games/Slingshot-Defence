@@ -231,6 +231,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8601768795409244374}
     m_Modifications:
+    - target: {fileID: 4609835986842421241, guid: 028f134f51ef61649950308aba4ccb8c,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6835373700436912942, guid: 028f134f51ef61649950308aba4ccb8c,
         type: 3}
       propertyPath: m_Name
