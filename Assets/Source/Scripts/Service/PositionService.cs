@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Kuhpik;
 using Leopotam.EcsLite;
+using Source.Scripts.Component;
 using Source.Scripts.Component.ViewComponent;
 using Source.Scripts.System.Util;
 using Source.Scripts.View;
@@ -16,6 +18,8 @@ namespace Source.Scripts.Service
         private readonly GameConfig config;
         private readonly Pools pool;
         
+        private readonly EcsFilter filterEnemy;
+
 
         public PositionService(EcsWorld world, SaveData save, GameData gameData, GameConfig config,Pools pool)
         {
@@ -25,9 +29,10 @@ namespace Source.Scripts.Service
             this.config = config;
             this.pool = pool;
             
+            filterEnemy = world.Filter<Enemy>().End();
         }
 
-        public List<int> GetEntInRadius(int startEnt,EcsFilter filter,float radius)
+        public List<int> GetEntInRadius(int startEnt,float radius,EcsFilter filter)
         {
             var list = new List<int>();
             var startPos = pool.View.Get(startEnt).Value.transform.position;
@@ -44,6 +49,36 @@ namespace Source.Scripts.Service
             }
 
             return list;
+        }
+
+        public List<int> GetEnemiesInRadius(int startEnt, float radius)
+        {
+            return GetEntInRadius(startEnt, radius, filterEnemy);
+        }
+
+        public List<int> GetEnemiesInRadiusWithPriority(int startEnt, float radius,List<int> lowPriorList,bool strict)
+        {
+            var list = GetEnemiesInRadius(startEnt, radius);
+            if (strict)
+            {
+                list.RemoveAll(lowPriorList.Contains);
+                return list;
+            }
+            else
+            {
+                var startList = new List<int>();
+                var endList = new List<int>();
+                foreach (var ent in list)
+                {
+                    if (lowPriorList.Contains(ent))
+                        endList.Add(ent);
+                    else
+                        startList.Add(ent);
+                }
+                startList.AddRange(endList);
+                return startList;
+            }
+            
         }
     }
 }

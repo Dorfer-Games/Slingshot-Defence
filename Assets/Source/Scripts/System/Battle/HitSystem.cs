@@ -30,10 +30,10 @@ namespace Source.Scripts.System.Battle
 
                 if (pool.Ricochet.Has(sender))
                 {
-                    
+                    HandleRicochet(sender, targets);
                 }else if (pool.Through.Has(sender))
                 {
-                    
+                    HandleThrough(sender, targets);
                 }
                 else
                 {
@@ -54,6 +54,35 @@ namespace Source.Scripts.System.Battle
                 list.Add(sender);
             }
             list.Clear();
+        }
+
+        private void HandleThrough(int sender, List<int> targets)
+        {
+            ref var through = ref pool.Through.Get(sender);
+            if (through.Value <= 0)
+                pool.Dead.Add(sender);
+            else
+                through.Value--;
+        }
+        private void HandleRicochet(int sender,List<int> targets)
+        {
+            ref var ricochet = ref pool.Ricochet.Get(sender);
+
+            if (ricochet.Count<=0)
+            {
+                pool.Dead.Add(sender);
+            }
+            else
+            {
+                ricochet.Count--;
+                var newTargets =
+                    game.PositionService.GetEnemiesInRadiusWithPriority(sender, ricochet.Radius, targets,
+                        false);
+                if (newTargets.Count>0)
+                {
+                    var newTarget = newTargets[0];
+                }
+            }
         }
     }
 }

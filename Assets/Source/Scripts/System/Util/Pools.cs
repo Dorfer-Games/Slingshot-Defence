@@ -50,6 +50,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Lightning> Lightning;
         public readonly EcsPool<Slime> Slime;
         public readonly EcsPool<Boulder> Boulder;
+        public readonly EcsPool<TargetsHitCount> TargetsHitCount;
      
 
         //events
@@ -98,6 +99,7 @@ namespace Source.Scripts.System.Util
             Lightning = world.GetPool<Lightning>();
             Slime = world.GetPool<Slime>();
             Boulder = world.GetPool<Boulder>();
+            TargetsHitCount = world.GetPool<TargetsHitCount>();
           
             
             //events

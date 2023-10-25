@@ -14,14 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SlingPointsCount: 15
   SlingInputOffset: 0.5
-  UnitRotSpeed: 0.1
-  BallSpeed: 10
+  UnitRotSpeed: 0.5
+  BallSpeed: 35
   BallBaseKnockback: 0
   BallBaseRadius: 1.5
   ReloadTime: 1
-  SlowTimeScale: 0.5
+  SlowTimeScale: 0.4
   HpToDmgK: 1
   ExpProgression: 000000000a0000000f000000
+  ThroughTome: []
+  RadiusTome: []
+  RicochetTome: []
+  KnockbackTome: []
+  MultTome: []
+  FireBall:
+  - AddDamagePercent: 0
+    BurnTime: 0
+    BurnTick: 0
+    BurnTickDamagePercent: 0
+  - AddDamagePercent: 20
+    BurnTime: 2
+    BurnTick: 1
+    BurnTickDamagePercent: 50
+  DarkBall: []
+  LightningBall: []
+  BoulderBall: []
+  SlimeBall: []
   EnemyConfigs:
     _serializedList:
     - Key: 0

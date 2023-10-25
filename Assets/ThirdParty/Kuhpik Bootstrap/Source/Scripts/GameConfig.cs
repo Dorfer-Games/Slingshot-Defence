@@ -2,6 +2,7 @@ using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using NaughtyAttributes;
 using Source.Scripts.Component.Battle;
+using Source.Scripts.Component.Battle.Ball;
 using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Tome;
 using Source.Scripts.Data;
@@ -17,7 +18,7 @@ namespace Kuhpik
         public float SlingInputOffset;
         public float UnitRotSpeed;
         public float BallSpeed;
-        
+
         public float BallBaseKnockback;
         public float BallBaseRadius;
 
@@ -29,19 +30,25 @@ namespace Kuhpik
 
         public int[] ExpProgression;
 
-        public Through[] ThroughTome;
-        public Radius[] RadiusTome;
-        public Ricochet[] RicochetTome;
-        public Knockback[] KnockbackTome;
-        public Mult[] MultTome;
-        
 
-        public SerializedDictionary<EnemyType,EnemyConfig> EnemyConfigs;
+        [BoxGroup("Tomes")] public Through[] ThroughTome;
+        [BoxGroup("Tomes")] public Radius[] RadiusTome;
+        [BoxGroup("Tomes")] public Ricochet[] RicochetTome;
+        [BoxGroup("Tomes")] public Knockback[] KnockbackTome;
+        [BoxGroup("Tomes")] public Mult[] MultTome;
 
-        public SerializedDictionary<SlingType,SlingConfig> SlingConfigs;
+        [BoxGroup("Balls")] public Fire[] FireBall;
+        [BoxGroup("Balls")] public Dark[] DarkBall;
+        [BoxGroup("Balls")] public Lightning[] LightningBall;
+        [BoxGroup("Balls")] public Boulder[] BoulderBall;
+        [BoxGroup("Balls")] public Slime[] SlimeBall;
 
 
-        [Header("Prefabs")]
-        public BaseView BallPrefab;
+        public SerializedDictionary<EnemyType, EnemyConfig> EnemyConfigs;
+
+        public SerializedDictionary<SlingType, SlingConfig> SlingConfigs;
+
+
+        [Header("Prefabs")] public BaseView BallPrefab;
     }
 }
