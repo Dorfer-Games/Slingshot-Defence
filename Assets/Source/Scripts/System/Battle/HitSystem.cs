@@ -2,6 +2,7 @@
 using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component.Event;
+using UnityEngine;
 
 namespace Source.Scripts.System.Battle
 {
@@ -28,13 +29,13 @@ namespace Source.Scripts.System.Battle
                 if (list.Contains(sender))
                     continue;
 
-                if (!DetectHit(sender,targets))
+                if (!DetectHit(sender, targets))
                     continue;
-                
+
 
                 if (pool.Ricochet.Has(sender) && pool.Through.Has(sender))
                 {
-                    
+                    HandleThroughRicochet(sender);
                 }
                 else if (pool.Ricochet.Has(sender))
                 {
@@ -59,16 +60,16 @@ namespace Source.Scripts.System.Battle
                     //proc element
                 }
 
-              
+
                 list.Add(sender);
             }
 
             list.Clear();
         }
 
-        private bool DetectHit(int sender,List<int> targets)
+        private bool DetectHit(int sender, List<int> targets)
         {
-            bool detect=false;
+            bool detect = false;
 
             var hashSet = UnpackTargets(sender);
             //has new target
@@ -82,15 +83,16 @@ namespace Source.Scripts.System.Battle
                     break;
                 }
             }
-            
+
             //update hit targets
             HashSet<EcsPackedEntity> newSet = new();
             foreach (var ent in hashSet)
             {
                 newSet.Add(world.PackEntity(ent));
             }
+
             pool.PrevHitTargets.Get(sender).Value = newSet;
-            
+
             return detect;
         }
 
@@ -99,6 +101,18 @@ namespace Source.Scripts.System.Battle
             ref var through = ref pool.Through.Get(sender);
             if (through.Value <= 0)
                 pool.Dead.Add(sender);
+            else
+                through.Value--;
+        }
+
+        private void HandleThroughRicochet(int sender)
+        {
+            ref var through = ref pool.Through.Get(sender);
+            if (through.Value <= 0)
+            {
+                pool.Through.Del(sender);
+                HandleRicochet(sender);
+            }
             else
                 through.Value--;
         }
@@ -120,7 +134,8 @@ namespace Source.Scripts.System.Battle
                         true);
                 if (newTargets.Count > 0)
                 {
-                    var newTarget = newTargets[0];
+                    var rnd = Random.Range(0, newTargets.Count);
+                    var newTarget = newTargets[rnd];
                     var targetPos = pool.View.Get(newTarget).Value.transform.position;
                     var senderPos = pool.View.Get(sender).Value.transform.position;
                     var dir = (targetPos - senderPos).normalized;
