@@ -16,8 +16,9 @@ MonoBehaviour:
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.5
   BallSpeed: 35
-  BallBaseKnockback: 8
   BallBaseRadius: 1.5
+  KnockbackTime: 0.36
+  BallBaseKnockback: 8
   ReloadTime: 1
   SlowTimeScale: 0.4
   HpToDmgK: 1

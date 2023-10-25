@@ -15,6 +15,8 @@ namespace Source.Scripts.View
         [SerializeField] private float maxBounce;
         public bool BlockAnim;
 
+        private Coroutine attackCoroutine;
+
         private void Awake()
         {
             visualAnimator = visual.GetComponentInChildren<Animator>();
@@ -28,14 +30,12 @@ namespace Source.Scripts.View
             visualAnimator.Play(name);
         }
 
-        private Coroutine coroutine;
-        
         public void ToggleAttack(bool isAttack,float speed=1f)
         {
             visualAnimator.speed = speed;
-            if (coroutine==null && !isAttack && visualAnimator.GetLayerWeight(1)>=1)
+            if (attackCoroutine==null && !isAttack && visualAnimator.GetLayerWeight(1)>=1)
             {
-                coroutine=StartCoroutine(WaitAtk());
+                attackCoroutine=StartCoroutine(WaitAtk());
             }else
             if (isAttack)
             {
@@ -52,7 +52,7 @@ namespace Source.Scripts.View
                 yield return null;
             }
             visualAnimator.SetLayerWeight(1,0);
-            coroutine = null;
+            attackCoroutine = null;
         }
 
         public void Bounce()
@@ -65,7 +65,7 @@ namespace Source.Scripts.View
                 .Append(visual.transform.DOScale(1f, 0.15f));
         }
 
-        public void GetHit()
+        public void GetHitVFX()
         {
             hitVFX.Stop();
             hitVFX.gameObject.SetActive(true);

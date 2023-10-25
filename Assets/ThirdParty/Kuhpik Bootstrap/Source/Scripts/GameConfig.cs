@@ -19,10 +19,11 @@ namespace Kuhpik
         public float UnitRotSpeed;
         public float BallSpeed;
 
-        public float BallBaseKnockback;
-        public float BallBaseRadius;
 
-        //settable
+        [Header("Settable")] 
+        public float KnockbackTime;
+        public float BallBaseRadius;
+        public float BallBaseKnockback;
         public float ReloadTime;
         public float SlowTimeScale;
         public float HpToDmgK;

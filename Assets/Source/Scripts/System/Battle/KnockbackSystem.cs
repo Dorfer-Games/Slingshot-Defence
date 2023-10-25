@@ -35,7 +35,7 @@ namespace Source.Scripts.System.Battle
                 if (!pool.Rb.Has(target))
                     continue;
 
-                pool.KnockedTick.GetOrCreateRef(target).Value = 0.2f;
+                pool.KnockedTick.GetOrCreateRef(target).Value = config.KnockbackTime;
                 pool.NavMeshAgentComponent.Get(target).Value.enabled = false;
                 var force = pool.Knockback.Get(sender).Value;
                 var tr = pool.View.Get(target).Value.transform;
