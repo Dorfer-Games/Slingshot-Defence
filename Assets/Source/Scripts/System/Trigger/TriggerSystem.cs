@@ -63,9 +63,6 @@ namespace Source.Scripts.System.Trigger
             var senderE = sender.GetComponentInParent<BaseView>().Entity;
             var hitRadius = pool.Radius.Get(senderE).Value;
             var targets = game.PositionService.GetEnemiesInRadius(senderE, hitRadius);
-          
-            pool.TargetsHitCount.Get(senderE).Value.UnionWith(targets);
-            
 
             ref var hitEventComponent = ref pool.HitEvent.Add(eventWorld.NewEntity());
             hitEventComponent.Targets = targets;

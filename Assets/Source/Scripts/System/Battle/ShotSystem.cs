@@ -111,7 +111,7 @@ namespace Source.Scripts.System.Sling.Shot
             var ent = game.Fabric.InitView(ball);
             pool.Dir.Get(ent).Value = game.PlayerView.transform.forward;
             pool.Speed.Add(ent).Value = config.BallSpeed;
-            pool.TargetsHitCount.Add(ent).Value = new HashSet<int>();
+            pool.PrevHitTargets.Add(ent).Value = new ();
             pool.Radius.Add(ent).Value = config.BallBaseRadius;
             pool.Knockback.Add(ent).Value = config.BallBaseKnockback;
             //set base damage

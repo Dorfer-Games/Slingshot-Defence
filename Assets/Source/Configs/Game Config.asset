@@ -22,9 +22,18 @@ MonoBehaviour:
   SlowTimeScale: 0.4
   HpToDmgK: 1
   ExpProgression: 000000000a0000000f000000
-  ThroughTome: []
+  ThroughTome:
+  - Value: 0
+  - Value: 1
+  - Value: 2
   RadiusTome: []
-  RicochetTome: []
+  RicochetTome:
+  - Count: 0
+    Radius: 0
+  - Count: 1
+    Radius: 12
+  - Count: 2
+    Radius: 16
   KnockbackTome: []
   MultTome: []
   FireBall:
@@ -36,10 +45,32 @@ MonoBehaviour:
     BurnTime: 2
     BurnTick: 1
     BurnTickDamagePercent: 50
-  DarkBall: []
-  LightningBall: []
-  BoulderBall: []
-  SlimeBall: []
+  DarkBall:
+  - AddDamagePercent: 0
+    ExplosionRadius: 0
+    ExplosionDamagePercent: 0
+  - AddDamagePercent: 0
+    ExplosionRadius: 0
+    ExplosionDamagePercent: 0
+  LightningBall:
+  - AddDamagePercent: 0
+    TargetsCount: 0
+    LightningDamagePercent: 0
+  - AddDamagePercent: 0
+    TargetsCount: 0
+    LightningDamagePercent: 0
+  BoulderBall:
+  - AddDamagePercent: 0
+    KnockbackForce: 0
+  - AddDamagePercent: 0
+    KnockbackForce: 0
+  SlimeBall:
+  - AddDamagePercent: 0
+    SlowPercent: 0
+    SlowRadius: 0
+  - AddDamagePercent: 0
+    SlowPercent: 0
+    SlowRadius: 0
   EnemyConfigs:
     _serializedList:
     - Key: 0

@@ -28,12 +28,21 @@ namespace Source.Scripts.System.Battle
                 if (list.Contains(sender))
                     continue;
 
-                if (pool.Ricochet.Has(sender))
+                if (!DetectHit(sender,targets))
+                    continue;
+                
+
+                if (pool.Ricochet.Has(sender) && pool.Through.Has(sender))
                 {
-                    HandleRicochet(sender, targets);
-                }else if (pool.Through.Has(sender))
+                    
+                }
+                else if (pool.Ricochet.Has(sender))
                 {
-                    HandleThrough(sender, targets);
+                    HandleRicochet(sender);
+                }
+                else if (pool.Through.Has(sender))
+                {
+                    HandleThrough(sender);
                 }
                 else
                 {
@@ -49,14 +58,43 @@ namespace Source.Scripts.System.Battle
                     damageEvent.Target = target;
                     //proc element
                 }
-              
 
+              
                 list.Add(sender);
             }
+
             list.Clear();
         }
 
-        private void HandleThrough(int sender, List<int> targets)
+        private bool DetectHit(int sender,List<int> targets)
+        {
+            bool detect=false;
+
+            var hashSet = UnpackTargets(sender);
+            //has new target
+            foreach (var target in targets)
+            {
+                if (!hashSet.Contains(target))
+                {
+                    detect = true;
+                    hashSet.Clear();
+                    hashSet.UnionWith(targets);
+                    break;
+                }
+            }
+            
+            //update hit targets
+            HashSet<EcsPackedEntity> newSet = new();
+            foreach (var ent in hashSet)
+            {
+                newSet.Add(world.PackEntity(ent));
+            }
+            pool.PrevHitTargets.Get(sender).Value = newSet;
+            
+            return detect;
+        }
+
+        private void HandleThrough(int sender)
         {
             ref var through = ref pool.Through.Get(sender);
             if (through.Value <= 0)
@@ -64,25 +102,49 @@ namespace Source.Scripts.System.Battle
             else
                 through.Value--;
         }
-        private void HandleRicochet(int sender,List<int> targets)
+
+        private void HandleRicochet(int sender)
         {
             ref var ricochet = ref pool.Ricochet.Get(sender);
 
-            if (ricochet.Count<=0)
+            if (ricochet.Count <= 0)
             {
                 pool.Dead.Add(sender);
             }
             else
             {
                 ricochet.Count--;
+                var hitTargets = UnpackTargets(sender);
                 var newTargets =
-                    game.PositionService.GetEnemiesInRadiusWithPriority(sender, ricochet.Radius, targets,
-                        false);
-                if (newTargets.Count>0)
+                    game.PositionService.GetEnemiesInRadiusWithPriority(sender, ricochet.Radius, hitTargets,
+                        true);
+                if (newTargets.Count > 0)
                 {
                     var newTarget = newTargets[0];
+                    var targetPos = pool.View.Get(newTarget).Value.transform.position;
+                    var senderPos = pool.View.Get(sender).Value.transform.position;
+                    var dir = (targetPos - senderPos).normalized;
+                    dir.y = 0;
+                    pool.Dir.Get(sender).Value = dir;
+                }
+                else
+                {
+                    pool.Dead.Add(sender);
                 }
             }
+        }
+
+        private HashSet<int> UnpackTargets(int sender)
+        {
+            var hitTargets = pool.PrevHitTargets.Get(sender).Value;
+            var hashSet = new HashSet<int>();
+            foreach (var packedEntity in hitTargets)
+            {
+                if (packedEntity.Unpack(world, out int entity))
+                    hashSet.Add(entity);
+            }
+
+            return hashSet;
         }
     }
 }

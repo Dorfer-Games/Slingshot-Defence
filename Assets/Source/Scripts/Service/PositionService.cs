@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Kuhpik;
 using Leopotam.EcsLite;
+using Mono.Collections.Generic;
 using Source.Scripts.Component;
 using Source.Scripts.Component.ViewComponent;
 using Source.Scripts.System.Util;
@@ -56,7 +57,7 @@ namespace Source.Scripts.Service
             return GetEntInRadius(startEnt, radius, filterEnemy);
         }
 
-        public List<int> GetEnemiesInRadiusWithPriority(int startEnt, float radius,List<int> lowPriorList,bool strict)
+        public List<int> GetEnemiesInRadiusWithPriority(int startEnt, float radius,ICollection<int> lowPriorList,bool strict)
         {
             var list = GetEnemiesInRadius(startEnt, radius);
             if (strict)
