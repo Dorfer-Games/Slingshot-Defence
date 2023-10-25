@@ -88,6 +88,7 @@ namespace Source.Scripts.System.Sling.Shot
                     case ElementType.BOULDER:
                         ref var boulder= ref pool.Boulder.Add(ent);
                         boulder = config.BoulderBall[ballLevel];
+                        pool.Knockback.Get(ent).Value += boulder.AddKnockbackForce;
                         addDamage = boulder.AddDamagePercent;
                         break;
                     case ElementType.SLIME:

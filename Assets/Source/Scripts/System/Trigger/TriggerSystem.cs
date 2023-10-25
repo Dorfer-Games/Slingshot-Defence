@@ -64,6 +64,17 @@ namespace Source.Scripts.System.Trigger
             var hitRadius = pool.Radius.Get(senderE).Value;
             var targets = game.PositionService.GetEnemiesInRadius(senderE, hitRadius);
 
+            //hit only obstacle
+            if (targets.Count==0)
+            {
+                var otherE = other.GetComponentInParent<BaseView>().Entity;
+                if (pool.Obstacle.Has(otherE))
+                {
+                    pool.Dead.Add(senderE);
+                    return;
+                }
+            }
+
             ref var hitEventComponent = ref pool.HitEvent.Add(eventWorld.NewEntity());
             hitEventComponent.Targets = targets;
             hitEventComponent.Sender = senderE;

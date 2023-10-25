@@ -16,7 +16,7 @@ MonoBehaviour:
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.5
   BallSpeed: 35
-  BallBaseKnockback: 0
+  BallBaseKnockback: 8
   BallBaseRadius: 1.5
   ReloadTime: 1
   SlowTimeScale: 0.4
@@ -34,7 +34,9 @@ MonoBehaviour:
     Radius: 12
   - Count: 2
     Radius: 16
-  KnockbackTome: []
+  KnockbackTome:
+  - Value: 0
+  - Value: 16
   MultTome: []
   FireBall:
   - AddDamagePercent: 0
@@ -61,9 +63,9 @@ MonoBehaviour:
     LightningDamagePercent: 0
   BoulderBall:
   - AddDamagePercent: 0
-    KnockbackForce: 0
+    AddKnockbackForce: 0
   - AddDamagePercent: 0
-    KnockbackForce: 0
+    AddKnockbackForce: 0
   SlimeBall:
   - AddDamagePercent: 0
     SlowPercent: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 20
-    Speed: 4
+  - Hp: 50
+    Speed: 3
     Exp: 5
     SpawnDelay: 1
     Inventory:

@@ -1,6 +1,7 @@
 ﻿using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
+using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Movement;
 using Source.Scripts.Component.ViewComponent;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace Source.Scripts.System.Move
 {
     public class MoveApplySystem : GameSystem
     {
-        
         private EcsFilter filter;
         private EcsFilter filterRot;
         private EcsFilter filterRb;
@@ -24,9 +24,9 @@ namespace Source.Scripts.System.Move
         {
             base.OnInit();
 
-            filter = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().End();
+            filter = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().Exc<KnockedTick>().End();
             filterRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().End();
-            filterRb = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
+            filterRb = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().Exc<KnockedTick>().End();
             filterRbRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
             filterRbStop = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().Exc<NavMeshAgentComponent>().End();
             filterRbStop1 = world.Filter<Direction>().Inc<Moveable>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();

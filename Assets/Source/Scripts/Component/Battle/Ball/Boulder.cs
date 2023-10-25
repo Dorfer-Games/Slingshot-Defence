@@ -6,6 +6,6 @@ namespace Source.Scripts.Component.Battle.Ball
     public struct Boulder
     {
         public int AddDamagePercent;
-        public float KnockbackForce;
+        public float AddKnockbackForce;
     }
 }
