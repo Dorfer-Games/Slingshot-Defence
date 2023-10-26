@@ -712,7 +712,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &249921496
 MonoBehaviour:
@@ -1001,7 +1001,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &399455279
 MonoBehaviour:
@@ -1045,7 +1045,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &423424674
 MonoBehaviour:
@@ -1542,6 +1542,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b04d62759b548cfabcbb8d0a94a66f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &487350843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487350844}
+  - component: {fileID: 487350845}
+  m_Layer: 0
+  m_Name: BurnTick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &487350844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487350843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2035646351}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487350845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487350843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3287060d714098a835523c3abf498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &514875944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &541831456
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2239,7 +2283,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &867652162
 MonoBehaviour:
@@ -2283,7 +2327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &886151828
 MonoBehaviour:
@@ -2376,7 +2420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.46792975, y: -0, z: -0, w: 0.8837657}
-  m_LocalPosition: {x: 0, y: 43.9, z: -17.3}
+  m_LocalPosition: {x: 0, y: 51, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2480,7 +2524,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &986901717
 MonoBehaviour:
@@ -2781,7 +2825,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1015165227
 MonoBehaviour:
@@ -3456,6 +3500,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3819139928180915907, guid: f3bba2a0c8a562047800f71a2e63bf03,
+        type: 3}
+      propertyPath: Waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819139928180915907, guid: f3bba2a0c8a562047800f71a2e63bf03,
+        type: 3}
+      propertyPath: Waves.Array.data[1].Enemies.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819139928180915907, guid: f3bba2a0c8a562047800f71a2e63bf03,
+        type: 3}
+      propertyPath: Waves.Array.data[2].Enemies.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4265063449815907854, guid: f3bba2a0c8a562047800f71a2e63bf03,
         type: 3}
       propertyPath: m_Name
@@ -3654,7 +3713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1352259705
 MonoBehaviour:
@@ -4204,7 +4263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1722670793
 MonoBehaviour:
@@ -4293,7 +4352,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1924087516
 MonoBehaviour:
@@ -4337,7 +4396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1950027102
 MonoBehaviour:
@@ -4477,6 +4536,7 @@ Transform:
   - {fileID: 208776519}
   - {fileID: 2008859639}
   - {fileID: 678242706}
+  - {fileID: 487350844}
   - {fileID: 423424673}
   - {fileID: 1924087515}
   - {fileID: 1015165226}
@@ -4637,6 +4697,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 303719809}
     m_Modifications:
+    - target: {fileID: 1225558918997126929, guid: 0116ae1acf2229f4e86cf1a0ac0c5273,
+        type: 3}
+      propertyPath: secsToOpen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1225558918997126929, guid: 0116ae1acf2229f4e86cf1a0ac0c5273,
         type: 3}
       propertyPath: CheatsObjects.Array.data[0]

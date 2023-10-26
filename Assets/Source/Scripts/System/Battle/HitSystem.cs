@@ -54,10 +54,23 @@ namespace Source.Scripts.System.Battle
                 foreach (var target in targets)
                 {
                     ref var damageEvent = ref pool.DamageEvent.Add(eventWorld.NewEntity());
-                    damageEvent.Damage = pool.Damage.Get(sender).Value;
+                    var baseDamage = pool.Damage.Get(sender).Value;
+                    damageEvent.Damage = baseDamage;
                     damageEvent.Sender = sender;
                     damageEvent.Target = target;
+                    
                     //proc element
+                    if (pool.Fire.Has(sender))
+                    {
+                        ref var fire = ref pool.Fire.GetOrCreateRef(target);
+                        fire = pool.Fire.Get(sender);
+                        if (!pool.BurnTick.Has(target))
+                        {
+                            ref var burnTick = ref pool.BurnTick.Add(target);
+                            burnTick.Damage = baseDamage*fire.BurnTickDamagePercent / 100f;
+                            burnTick.Time = fire.BurnTick;
+                        }
+                    }
                 }
 
 

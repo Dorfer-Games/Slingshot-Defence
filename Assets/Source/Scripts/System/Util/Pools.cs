@@ -52,6 +52,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Boulder> Boulder;
         public readonly EcsPool<PrevHitTargets> PrevHitTargets;
         public readonly EcsPool<KnockedTick> KnockedTick;
+        public readonly EcsPool<BurnTick> BurnTick;
      
 
         //events
@@ -102,6 +103,7 @@ namespace Source.Scripts.System.Util
             Boulder = world.GetPool<Boulder>();
             PrevHitTargets = world.GetPool<PrevHitTargets>();
             KnockedTick = world.GetPool<KnockedTick>();
+            BurnTick = world.GetPool<BurnTick>();
           
             
             //events

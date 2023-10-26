@@ -64,7 +64,7 @@ MonoBehaviour:
     BurnTickDamagePercent: 0
   - AddDamagePercent: 20
     BurnTime: 2
-    BurnTick: 1
+    BurnTick: 0.5
     BurnTickDamagePercent: 50
   DarkBall:
   - AddDamagePercent: 0
