@@ -21,6 +21,7 @@ namespace Kuhpik
 
 
         [Header("Settable")] 
+        public float MultishotAngle;
         public float KnockbackTime;
         public float BallBaseRadius;
         public float BallBaseKnockback;
@@ -45,11 +46,10 @@ namespace Kuhpik
         [BoxGroup("Balls")] public Slime[] SlimeBall;
 
 
-        public SerializedDictionary<EnemyType, EnemyConfig> EnemyConfigs;
+        [BoxGroup("Configs")] public SerializedDictionary<EnemyType, EnemyConfig> EnemyConfigs;
+        [BoxGroup("Configs")]  public SerializedDictionary<SlingType, SlingConfig> SlingConfigs;
 
-        public SerializedDictionary<SlingType, SlingConfig> SlingConfigs;
 
-
-        [Header("Prefabs")] public BaseView BallPrefab;
+        [Header("Prefabs")][BoxGroup("Prefabs")] public BaseView BallPrefab;
     }
 }

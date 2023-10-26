@@ -593,7 +593,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3e6b576e23cd3e44ba48bcbd8c38b174, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2800a2b4a4f4620408a52483986c4d6a, type: 2}
 --- !u!114 &1436762944640330904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 1ff6c79a96315654e9e87a81040072e6, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 950c71d7a6e97494d959beb3911c9578, type: 2}
 --- !u!1 &6010118672268872346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Empty Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8592345595767267524, guid: f9bcee7d92e42d644904cd8250ca6d5d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8601768795409244374, guid: f9bcee7d92e42d644904cd8250ca6d5d,
         type: 3}

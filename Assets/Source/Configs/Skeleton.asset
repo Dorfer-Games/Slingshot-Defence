@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelStats:
   - Hp: 50
-    Speed: 3
+    Speed: 2
     Exp: 5
     SpawnDelay: 1
     Inventory:

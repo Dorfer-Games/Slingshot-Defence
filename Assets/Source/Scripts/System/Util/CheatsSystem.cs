@@ -23,9 +23,12 @@ namespace Source.Scripts.System.Util
             {
                 kv.Value.onClick.AddListener(() =>
                 {
-                    pool.Tomes.Get(game.PlayerEntity).Value[kv.Key] += 1;
-                    kv.Value.GetComponentInChildren<TextMeshProUGUI>().text +=
-                        pool.Tomes.Get(game.PlayerEntity).Value[kv.Key].ToString();
+                    if (pool.Tomes.Get(game.PlayerEntity).Value[kv.Key] < 4)
+                    {
+                        pool.Tomes.Get(game.PlayerEntity).Value[kv.Key] += 1;
+                        kv.Value.GetComponentInChildren<TextMeshProUGUI>().text +=
+                            "\n"+pool.Tomes.Get(game.PlayerEntity).Value[kv.Key].ToString();
+                    }
                 });
             }
             
