@@ -25,9 +25,13 @@ namespace Source.Scripts.System.Move
             foreach (var ent in filter)
             {
                 ref var stage = ref pool.Stage.Get(ent);
+                if(stage.AllWavesComplete)
+                    continue;
+                
+              
                 if (stage.AllEnemiesDead)
                 {
-                    if (stage.CurrentWaveId<stage.Waves.Count)
+                    if (stage.CurrentWaveId<stage.Waves.Count-1)
                     {
                         //Next Wave
                         stage.CurrentWaveId++;

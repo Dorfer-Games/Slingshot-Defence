@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0bbf493a6018b41b94c2288283a11a, type: 3}
   m_Name: Game Config
   m_EditorClassIdentifier: 
-  SlingPointsCount: 15
+  SlingPointsCount: 10
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.5
   BallSpeed: 35
-  BallBaseRadius: 1.5
   KnockbackTime: 0.36
+  BallBaseRadius: 1.5
   BallBaseKnockback: 8
   ReloadTime: 1
   SlowTimeScale: 0.4
@@ -27,7 +27,9 @@ MonoBehaviour:
   - Value: 0
   - Value: 1
   - Value: 2
-  RadiusTome: []
+  RadiusTome:
+  - Value: 0
+  - Value: 3
   RicochetTome:
   - Count: 0
     Radius: 0

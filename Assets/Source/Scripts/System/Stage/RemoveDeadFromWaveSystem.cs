@@ -16,7 +16,7 @@ namespace Source.Scripts.System.Move
         {
             base.OnInit();
 
-            filter = world.Filter<Hp>().Inc<DeadTag>().End();
+            filter = world.Filter<Enemy>().Inc<DeadTag>().End();
         }
 
         public override void OnUpdate()
@@ -26,11 +26,6 @@ namespace Source.Scripts.System.Move
             {
                 ref var stage = ref pool.Stage.Get(game.StageEntity);
                 stage.AliveEnemies.Remove(ent);
-                if (stage.AllEnemiesDead)
-                {
-                    stage.CurrentWaveId++;
-                    stage.CurrentWaveEnemiesSpawnedCount = 0;
-                }
             }
         }
 

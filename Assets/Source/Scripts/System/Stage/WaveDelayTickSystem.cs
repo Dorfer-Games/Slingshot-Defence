@@ -27,7 +27,7 @@ namespace Source.Scripts.System.Battle
             foreach (var ent in filterAddTick)
             {
                 var stage = pool.Stage.Get(ent);
-                if (stage.CurrentWaveId < stage.Waves.Count && stage.AliveEnemies.Count == 0)
+                if (!stage.AllWavesComplete && stage.CurrentWaveEnemiesSpawnedCount == 0)
                 {
                     pool.WaveDelayTick.Add(ent).Value = stage.Waves[stage.CurrentWaveId].WaveDelay;
                 }
