@@ -13,7 +13,7 @@ namespace Source.Scripts.System.Util
     {
         [SerializeField] private SerializedDictionary<ElementType,Button> buttons;
         [SerializeField] private SerializedDictionary<TomeType,Button> tomeButtons;
-        [SerializeField] private Button rndButton;
+        //[SerializeField] private Button rndButton;
 
         public override void OnInit()
         {
@@ -43,7 +43,7 @@ namespace Source.Scripts.System.Util
                     pool.Elements.Get(game.PlayerEntity).Value[kv.Key] = 1;
                 });
             }
-            rndButton.onClick.AddListener(() =>
+           /* rndButton.onClick.AddListener(() =>
             {
                 var ammo = pool.Ammo.Get(game.PlayerEntity);
                 var firstAmmo = ammo.Value[^ammo.Count];
@@ -52,7 +52,7 @@ namespace Source.Scripts.System.Util
                 pool.Element.Get(firstAmmo).Value = value;
                 pool.Elements.Get(game.PlayerEntity).Value[value] = 1;
                 pool.ModelChangerComponent.Get(firstAmmo).Value.SetModel((int)value);
-            });
+            });*/
             
         }
     }

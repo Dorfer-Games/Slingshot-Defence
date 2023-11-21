@@ -44,7 +44,7 @@ namespace Source.Scripts.System.Sling.Shot
 
                     switch (tomeLvl.Key)
                     {
-                        case TomeType.TROUGH:
+                        case TomeType.THROUGH:
                             pool.Through.Add(ent).Value=config.ThroughTome[tomeLvl.Value].Value;
                             break;
                         case TomeType.RADIUS:

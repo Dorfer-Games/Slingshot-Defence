@@ -70,9 +70,9 @@ MonoBehaviour:
   - AddDamagePercent: 0
     ExplosionRadius: 0
     ExplosionDamagePercent: 0
-  - AddDamagePercent: 0
-    ExplosionRadius: 0
-    ExplosionDamagePercent: 0
+  - AddDamagePercent: 20
+    ExplosionRadius: 20
+    ExplosionDamagePercent: 50
   LightningBall:
   - AddDamagePercent: 0
     TargetsCount: 0
@@ -83,8 +83,8 @@ MonoBehaviour:
   BoulderBall:
   - AddDamagePercent: 0
     AddKnockbackForce: 0
-  - AddDamagePercent: 0
-    AddKnockbackForce: 0
+  - AddDamagePercent: 20
+    AddKnockbackForce: 4
   SlimeBall:
   - AddDamagePercent: 0
     SlowPercent: 0

@@ -2,7 +2,7 @@
 {
     public enum TomeType
     {
-        TROUGH,
+        THROUGH,
         RADIUS,
         RICOCHET,
         KNOCKBACK,

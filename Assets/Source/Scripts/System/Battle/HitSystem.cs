@@ -51,10 +51,10 @@ namespace Source.Scripts.System.Battle
                 }
 
                 //var elementType = pool.Element.Get(sender).Value;
+                var baseDamage = pool.Damage.Get(sender).Value;
                 foreach (var target in targets)
                 {
                     ref var damageEvent = ref pool.DamageEvent.Add(eventWorld.NewEntity());
-                    var baseDamage = pool.Damage.Get(sender).Value;
                     damageEvent.Damage = baseDamage;
                     damageEvent.Sender = sender;
                     damageEvent.Target = target;
@@ -69,6 +69,19 @@ namespace Source.Scripts.System.Battle
                             ref var burnTick = ref pool.BurnTick.Add(target);
                             burnTick.Damage = baseDamage*fire.BurnTickDamagePercent / 100f;
                             burnTick.Time = fire.BurnTick;
+                        }
+                        //each explodes
+                    }else if (pool.Dark.Has(sender))
+                    {
+                        ref var dark = ref pool.Dark.Get(sender);
+                        var enemiesInRadius = game.PositionService.GetEnemiesInRadius(target, dark.ExplosionRadius);
+                        float damage = baseDamage * dark.ExplosionDamagePercent / 100f;
+                        foreach (var explosionEnt in enemiesInRadius)
+                        {
+                            ref var explosionDmgE = ref pool.DamageEvent.Add(eventWorld.NewEntity());
+                            explosionDmgE.Damage = damage;
+                            explosionDmgE.Sender = sender;
+                            explosionDmgE.Target = explosionEnt;
                         }
                     }
                 }
