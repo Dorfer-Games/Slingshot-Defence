@@ -14,6 +14,7 @@ namespace Kuhpik
     [CreateAssetMenu(menuName = "Config/GameConfig")]
     public sealed class GameConfig : ScriptableObject
     {
+        public float ScaleFactor;
         public int SlingPointsCount;
         public float SlingInputOffset;
         public float UnitRotSpeed;

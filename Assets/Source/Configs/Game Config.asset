@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0bbf493a6018b41b94c2288283a11a, type: 3}
   m_Name: Game Config
   m_EditorClassIdentifier: 
+  ScaleFactor: 4
   SlingPointsCount: 10
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.5
@@ -71,15 +72,17 @@ MonoBehaviour:
     ExplosionRadius: 0
     ExplosionDamagePercent: 0
   - AddDamagePercent: 20
-    ExplosionRadius: 20
+    ExplosionRadius: 5
     ExplosionDamagePercent: 50
   LightningBall:
   - AddDamagePercent: 0
     TargetsCount: 0
     LightningDamagePercent: 0
-  - AddDamagePercent: 0
-    TargetsCount: 0
-    LightningDamagePercent: 0
+    Radius: 0
+  - AddDamagePercent: 20
+    TargetsCount: 4
+    LightningDamagePercent: 50
+    Radius: 2
   BoulderBall:
   - AddDamagePercent: 0
     AddKnockbackForce: 0

@@ -48,7 +48,7 @@ namespace Source.Scripts.System.Sling.Shot
                             pool.Through.Add(ent).Value=config.ThroughTome[tomeLvl.Value].Value;
                             break;
                         case TomeType.RADIUS:
-                            pool.Radius.Get(ent).Value=config.RadiusTome[tomeLvl.Value].Value;
+                            pool.Radius.Get(ent).Value=config.RadiusTome[tomeLvl.Value].Value*config.ScaleFactor;
                             break;
                         case TomeType.RICOCHET:
                             ref var ricochet = ref pool.Ricochet.Add(ent);
@@ -58,7 +58,7 @@ namespace Source.Scripts.System.Sling.Shot
                             pool.Knockback.Get(ent).Value=config.KnockbackTome[tomeLvl.Value].Value;
                             break;
                         case TomeType.MULT:
-                            //setup mult balls!!!!
+                          
                             var mult=config.MultTome[tomeLvl.Value];
                             
                             var ball1Tr = pool.View.Get(ent).Value.transform;
@@ -106,11 +106,13 @@ namespace Source.Scripts.System.Sling.Shot
                         case ElementType.DARKNESS:
                             ref var dark = ref pool.Dark.Add(ballE);
                             dark = config.DarkBall[ballLevel];
+                            dark.ExplosionRadius *= config.ScaleFactor;
                             addDamagePercent = dark.AddDamagePercent;
                             break;
                         case ElementType.LIGHTNING:
                             ref var lightning = ref pool.Lightning.Add(ballE);
                             lightning = config.LightningBall[ballLevel];
+                            lightning.Radius *= config.ScaleFactor;
                             addDamagePercent = lightning.AddDamagePercent;
                             break;
                         case ElementType.BOULDER:
@@ -122,6 +124,7 @@ namespace Source.Scripts.System.Sling.Shot
                         case ElementType.SLIME:
                             ref var slime = ref pool.Slime.Add(ballE);
                             slime = config.SlimeBall[ballLevel];
+                            slime.SlowRadius *= config.ScaleFactor;
                             addDamagePercent = slime.AddDamagePercent;
                             break;
                     }
@@ -161,7 +164,7 @@ namespace Source.Scripts.System.Sling.Shot
             pool.Dir.Get(ent).Value = game.PlayerView.transform.forward;
             pool.Speed.Add(ent).Value = config.BallSpeed;
             pool.PrevHitTargets.Add(ent).Value = new ();
-            pool.Radius.Add(ent).Value = config.BallBaseRadius;
+            pool.Radius.Add(ent).Value = config.BallBaseRadius*config.ScaleFactor;
             pool.Knockback.Add(ent).Value = config.BallBaseKnockback;
             //set base damage
             var damageLevel = save.SlingUps[save.CurrentSling][UpType.DAMAGE];

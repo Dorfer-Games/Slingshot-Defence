@@ -1,6 +1,7 @@
 ﻿using System;
 using AYellowpaper.SerializedCollections;
 using Kuhpik;
+using Source.Scripts.Component;
 using Source.Scripts.Data.Enum;
 using TMPro;
 using UnityEngine;
@@ -55,5 +56,20 @@ namespace Source.Scripts.System.Util
             });*/
             
         }
+#if UNITY_EDITOR
+        public override void OnUpdate()
+        {
+            base.OnUpdate();
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+            {
+                foreach (var ent in world.Filter<Enemy>().End())
+                {
+                    pool.CantMove.GetOrCreateRef(ent);
+                    pool.Speed.Get(ent).Value = 0;
+                }
+            }
+        } 
+#endif
+        
     }
 }

@@ -8,5 +8,6 @@ namespace Source.Scripts.Component.Battle.Ball
         public int AddDamagePercent;
         public int TargetsCount;
         public int LightningDamagePercent;
+        public float Radius;
     }
 }

@@ -83,6 +83,20 @@ namespace Source.Scripts.System.Battle
                             explosionDmgE.Sender = sender;
                             explosionDmgE.Target = explosionEnt;
                         }
+                    }else if (pool.Lightning.Has(sender))
+                    {
+                        ref var lightning = ref pool.Lightning.Get(sender);
+                        var lightingTargets=game.PositionService.GetClosestSequence(target, lightning.Radius, lightning.TargetsCount,
+                            targets);
+
+                        float damage = baseDamage * lightning.LightningDamagePercent / 100f;
+                        foreach (var lightingTarget in lightingTargets)
+                        {
+                            ref var lightningDmgE = ref pool.DamageEvent.Add(eventWorld.NewEntity());
+                            lightningDmgE.Damage = damage;
+                            lightningDmgE.Sender = sender;
+                            lightningDmgE.Target = lightingTarget;
+                        }
                     }
                 }
 

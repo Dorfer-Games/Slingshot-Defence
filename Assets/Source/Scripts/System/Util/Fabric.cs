@@ -133,11 +133,11 @@ namespace Source.Scripts.System
             }
 
             //ui
-           /* var hpBarView = baseView.GetComponent<HpBarView>();
+            var hpBarView = baseView.GetComponent<HpBarView>();
             if (hpBarView != null)
             {
-                pool.HpView.Add(entity).Value = hpBarView.HpBarUIView;
-            }*/
+                pool.HpViewComponent.Add(entity).Value = hpBarView.HpBarUIView;
+            }
            
             return entity;
         }

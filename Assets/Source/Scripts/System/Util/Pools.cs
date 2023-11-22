@@ -53,6 +53,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<PrevHitTargets> PrevHitTargets;
         public readonly EcsPool<KnockedTick> KnockedTick;
         public readonly EcsPool<BurnTick> BurnTick;
+        public readonly EcsPool<HpViewComponent> HpViewComponent;
      
 
         //events
@@ -104,6 +105,7 @@ namespace Source.Scripts.System.Util
             PrevHitTargets = world.GetPool<PrevHitTargets>();
             KnockedTick = world.GetPool<KnockedTick>();
             BurnTick = world.GetPool<BurnTick>();
+            HpViewComponent = world.GetPool<HpViewComponent>();
           
             
             //events
@@ -114,6 +116,7 @@ namespace Source.Scripts.System.Util
             DamageEvent = eventWorld.GetPool<DamageEvent>();
             HitPlayerEvent = eventWorld.GetPool<HitPlayerEvent>();
         }
+
 
        
     }
