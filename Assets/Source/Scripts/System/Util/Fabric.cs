@@ -6,6 +6,7 @@ using Source.Scripts.Data.Enum;
 using Source.Scripts.System.Util;
 using Source.Scripts.View;
 using Source.Scripts.View.Player;
+using Source.Scripts.View.VFX;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -138,7 +139,17 @@ namespace Source.Scripts.System
             {
                 pool.HpViewComponent.Add(entity).Value = hpBarView.HpBarUIView;
             }
-           
+
+            var hitVFXProviderView = baseView.GetComponentInChildren<HitVFXProviderView>();
+            if (hitVFXProviderView!=null)
+            {
+                pool.HitVFXProviderComponent.Add(entity).Value = hitVFXProviderView;
+                foreach (var vfxView in  hitVFXProviderView.VFXs)
+                {
+                    vfxView.Init();
+                }
+            }
+
             return entity;
         }
     }

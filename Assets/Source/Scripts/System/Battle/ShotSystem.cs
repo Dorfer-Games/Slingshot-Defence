@@ -131,6 +131,7 @@ namespace Source.Scripts.System.Sling.Shot
 
                     damage += damage * addDamagePercent / 100f;
 
+                    pool.Element.Add(ballE).Value=elementType;
                     //set model
                     pool.ModelChangerComponent.Get(ballE).Value.SetModel((int) elementType);
                 }

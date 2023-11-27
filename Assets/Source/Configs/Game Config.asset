@@ -19,8 +19,8 @@ MonoBehaviour:
   BallSpeed: 35
   MultishotAngle: 30
   KnockbackTime: 0.36
-  BallBaseRadius: 1.5
-  BallBaseKnockback: 8
+  BallBaseRadius: 0.375
+  BallBaseKnockback: 4
   ReloadTime: 1
   SlowTimeScale: 0.4
   HpToDmgK: 1

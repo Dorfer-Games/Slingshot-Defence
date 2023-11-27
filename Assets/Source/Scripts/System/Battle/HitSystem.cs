@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Kuhpik;
 using Leopotam.EcsLite;
+using Source.Scripts.Component.Battle.Ball;
 using Source.Scripts.Component.Event;
+using Source.Scripts.View.VFX;
 using UnityEngine;
 
 namespace Source.Scripts.System.Battle
@@ -47,10 +49,10 @@ namespace Source.Scripts.System.Battle
                 }
                 else
                 {
-                    pool.Dead.Add(sender);
+                    pool.Dead.GetOrCreateRef(sender);
                 }
 
-                //var elementType = pool.Element.Get(sender).Value;
+                var elementType = pool.Element.Get(sender).Value;
                 var baseDamage = pool.Damage.Get(sender).Value;
                 foreach (var target in targets)
                 {
@@ -70,6 +72,8 @@ namespace Source.Scripts.System.Battle
                             burnTick.Damage = baseDamage*fire.BurnTickDamagePercent / 100f;
                             burnTick.Time = fire.BurnTick;
                         }
+                        var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
+                        vfx.gameObject.SetActive(true);
                         //each explodes
                     }else if (pool.Dark.Has(sender))
                     {
@@ -83,12 +87,14 @@ namespace Source.Scripts.System.Battle
                             explosionDmgE.Sender = sender;
                             explosionDmgE.Target = explosionEnt;
                         }
+                        var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
+                        vfx.gameObject.SetActive(true);
                     }else if (pool.Lightning.Has(sender))
                     {
                         ref var lightning = ref pool.Lightning.Get(sender);
                         var lightingTargets=game.PositionService.GetClosestSequence(target, lightning.Radius, lightning.TargetsCount,
                             targets);
-
+                        
                         float damage = baseDamage * lightning.LightningDamagePercent / 100f;
                         foreach (var lightingTarget in lightingTargets)
                         {
@@ -97,6 +103,28 @@ namespace Source.Scripts.System.Battle
                             lightningDmgE.Sender = sender;
                             lightningDmgE.Target = lightingTarget;
                         }
+                        
+                        
+                        for (int i = 0; i < lightingTargets.Count-1; i++)
+                        {
+                            int fromE = lightingTargets[i];
+                            int toE = lightingTargets[i+1];
+                            var hitVFXProviderView = pool.HitVFXProviderComponent.Get(fromE).Value;
+                            var vfx = (LightningVFX)hitVFXProviderView.VFXs[(int) elementType];
+                            var fromPos = pool.View.Get(fromE).Value.transform.position;
+                            var toPos = pool.View.Get(toE).Value.transform.position;
+                            var dir = toPos-fromPos;
+                            
+                            vfx.transform.rotation = Quaternion.LookRotation(dir);
+                           
+                            vfx.SetLength(dir.magnitude);
+                            vfx.gameObject.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
+                        vfx.gameObject.SetActive(true);
                     }
                 }
 

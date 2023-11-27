@@ -43,9 +43,6 @@ namespace Source.Scripts.Service
             {
                 var position = pool.View.Get(ent).Value.transform.position;
                 position.y = 0;
-                Debug.DrawLine(startPos,position,Color.blue,1000);
-                Debug.DrawLine(startPos+new Vector3(0,1,0),startPos+(position - startPos).normalized*radius+new Vector3(0,1,0),Color.red,1000);
-                Debug.Log(((position - startPos).normalized*radius).magnitude);
                 if ((position - startPos).sqrMagnitude <= radius * radius)
                 {
                     list.Add(ent);
@@ -95,11 +92,12 @@ namespace Source.Scripts.Service
         public List<int> GetClosestSequence(int startEnt, float radius, int count, ICollection<int> lowPriorList)
         {  
             var sortedList = new List<int>();
+            sortedList.Add(startEnt);
             int startE = startEnt;
             var lowUniq = new List<int>();
             lowUniq.AddRange(lowPriorList);
             
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < count-1; i++)
             {
                 var list = GetEnemiesInRadiusWithPriority(startE, radius,lowUniq,true);
                 if (list.Count == 0)

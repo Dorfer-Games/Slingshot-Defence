@@ -54,6 +54,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<KnockedTick> KnockedTick;
         public readonly EcsPool<BurnTick> BurnTick;
         public readonly EcsPool<HpViewComponent> HpViewComponent;
+        public readonly EcsPool<HitVFXProviderComponent> HitVFXProviderComponent;
      
 
         //events
@@ -106,6 +107,7 @@ namespace Source.Scripts.System.Util
             KnockedTick = world.GetPool<KnockedTick>();
             BurnTick = world.GetPool<BurnTick>();
             HpViewComponent = world.GetPool<HpViewComponent>();
+            HitVFXProviderComponent = world.GetPool<HitVFXProviderComponent>();
           
             
             //events
