@@ -1,5 +1,6 @@
 ﻿using Kuhpik;
 using Source.Scripts.Data.Enum;
+using Source.Scripts.View.Cam;
 using UnityEngine;
 
 namespace Source.Scripts.System.Input
@@ -8,37 +9,59 @@ namespace Source.Scripts.System.Input
     {
         private Joystick joystick;
         private float offset;
+        private CameraSwitcherView cameraSwitcherView;
+        private Animator playerAnimator;
 
         public override void OnInit()
         {
             base.OnInit();
             joystick = game.Joystick;
             offset = config.SlingInputOffset;
+            cameraSwitcherView = game.CameraSwitcherView;
+            playerAnimator = game.PlayerView.StickmanAnimator;
 
+            game.PlayerView.PlayerAnimatorView.ShotEvent += SendShotEvent;
             joystick.PointerUpEvent += Release;
             joystick.PointerDownEvent += Load;
             joystick.DragEvent += Drag;
             
-            game.CameraSwitcherView.Switch(CameraPositionType.DEFAULT);
+            cameraSwitcherView.Switch(CameraPositionType.DEFAULT);
+        }
+
+        private void SendShotEvent()
+        {
+            pool.ShotEvent.Add(eventWorld.NewEntity());
         }
 
         private void Load()
         {
-            game.CameraSwitcherView.Switch(CameraPositionType.AIMING);
+            ref var ammo = ref pool.Ammo.Get(game.PlayerEntity);
+            if (ammo.Count == 0)
+                return;
+            
+            var firstAmmo = ammo.Value[^ammo.Count];
+            var elementType = pool.Element.Get(firstAmmo).Value;
+            game.PlayerView.SlingBall.SetModel((int)elementType);
+            
             Time.timeScale = config.SlowTimeScale;
+            cameraSwitcherView.Switch(CameraPositionType.AIMING);
+            playerAnimator.Play("Pull");
         }
 
         private void Release()
         {
             Time.timeScale = 1;
-            game.CameraSwitcherView.Switch(CameraPositionType.DEFAULT);
+            cameraSwitcherView.Switch(CameraPositionType.DEFAULT);
+           
+            
             if (joystick.Direction.sqrMagnitude >= offset * offset)
             {
-                pool.ShotEvent.Add(eventWorld.NewEntity());
+                playerAnimator.Play("Release");
             }
             else
             {
                 pool.ShotCancelEvent.Add(eventWorld.NewEntity());
+                playerAnimator.Play("Idle");
             }
         }
 

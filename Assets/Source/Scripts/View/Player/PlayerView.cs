@@ -13,6 +13,8 @@ namespace Source.Scripts.View
         public LineRenderer LineRenderer;
         public SkinnedMeshRenderer RopeMeshRenderer;
         public Animator StickmanAnimator;
+        public ModelChangerView SlingBall;
+        public PlayerAnimatorView PlayerAnimatorView;
 
 
     }
