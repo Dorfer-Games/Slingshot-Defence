@@ -118,7 +118,7 @@ Material:
     - _ReceiveShadows: 1
     - _Saturation: 1
     - _SaturationCompensation: 2
-    - _Shin: 6.5
+    - _Shin: 10
     - _Show_Fresnel: 1
     - _Show_Gradient: 0
     - _Show_Specular: 1
