@@ -2,6 +2,8 @@
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Battle;
+using Source.Scripts.Component.Battle.Ball;
+using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Component.Movement;
 using Source.Scripts.Component.Tome;
@@ -36,6 +38,23 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<EnemySpawnTick> EnemySpawnTick;
         public readonly EcsPool<WaveDelayTick> WaveDelayTick;
         public readonly EcsPool<Stage> Stage;
+        public readonly EcsPool<NavMeshAgentComponent> NavMeshAgentComponent;
+        public readonly EcsPool<Exp> Exp;
+        public readonly EcsPool<Damage> Damage;
+        public readonly EcsPool<Knockback> Knockback;
+        public readonly EcsPool<Tomes> Tomes;
+        public readonly EcsPool<Mult> Mult;
+        public readonly EcsPool<Elements> Elements;
+        public readonly EcsPool<Fire> Fire;
+        public readonly EcsPool<Dark> Dark;
+        public readonly EcsPool<Lightning> Lightning;
+        public readonly EcsPool<Slime> Slime;
+        public readonly EcsPool<Boulder> Boulder;
+        public readonly EcsPool<PrevHitTargets> PrevHitTargets;
+        public readonly EcsPool<KnockedTick> KnockedTick;
+        public readonly EcsPool<BurnTick> BurnTick;
+        public readonly EcsPool<HpViewComponent> HpViewComponent;
+        public readonly EcsPool<HitVFXProviderComponent> HitVFXProviderComponent;
      
 
         //events
@@ -43,6 +62,8 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<ShotCancelEvent> ShotCancelEvent;
         public readonly EcsPool<ShotEvent> ShotEvent;
         public readonly EcsPool<SpawnBallEvent> SpawnBallEvent;
+        public readonly EcsPool<DamageEvent> DamageEvent;
+        public readonly EcsPool<HitPlayerEvent> HitPlayerEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -70,6 +91,23 @@ namespace Source.Scripts.System.Util
             EnemySpawnTick = world.GetPool<EnemySpawnTick>();
             WaveDelayTick = world.GetPool<WaveDelayTick>();
             Stage = world.GetPool<Stage>();
+            NavMeshAgentComponent = world.GetPool<NavMeshAgentComponent>();
+            Exp = world.GetPool<Exp>();
+            Damage = world.GetPool<Damage>();
+            Knockback = world.GetPool<Knockback>();
+            Tomes = world.GetPool<Tomes>();
+            Mult = world.GetPool<Mult>();
+            Elements = world.GetPool<Elements>();
+            Fire = world.GetPool<Fire>();
+            Dark = world.GetPool<Dark>();
+            Lightning = world.GetPool<Lightning>();
+            Slime = world.GetPool<Slime>();
+            Boulder = world.GetPool<Boulder>();
+            PrevHitTargets = world.GetPool<PrevHitTargets>();
+            KnockedTick = world.GetPool<KnockedTick>();
+            BurnTick = world.GetPool<BurnTick>();
+            HpViewComponent = world.GetPool<HpViewComponent>();
+            HitVFXProviderComponent = world.GetPool<HitVFXProviderComponent>();
           
             
             //events
@@ -77,7 +115,10 @@ namespace Source.Scripts.System.Util
             ShotCancelEvent = eventWorld.GetPool<ShotCancelEvent>();
             ShotEvent = eventWorld.GetPool<ShotEvent>();
             SpawnBallEvent = eventWorld.GetPool<SpawnBallEvent>();
+            DamageEvent = eventWorld.GetPool<DamageEvent>();
+            HitPlayerEvent = eventWorld.GetPool<HitPlayerEvent>();
         }
+
 
        
     }

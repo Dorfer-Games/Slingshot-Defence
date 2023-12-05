@@ -6,7 +6,7 @@
         FIRE,
         DARKNESS,
         LIGHTNING,
-        STONE,
+        BOULDER,
         SLIME
     }
 }

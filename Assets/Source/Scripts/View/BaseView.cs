@@ -4,11 +4,16 @@ namespace Source.Scripts.View
 {
     public class BaseView : MonoBehaviour
     {
-        [HideInInspector]
+        [NaughtyAttributes.ReadOnly]
         public int Entity;
 
-        public  void Die()
+        public virtual void Die()
         {
+            var hpBarView = GetComponentInChildren<HpBarView>();
+            if (hpBarView!=null)
+            {
+                Destroy(hpBarView.HpBarUIView.gameObject);
+            }
             Destroy(gameObject);
         }
         

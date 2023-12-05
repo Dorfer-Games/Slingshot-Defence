@@ -6,12 +6,12 @@ namespace Source.Scripts.View
 {
     public class PlayerView : BaseView
     {
-        public GameObject[] Models;
-        public TriggerListenerComponent Body;
+        public TriggerListenerComponent BodyTriggerListener;
         public Transform BallSpawnPos;
         public AmmoView AmmoView;
         public Canvas Canvas;
+        public LineRenderer LineRenderer;
 
-       
+
     }
 }

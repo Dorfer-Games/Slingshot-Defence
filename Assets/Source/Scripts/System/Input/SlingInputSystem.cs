@@ -23,10 +23,12 @@ namespace Source.Scripts.System.Input
         private void Load()
         {
             game.CameraSwitcherView.Switch(CameraPositionType.AIMING);
+            Time.timeScale = config.SlowTimeScale;
         }
 
         private void Release()
         {
+            Time.timeScale = 1;
             game.CameraSwitcherView.Switch(CameraPositionType.DEFAULT);
             if (joystick.Direction.sqrMagnitude >= offset * offset)
             {
@@ -40,7 +42,6 @@ namespace Source.Scripts.System.Input
 
         private void Drag()
         {
-            base.OnUpdate();
             if (joystick.Direction.Equals(Vector2.zero))
                 return;
 

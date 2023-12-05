@@ -12,23 +12,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0bbf493a6018b41b94c2288283a11a, type: 3}
   m_Name: Game Config
   m_EditorClassIdentifier: 
+  ScaleFactor: 4
+  SlingPointsCount: 10
   SlingInputOffset: 0.5
-  UnitRotSpeed: 0.1
-  EnemySpeed: 2
-  BallSpeed: 6
+  UnitRotSpeed: 0.5
+  BallSpeed: 35
+  MultishotAngle: 30
+  KnockbackTime: 0.36
+  BallBaseRadius: 0.375
+  BallBaseKnockback: 4
   ReloadTime: 1
   SlowTimeScale: 0.4
-  InsectSpawnChance: 0
-  KnockbackForce: 0
-  EnemyKnockbackForce: 0
-  ZoneActivationTime: 0
-  EnemyUps:
+  HpToDmgK: 1
+  ExpProgression: 000000000a0000000f000000
+  ThroughTome:
+  - Value: 0
+  - Value: 1
+  - Value: 2
+  - Value: 3
+  RadiusTome:
+  - Value: 0
+  - Value: 3
+  - Value: 4
+  - Value: 5
+  RicochetTome:
+  - Count: 0
+    Radius: 0
+  - Count: 1
+    Radius: 12
+  - Count: 2
+    Radius: 16
+  - Count: 3
+    Radius: 16
+  KnockbackTome:
+  - Value: 0
+  - Value: 16
+  - Value: 18
+  - Value: 20
+  MultTome:
+  - AddBallCount: 0
+    DamagePercent: 0
+  - AddBallCount: 1
+    DamagePercent: 50
+  - AddBallCount: 2
+    DamagePercent: 60
+  - AddBallCount: 2
+    DamagePercent: 70
+  FireBall:
+  - AddDamagePercent: 0
+    BurnTime: 0
+    BurnTick: 0
+    BurnTickDamagePercent: 0
+  - AddDamagePercent: 20
+    BurnTime: 2
+    BurnTick: 0.5
+    BurnTickDamagePercent: 50
+  DarkBall:
+  - AddDamagePercent: 0
+    ExplosionRadius: 0
+    ExplosionDamagePercent: 0
+  - AddDamagePercent: 20
+    ExplosionRadius: 5
+    ExplosionDamagePercent: 50
+  LightningBall:
+  - AddDamagePercent: 0
+    TargetsCount: 0
+    LightningDamagePercent: 0
+    Radius: 0
+  - AddDamagePercent: 20
+    TargetsCount: 4
+    LightningDamagePercent: 50
+    Radius: 2
+  BoulderBall:
+  - AddDamagePercent: 0
+    AddKnockbackForce: 0
+  - AddDamagePercent: 20
+    AddKnockbackForce: 4
+  SlimeBall:
+  - AddDamagePercent: 0
+    SlowPercent: 0
+    SlowRadius: 0
+  - AddDamagePercent: 0
+    SlowPercent: 0
+    SlowRadius: 0
+  EnemyConfigs:
     _serializedList:
     - Key: 0
       Value: {fileID: 11400000, guid: 6ce22e4f23cf2504a9f35818ea0a8842, type: 2}
-  PlayerUps:
-    _serializedList: []
-  PlayerUpsCosts:
-    _serializedList: []
+  SlingConfigs:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 6e1168c511d87ed448d9940ab52429bb, type: 2}
   BallPrefab: {fileID: 1962176878986198001, guid: b74b5bc211e5dea4283f768bde908019,
     type: 3}

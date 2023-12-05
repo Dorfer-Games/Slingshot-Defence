@@ -12,7 +12,7 @@ namespace Source.Scripts.System.Battle
     {
         private EcsFilter filterAddTick;
         private EcsFilter filterTick;
-        
+
         public override void OnInit()
         {
             base.OnInit();
@@ -27,19 +27,23 @@ namespace Source.Scripts.System.Battle
             foreach (var ent in filterAddTick)
             {
                 var stage = pool.Stage.Get(ent);
-                if (stage.CurrentWave<stage.Waves.Count)
+                if (!stage.AllWavesComplete && stage.CurrentWaveEnemiesSpawnedCount == 0)
                 {
-                    pool.WaveDelayTick.Add(ent).Value = stage.Waves[stage.CurrentWave].WaveDelay;
+                    pool.WaveDelayTick.Add(ent).Value = stage.Waves[stage.CurrentWaveId].WaveDelay;
                 }
             }
 
             foreach (var ent in filterTick)
             {
-                ref var tick =ref pool.WaveDelayTick.Get(ent);
-                if (tick.Value<=0)
+                ref var tick = ref pool.WaveDelayTick.Get(ent);
+                if (tick.Value <= 0)
                 {
                     pool.WaveDelayTick.Del(ent);
-                    StartWave(ent);
+                    var stage = pool.Stage.Get(ent);
+                    if (!stage.AllWavesComplete)
+                    {
+                        StartWave(ent);
+                    }
                 }
                 else
                 {
@@ -50,9 +54,14 @@ namespace Source.Scripts.System.Battle
 
         private void StartWave(int ent)
         {
+            var stage = pool.Stage.Get(ent);
+            var enemy = stage.CurrentWave.Enemies[0];
             
+            if (stage.UseCommonSpawnDelay)
+                pool.EnemySpawnTick.Add(ent).Value = stage.CommonSpawnDelay;
+            else
+                pool.EnemySpawnTick.Add(ent).Value =
+                    config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level].SpawnDelay;
         }
-        
-     
     }
 }

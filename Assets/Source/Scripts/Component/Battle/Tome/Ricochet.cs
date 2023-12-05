@@ -1,7 +1,11 @@
-﻿namespace Source.Scripts.Component.Tome
+﻿using System;
+
+namespace Source.Scripts.Component.Tome
 {
+    [Serializable]
     public struct Ricochet
     {
-        public int Value;
+        public int Count;
+        public float Radius;
     }
 }

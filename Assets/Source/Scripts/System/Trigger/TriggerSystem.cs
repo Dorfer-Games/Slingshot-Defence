@@ -15,15 +15,26 @@ namespace Source.Scripts.System.Trigger
 
 
         private EcsFilter filterSpawnBallEvent;
-        private EcsFilter filterEnemy;
 
 
         public override void OnInit()
         {
             base.OnInit();
             filterSpawnBallEvent = eventWorld.Filter<SpawnBallEvent>().End();
-            filterEnemy = world.Filter<Enemy>().End();
+
             //sub player
+            game.PlayerView.BodyTriggerListener.OnTriggerEnterEvent += PlayerHit;
+        }
+
+        private void PlayerHit(Transform sender,Transform other)
+        {
+            if (!other.tag.Equals(attackable))
+                return;
+         
+            var otherE = other.GetComponentInParent<BaseView>().Entity;
+
+            ref var hitEvent = ref pool.HitPlayerEvent.Add(eventWorld.NewEntity());
+            hitEvent.Sender = otherE;
         }
 
         public override void OnUpdate()
@@ -48,11 +59,22 @@ namespace Source.Scripts.System.Trigger
         {
             if (!other.tag.Equals(attackable))
                 return;
-            
+         
             var senderE = sender.GetComponentInParent<BaseView>().Entity;
             var hitRadius = pool.Radius.Get(senderE).Value;
-            var targets = game.PositionService.GetEntInRadius(senderE, filterEnemy, hitRadius);
-            
+            var targets = game.PositionService.GetEnemiesInRadius(senderE, hitRadius);
+
+            //hit only obstacle
+            if (targets.Count==0)
+            {
+                var otherE = other.GetComponentInParent<BaseView>().Entity;
+                if (pool.Obstacle.Has(otherE))
+                {
+                    pool.Dead.Add(senderE);
+                    return;
+                }
+            }
+
             ref var hitEventComponent = ref pool.HitEvent.Add(eventWorld.NewEntity());
             hitEventComponent.Targets = targets;
             hitEventComponent.Sender = senderE;

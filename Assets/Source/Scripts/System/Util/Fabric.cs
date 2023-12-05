@@ -6,7 +6,9 @@ using Source.Scripts.Data.Enum;
 using Source.Scripts.System.Util;
 using Source.Scripts.View;
 using Source.Scripts.View.Player;
+using Source.Scripts.View.VFX;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Source.Scripts.System
 {
@@ -53,29 +55,18 @@ namespace Source.Scripts.System
             {
                 pool.Anim.Add(entity).Value = animationView;
             }
-
-           
+            
 
             var upsView = baseView.GetComponent<UpsView>();
             if (upsView != null)
             {
-                var ups = new Dictionary<UpType, int>();
-                foreach (var kv in upsView.Ups)
-                    ups.Add(kv.Key, kv.Value);
-
+                pool.SlingUps.Add(entity);
+                
                 if (baseView.Entity == gameData.PlayerEntity && save.SlingUps != null)
-                    ups = save.SlingUps;
+                    pool.SlingUps.Get(entity).Value = save.SlingUps;
                 else
-                    save.SlingUps = ups;
-
-                pool.SlingUps.Add(entity).Value = ups;
-
-                if (baseView.Entity == gameData.PlayerEntity)
-                {
-                    ref var hp = ref pool.Hp.Get(entity);
-                    hp.CurHp = hp.MaxHp = config.PlayerUps[UpType.HP][ups[UpType.HP]];
-                    
-                }
+                    save.SlingUps = pool.SlingUps.Get(entity).Value;
+                
             }
 
           
@@ -83,21 +74,15 @@ namespace Source.Scripts.System
             var inventoryView = baseView.GetComponent<InventoryView>();
             if (inventoryView != null)
             {
-                var inventory = new Dictionary<ResType, int>();
-                var values = Enum.GetValues(typeof(ResType));
-                
-                foreach (var item in values)
-                    inventory.Add((ResType)item,0);
+                 pool.Inventory.Add(entity);
 
                 if (baseView.Entity == gameData.PlayerEntity)
                 {
                     if (save.PlayerInventory != null)
-                        inventory = save.PlayerInventory;
+                        pool.Inventory.Get(entity).Value = save.PlayerInventory;
                     else
-                        save.PlayerInventory = inventory;
+                        save.PlayerInventory = pool.Inventory.Get(entity).Value;
                 }
-                
-                pool.Inventory.Add(entity).Value = inventory;
             }
             
 
@@ -136,15 +121,35 @@ namespace Source.Scripts.System
             {
                 ref var stage =ref pool.Stage.Add(entity);
                 stage.Waves = stageView.Waves;
+                stage.SpawnPos = stageView.SpawnPos;
+                stage.UseCommonSpawnDelay = stageView.UseCommonSpawnDelay;
+                stage.CommonSpawnDelay = stageView.CommonSpawnDelay;
                 stage.AliveEnemies = new List<int>();
             }
+
+            var navMeshAgent = baseView.GetComponent<NavMeshAgent>();
+            if (navMeshAgent!=null)
+            {
+                pool.NavMeshAgentComponent.Add(entity).Value = navMeshAgent;
+            }
+
             //ui
-           /* var hpBarView = baseView.GetComponent<HpBarView>();
+            var hpBarView = baseView.GetComponent<HpBarView>();
             if (hpBarView != null)
             {
-                pool.HpView.Add(entity).Value = hpBarView.HpBarUIView;
-            }*/
-           
+                pool.HpViewComponent.Add(entity).Value = hpBarView.HpBarUIView;
+            }
+
+            var hitVFXProviderView = baseView.GetComponentInChildren<HitVFXProviderView>();
+            if (hitVFXProviderView!=null)
+            {
+                pool.HitVFXProviderComponent.Add(entity).Value = hitVFXProviderView;
+                foreach (var vfxView in  hitVFXProviderView.VFXs)
+                {
+                    vfxView.Init();
+                }
+            }
+
             return entity;
         }
     }
