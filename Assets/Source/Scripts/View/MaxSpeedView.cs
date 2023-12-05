@@ -2,7 +2,7 @@
 
 namespace Source.Scripts.View
 {
-    public class MoveableView : MonoBehaviour
+    public class MaxSpeedView : MonoBehaviour
     {
         
     }

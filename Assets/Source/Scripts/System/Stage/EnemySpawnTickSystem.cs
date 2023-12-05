@@ -76,6 +76,7 @@ namespace Source.Scripts.System.Battle
             pool.Exp.Add(enemyEnt).Value = stats.Exp;
             pool.Inventory.Add(enemyEnt);
             pool.Speed.Add(enemyEnt).Value = stats.Speed;
+            pool.MaxSpeed.Add(enemyEnt).Value = stats.Speed;
             pool.NavMeshAgentComponent.Get(enemyEnt).Value.destination = game.PlayerView.transform.position;
 
             stage.AliveEnemies.Add(enemyEnt);

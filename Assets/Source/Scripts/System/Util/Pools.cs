@@ -33,7 +33,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Ricochet> Ricochet;
         public readonly EcsPool<Obstacle> Obstacle;
         public readonly EcsPool<Ammo> Ammo;
-        public readonly EcsPool<Moveable> Moveable;
+        public readonly EcsPool<MaxSpeed> MaxSpeed;
         public readonly EcsPool<ReloadTick> ReloadTick;
         public readonly EcsPool<EnemySpawnTick> EnemySpawnTick;
         public readonly EcsPool<WaveDelayTick> WaveDelayTick;
@@ -55,6 +55,8 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<BurnTick> BurnTick;
         public readonly EcsPool<HpViewComponent> HpViewComponent;
         public readonly EcsPool<HitVFXProviderComponent> HitVFXProviderComponent;
+        public readonly EcsPool<Lifetime> Lifetime;
+        
      
 
         //events
@@ -64,6 +66,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<SpawnBallEvent> SpawnBallEvent;
         public readonly EcsPool<DamageEvent> DamageEvent;
         public readonly EcsPool<HitPlayerEvent> HitPlayerEvent;
+        public readonly EcsPool<SpawnZoneEvent> SpawnZoneEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -86,7 +89,7 @@ namespace Source.Scripts.System.Util
             Ricochet = world.GetPool<Ricochet>();
             Obstacle = world.GetPool<Obstacle>();
             Ammo = world.GetPool<Ammo>();
-            Moveable = world.GetPool<Moveable>();
+            MaxSpeed = world.GetPool<MaxSpeed>();
             ReloadTick = world.GetPool<ReloadTick>();
             EnemySpawnTick = world.GetPool<EnemySpawnTick>();
             WaveDelayTick = world.GetPool<WaveDelayTick>();
@@ -108,8 +111,9 @@ namespace Source.Scripts.System.Util
             BurnTick = world.GetPool<BurnTick>();
             HpViewComponent = world.GetPool<HpViewComponent>();
             HitVFXProviderComponent = world.GetPool<HitVFXProviderComponent>();
-          
-            
+            Lifetime = world.GetPool<Lifetime>();
+
+
             //events
             HitEvent = eventWorld.GetPool<HitEvent>();
             ShotCancelEvent = eventWorld.GetPool<ShotCancelEvent>();
@@ -117,6 +121,7 @@ namespace Source.Scripts.System.Util
             SpawnBallEvent = eventWorld.GetPool<SpawnBallEvent>();
             DamageEvent = eventWorld.GetPool<DamageEvent>();
             HitPlayerEvent = eventWorld.GetPool<HitPlayerEvent>();
+            SpawnZoneEvent = eventWorld.GetPool<SpawnZoneEvent>();
         }
 
 

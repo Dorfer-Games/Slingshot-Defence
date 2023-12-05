@@ -58,9 +58,9 @@ namespace Source.Scripts.System.Sling.Shot
                             pool.Knockback.Get(ent).Value=config.KnockbackTome[tomeLvl.Value].Value;
                             break;
                         case TomeType.MULT:
-                          
-                            var mult=config.MultTome[tomeLvl.Value];
-                            
+
+                            ref var mult = ref pool.Mult.Add(ent);
+                            mult=config.MultTome[tomeLvl.Value];
                             var ball1Tr = pool.View.Get(ent).Value.transform;
                             var scaleX = ball1Tr.localScale.x;
                             if (mult.AddBallCount==1)

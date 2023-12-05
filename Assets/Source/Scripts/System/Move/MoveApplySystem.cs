@@ -24,14 +24,14 @@ namespace Source.Scripts.System.Move
         {
             base.OnInit();
 
-            filter = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().Exc<KnockedTick>().End();
-            filterRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().End();
-            filterRb = world.Filter<Direction>().Inc<Moveable>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().Exc<KnockedTick>().End();
-            filterRbRot = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
-            filterRbStop = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().Exc<NavMeshAgentComponent>().End();
-            filterRbStop1 = world.Filter<Direction>().Inc<Moveable>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
+            filter = world.Filter<Direction>().Inc<MaxSpeed>().Inc<Speed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().Exc<KnockedTick>().End();
+            filterRot = world.Filter<Direction>().Inc<MaxSpeed>().Inc<BaseViewComponent>().Exc<RigidbodyComponent>().Exc<CantMoveTag>().Exc<NavMeshAgentComponent>().End();
+            filterRb = world.Filter<Direction>().Inc<MaxSpeed>().Inc<Speed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().Exc<KnockedTick>().End();
+            filterRbRot = world.Filter<Direction>().Inc<MaxSpeed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
+            filterRbStop = world.Filter<Direction>().Inc<MaxSpeed>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<Speed>().Exc<NavMeshAgentComponent>().End();
+            filterRbStop1 = world.Filter<Direction>().Inc<MaxSpeed>().Inc<CantMoveTag>().Inc<BaseViewComponent>().Inc<RigidbodyComponent>().Exc<NavMeshAgentComponent>().End();
 
-            filterAgent = world.Filter<Direction>().Inc<Moveable>().Inc<BaseViewComponent>().Inc<Speed>()
+            filterAgent = world.Filter<Direction>().Inc<MaxSpeed>().Inc<BaseViewComponent>().Inc<Speed>()
                 .Inc<NavMeshAgentComponent>().End();
         }
 

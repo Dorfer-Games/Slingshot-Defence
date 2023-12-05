@@ -110,10 +110,10 @@ namespace Source.Scripts.System
                 pool.Obstacle.Add(entity);
             }
 
-            var moveableView = baseView.GetComponent<MoveableView>();
-            if (moveableView!=null)
+            var maxSpeedView = baseView.GetComponent<MaxSpeedView>();
+            if (maxSpeedView!=null)
             {
-                pool.Moveable.Add(entity);
+                pool.MaxSpeed.Add(entity);
             }
 
             var stageView = baseView.GetComponent<StageView>();

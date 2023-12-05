@@ -8,5 +8,6 @@ namespace Source.Scripts.Component.Battle.Ball
         public int AddDamagePercent;
         public int SlowPercent;
         public float SlowRadius;
+        public float Time;
     }
 }

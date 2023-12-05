@@ -120,6 +120,22 @@ namespace Source.Scripts.System.Battle
                             vfx.SetLength(dir.magnitude);
                             vfx.gameObject.SetActive(true);
                         }
+                    }else if (pool.Slime.Has(sender))
+                    {
+                        ref var slime = ref pool.Slime.Get(sender);
+                        var targetPos = pool.View.Get(target).Value.transform.position;
+                        var radius = slime.SlowRadius;
+
+                        var slimeView = Instantiate(config.SlimeZonePrefab);
+                        slimeView.transform.position = targetPos;
+                        slimeView.transform.localScale =
+                            new Vector3(radius, radius, radius);
+                        
+                        var slimeE = game.Fabric.InitView(slimeView);
+                        pool.Lifetime.Add(slimeE).Value = config.SlimeZoneDuration;
+                        
+                        //event
+                        pool.SpawnZoneEvent.Add(eventWorld.NewEntity()).Entity = slimeE;
                     }
                     else
                     {

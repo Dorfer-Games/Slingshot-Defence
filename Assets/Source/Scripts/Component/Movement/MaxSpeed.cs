@@ -1,7 +1,7 @@
 ﻿namespace Source.Scripts.Component.Movement
 {
-    public struct Moveable
+    public struct MaxSpeed
     {
-        
+        public float Value;
     }
 }

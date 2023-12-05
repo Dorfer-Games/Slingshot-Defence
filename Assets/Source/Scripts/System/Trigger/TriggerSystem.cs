@@ -15,12 +15,14 @@ namespace Source.Scripts.System.Trigger
 
 
         private EcsFilter filterSpawnBallEvent;
+        private EcsFilter filterSpawnZoneEvent;
 
 
         public override void OnInit()
         {
             base.OnInit();
             filterSpawnBallEvent = eventWorld.Filter<SpawnBallEvent>().End();
+            filterSpawnZoneEvent = eventWorld.Filter<SpawnZoneEvent>().End();
 
             //sub player
             game.PlayerView.BodyTriggerListener.OnTriggerEnterEvent += PlayerHit;
@@ -43,11 +45,18 @@ namespace Source.Scripts.System.Trigger
             foreach (var e in filterSpawnBallEvent)
             {
                 var ent = pool.SpawnBallEvent.Get(e).Value;
-                Subscribe(ent);
+                SubscribeBall(ent);
+            }
+            foreach (var e in filterSpawnZoneEvent)
+            {
+                var ent = pool.SpawnZoneEvent.Get(e).Entity;
+                //SubscribeBall(ent);
+                
+                pool.SpawnZoneEvent.Del(e);
             }
         }
 
-        private void Subscribe(int ent)
+        private void SubscribeBall(int ent)
         {
             var baseView = pool.View.Get(ent).Value;
             var damagerView = baseView.GetComponent<DamagerView>();
