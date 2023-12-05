@@ -18,6 +18,8 @@ namespace Source.Scripts.System.Input
             joystick.PointerUpEvent += Release;
             joystick.PointerDownEvent += Load;
             joystick.DragEvent += Drag;
+            
+            game.CameraSwitcherView.Switch(CameraPositionType.DEFAULT);
         }
 
         private void Load()

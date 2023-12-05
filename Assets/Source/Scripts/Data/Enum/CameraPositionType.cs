@@ -3,6 +3,8 @@
     public enum CameraPositionType
     {
         DEFAULT,
-        AIMING
+        AIMING,
+        DOOR,
+        
     }
 }

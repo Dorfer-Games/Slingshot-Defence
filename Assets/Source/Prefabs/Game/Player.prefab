@@ -136,6 +136,8 @@ MonoBehaviour:
   AmmoView: {fileID: 0}
   Canvas: {fileID: 0}
   LineRenderer: {fileID: 8982713505671734469}
+  RopeMeshRenderer: {fileID: 8747876239932390856}
+  StickmanAnimator: {fileID: 761066316127870895}
 --- !u!114 &5396876730062300155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +446,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5089030678594583089}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &8747876239932390856 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4609835986842421241, guid: 028f134f51ef61649950308aba4ccb8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5089030678594583089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6236465008221444386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -526,9 +534,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6630290590332372621, guid: a635b1b6fa15a214ea9551d0a34cbaf7,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9440863a62a75ad4c910eb4837585843, type: 2}
+    - target: {fileID: 6630290590332372621, guid: a635b1b6fa15a214ea9551d0a34cbaf7,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 966325036113560260, guid: a635b1b6fa15a214ea9551d0a34cbaf7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a635b1b6fa15a214ea9551d0a34cbaf7, type: 3}
+--- !u!95 &761066316127870895 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6630290590332372621, guid: a635b1b6fa15a214ea9551d0a34cbaf7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6236465008221444386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6660811877635638741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 784658764889169143, guid: a635b1b6fa15a214ea9551d0a34cbaf7,

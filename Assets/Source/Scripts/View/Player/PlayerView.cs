@@ -11,6 +11,8 @@ namespace Source.Scripts.View
         public AmmoView AmmoView;
         public Canvas Canvas;
         public LineRenderer LineRenderer;
+        public SkinnedMeshRenderer RopeMeshRenderer;
+        public Animator StickmanAnimator;
 
 
     }

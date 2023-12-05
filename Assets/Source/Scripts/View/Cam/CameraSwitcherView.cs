@@ -19,7 +19,7 @@ namespace Source.Scripts.View.Cam
 
         private void Awake()
         {
-            currentType = CameraPositionType.DEFAULT;
+            currentType = CameraPositionType.DOOR;
             shake = cameras[currentType].GetComponentInChildren<CinemachineBasicMultiChannelPerlin>();
         }
 
