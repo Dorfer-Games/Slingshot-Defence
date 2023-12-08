@@ -64,14 +64,10 @@ namespace Source.Scripts.System.Battle
                     //proc element
                     if (pool.Fire.Has(sender))
                     {
-                        ref var fire = ref pool.Fire.GetOrCreateRef(target);
-                        fire = pool.Fire.Get(sender);
-                        if (!pool.BurnTick.Has(target))
-                        {
-                            ref var burnTick = ref pool.BurnTick.Add(target);
-                            burnTick.Damage = baseDamage*fire.BurnTickDamagePercent / 100f;
-                            burnTick.Time = fire.BurnTick;
-                        }
+                        ref var setOnFireEvent = ref pool.SetOnFireEvent.Add(eventWorld.NewEntity());
+                        setOnFireEvent.Sender = sender;
+                        setOnFireEvent.Target = target;
+                        setOnFireEvent.Damage = baseDamage;
                         var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
                         vfx.gameObject.SetActive(true);
                         //each explodes
@@ -124,16 +120,18 @@ namespace Source.Scripts.System.Battle
                     {
                         ref var slime = ref pool.Slime.Get(sender);
                         var targetPos = pool.View.Get(target).Value.transform.position;
-                        var radius = slime.SlowRadius;
+                        var radius = slime.SlowRadius/config.ScaleFactor;
 
                         var slimeView = Instantiate(config.SlimeZonePrefab);
                         slimeView.transform.position = targetPos;
                         slimeView.transform.localScale =
-                            new Vector3(radius, radius, radius);
+                            new Vector3(radius, 1, radius);
                         
                         var slimeE = game.Fabric.InitView(slimeView);
-                        pool.Lifetime.Add(slimeE).Value = config.SlimeZoneDuration;
-                        
+                        ref var slimeZone = ref pool.Slime.Add(slimeE);
+                        slimeZone = slime;
+                        pool.ZoneTick.Add(slimeE).Value = slime.Time;
+
                         //event
                         pool.SpawnZoneEvent.Add(eventWorld.NewEntity()).Entity = slimeE;
                     }

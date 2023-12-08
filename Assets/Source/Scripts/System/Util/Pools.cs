@@ -56,8 +56,10 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<HpViewComponent> HpViewComponent;
         public readonly EcsPool<HitVFXProviderComponent> HitVFXProviderComponent;
         public readonly EcsPool<Lifetime> Lifetime;
+        public readonly EcsPool<ZoneTriggers> ZoneTriggers;
+        public readonly EcsPool<ZoneTick> ZoneTick;
+       
         
-     
 
         //events
         public readonly EcsPool<HitEvent> HitEvent;
@@ -67,6 +69,9 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<DamageEvent> DamageEvent;
         public readonly EcsPool<HitPlayerEvent> HitPlayerEvent;
         public readonly EcsPool<SpawnZoneEvent> SpawnZoneEvent;
+        public readonly EcsPool<SetOnFireEvent> SetOnFireEvent;
+        public readonly EcsPool<ZoneExitEvent> ZoneExitEvent;
+        public readonly EcsPool<ZoneEnterEvent> ZoneEnterEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -112,6 +117,9 @@ namespace Source.Scripts.System.Util
             HpViewComponent = world.GetPool<HpViewComponent>();
             HitVFXProviderComponent = world.GetPool<HitVFXProviderComponent>();
             Lifetime = world.GetPool<Lifetime>();
+            ZoneTriggers = world.GetPool<ZoneTriggers>();
+            ZoneTick = world.GetPool<ZoneTick>();
+           
 
 
             //events
@@ -122,6 +130,9 @@ namespace Source.Scripts.System.Util
             DamageEvent = eventWorld.GetPool<DamageEvent>();
             HitPlayerEvent = eventWorld.GetPool<HitPlayerEvent>();
             SpawnZoneEvent = eventWorld.GetPool<SpawnZoneEvent>();
+            SetOnFireEvent = eventWorld.GetPool<SetOnFireEvent>();
+            ZoneExitEvent = eventWorld.GetPool<ZoneExitEvent>();
+            ZoneEnterEvent = eventWorld.GetPool<ZoneEnterEvent>();
         }
 
 

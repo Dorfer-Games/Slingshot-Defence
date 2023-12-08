@@ -22,6 +22,9 @@ namespace Source.Scripts.System
             AddFilter<SpawnBallEvent>();
             AddFilter<DamageEvent>();
             AddFilter<HitPlayerEvent>();
+            AddFilter<SetOnFireEvent>();
+            AddFilter<ZoneEnterEvent>();
+            AddFilter<ZoneExitEvent>();
         
         }
 

@@ -4,13 +4,7 @@ namespace Source.Scripts.View
 {
     public class DamagerView : MonoBehaviour
     {
-        public TriggerListenerComponent AttackTriggerListener;
-         
+        public TriggerListenerView AttackTriggerListener;
         
-        private void OnDrawGizmos()
-        {
-            Gizmos.color=Color.black;
-            Gizmos.DrawSphere(transform.position,3);
-        }
     }
 }

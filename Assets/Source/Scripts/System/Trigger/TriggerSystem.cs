@@ -12,17 +12,14 @@ namespace Source.Scripts.System.Trigger
     public class TriggerSystem : GameSystem
     {
         [SerializeField] [Tag] private string attackable;
-
-
+        
         private EcsFilter filterSpawnBallEvent;
-        private EcsFilter filterSpawnZoneEvent;
 
 
         public override void OnInit()
         {
             base.OnInit();
             filterSpawnBallEvent = eventWorld.Filter<SpawnBallEvent>().End();
-            filterSpawnZoneEvent = eventWorld.Filter<SpawnZoneEvent>().End();
 
             //sub player
             game.PlayerView.BodyTriggerListener.OnTriggerEnterEvent += PlayerHit;
@@ -47,13 +44,7 @@ namespace Source.Scripts.System.Trigger
                 var ent = pool.SpawnBallEvent.Get(e).Value;
                 SubscribeBall(ent);
             }
-            foreach (var e in filterSpawnZoneEvent)
-            {
-                var ent = pool.SpawnZoneEvent.Get(e).Entity;
-                //SubscribeBall(ent);
-                
-                pool.SpawnZoneEvent.Del(e);
-            }
+           
         }
 
         private void SubscribeBall(int ent)

@@ -19,10 +19,10 @@ namespace Kuhpik
         public float SlingInputOffset;
         public float UnitRotSpeed;
         public float BallSpeed;
+        public LayerMask EnemyLayerMask;
 
 
-        [Header("Settable")] 
-        public float SlimeZoneDuration;
+        [Header("Settable")]
         public float MultishotAngle;
         public float KnockbackTime;
         public float BallBaseRadius;
@@ -55,5 +55,6 @@ namespace Kuhpik
         [Header("Prefabs")]
         [BoxGroup("Prefabs")] public BaseView BallPrefab;
         [BoxGroup("Prefabs")] public BaseView SlimeZonePrefab;
+        [BoxGroup("Prefabs")] public BaseView FireZonePrefab;
     }
 }

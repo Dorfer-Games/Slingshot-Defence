@@ -71,6 +71,7 @@ namespace Source.Scripts.System.Battle
 
             //add other stats
             pool.Enemy.Add(enemyEnt);
+            pool.ZoneTriggers.Add(enemyEnt).Value = new HashSet<int>();
             ref var hp =ref pool.Hp.Add(enemyEnt);
             hp.CurHp = hp.MaxHp = stats.Hp;
             pool.Exp.Add(enemyEnt).Value = stats.Exp;

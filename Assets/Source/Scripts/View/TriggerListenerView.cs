@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Source.Scripts.View
 {
-    public class TriggerListenerComponent : MonoBehaviour
+    public class TriggerListenerView : MonoBehaviour
     {
         public event Action<Transform,Transform> OnTriggerEnterEvent;
         public event Action<Transform,Transform> OnTriggerExitEvent;

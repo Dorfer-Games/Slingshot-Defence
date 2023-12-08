@@ -17,6 +17,10 @@ MonoBehaviour:
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.5
   BallSpeed: 35
+  EnemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  SlimeZoneDuration: 0
   MultishotAngle: 30
   KnockbackTime: 0.36
   BallBaseRadius: 0.375
@@ -92,9 +96,11 @@ MonoBehaviour:
   - AddDamagePercent: 0
     SlowPercent: 0
     SlowRadius: 0
-  - AddDamagePercent: 0
-    SlowPercent: 0
-    SlowRadius: 0
+    Time: 0
+  - AddDamagePercent: 10
+    SlowPercent: 50
+    SlowRadius: 2
+    Time: 2
   EnemyConfigs:
     _serializedList:
     - Key: 0
@@ -104,4 +110,8 @@ MonoBehaviour:
     - Key: 0
       Value: {fileID: 11400000, guid: 6e1168c511d87ed448d9940ab52429bb, type: 2}
   BallPrefab: {fileID: 1962176878986198001, guid: b74b5bc211e5dea4283f768bde908019,
+    type: 3}
+  SlimeZonePrefab: {fileID: 7005869483508194767, guid: 17e57123dbc816a428cc7e3b090264a8,
+    type: 3}
+  FireZonePrefab: {fileID: 2837122614282247126, guid: 72b1b60b32a54164ea584ffcbec3a4a0,
     type: 3}

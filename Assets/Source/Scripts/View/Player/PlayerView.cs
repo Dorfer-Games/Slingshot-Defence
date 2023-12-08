@@ -6,7 +6,7 @@ namespace Source.Scripts.View
 {
     public class PlayerView : BaseView
     {
-        public TriggerListenerComponent BodyTriggerListener;
+        public TriggerListenerView BodyTriggerListener;
         public Transform BallSpawnPos;
         public AmmoView AmmoView;
         public Canvas Canvas;
