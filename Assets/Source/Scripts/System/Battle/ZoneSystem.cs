@@ -19,7 +19,7 @@ namespace Source.Scripts.System.Battle
             base.OnInit();
             filterZoneEnter = eventWorld.Filter<ZoneEnterEvent>().End();
             filterZoneExit = eventWorld.Filter<ZoneExitEvent>().End();
-            filterZoneTick = world.Filter<ZoneTick>().End();
+            filterZoneTick = world.Filter<Zone>().End();
             filterZoneTriggerers = world.Filter<ZoneTriggers>().End();
         }
 
@@ -44,7 +44,7 @@ namespace Source.Scripts.System.Battle
 
             foreach (var ent in filterZoneTick)
             {
-                ref var time = ref pool.ZoneTick.Get(ent).Value;
+                ref var time = ref pool.Zone.Get(ent).Time;
                 if (time <= 0)
                 {
                     foreach (var target in filterZoneTriggerers)

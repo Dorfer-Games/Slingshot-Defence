@@ -1,10 +1,9 @@
 ﻿using System;
-
 namespace Source.Scripts.Component.Battle.Ball
 {
     [Serializable]
-    public struct Slime
+    public struct DarkData
     {
-        public int SlowPercent;
+        public Explosive Explosive;
     }
 }

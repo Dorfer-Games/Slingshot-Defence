@@ -46,10 +46,9 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Mult> Mult;
         public readonly EcsPool<Elements> Elements;
         public readonly EcsPool<Fire> Fire;
-        public readonly EcsPool<Dark> Dark;
+        public readonly EcsPool<Explosive> Explosive;
         public readonly EcsPool<Lightning> Lightning;
         public readonly EcsPool<Slime> Slime;
-        public readonly EcsPool<Boulder> Boulder;
         public readonly EcsPool<PrevHitTargets> PrevHitTargets;
         public readonly EcsPool<KnockedTick> KnockedTick;
         public readonly EcsPool<BurnTick> BurnTick;
@@ -57,7 +56,11 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<HitVFXProviderComponent> HitVFXProviderComponent;
         public readonly EcsPool<Lifetime> Lifetime;
         public readonly EcsPool<ZoneTriggers> ZoneTriggers;
-        public readonly EcsPool<ZoneTick> ZoneTick;
+        public readonly EcsPool<Zone> Zone;
+        public readonly EcsPool<ZoneSpread> ZoneSpread;
+        public readonly EcsPool<Ult> Ult;
+        public readonly EcsPool<Weakness> Weakness;
+        public readonly EcsPool<ThunderBall> ThunderBall;
        
         
 
@@ -107,10 +110,9 @@ namespace Source.Scripts.System.Util
             Mult = world.GetPool<Mult>();
             Elements = world.GetPool<Elements>();
             Fire = world.GetPool<Fire>();
-            Dark = world.GetPool<Dark>();
+            Explosive = world.GetPool<Explosive>();
             Lightning = world.GetPool<Lightning>();
             Slime = world.GetPool<Slime>();
-            Boulder = world.GetPool<Boulder>();
             PrevHitTargets = world.GetPool<PrevHitTargets>();
             KnockedTick = world.GetPool<KnockedTick>();
             BurnTick = world.GetPool<BurnTick>();
@@ -118,7 +120,11 @@ namespace Source.Scripts.System.Util
             HitVFXProviderComponent = world.GetPool<HitVFXProviderComponent>();
             Lifetime = world.GetPool<Lifetime>();
             ZoneTriggers = world.GetPool<ZoneTriggers>();
-            ZoneTick = world.GetPool<ZoneTick>();
+            Zone = world.GetPool<Zone>();
+            ZoneSpread = world.GetPool<ZoneSpread>();
+            Ult = world.GetPool<Ult>();
+            Weakness = world.GetPool<Weakness>();
+            ThunderBall = world.GetPool<ThunderBall>();
            
 
 

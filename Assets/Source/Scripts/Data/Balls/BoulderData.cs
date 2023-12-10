@@ -3,9 +3,8 @@
 namespace Source.Scripts.Component.Battle.Ball
 {
     [Serializable]
-    public struct Boulder
+    public struct BoulderData
     {
-        public int AddDamagePercent;
         public float AddKnockbackForce;
     }
 }

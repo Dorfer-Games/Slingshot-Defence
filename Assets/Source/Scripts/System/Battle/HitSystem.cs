@@ -3,6 +3,7 @@ using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component.Battle.Ball;
 using Source.Scripts.Component.Event;
+using Source.Scripts.Data.Enum;
 using Source.Scripts.View.VFX;
 using UnityEngine;
 
@@ -71,9 +72,9 @@ namespace Source.Scripts.System.Battle
                         var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
                         vfx.gameObject.SetActive(true);
                         //each explodes
-                    }else if (pool.Dark.Has(sender))
+                    }else if (pool.Explosive.Has(sender))
                     {
-                        ref var dark = ref pool.Dark.Get(sender);
+                        ref var dark = ref pool.Explosive.Get(sender);
                         var enemiesInRadius = game.PositionService.GetEnemiesInRadius(target, dark.ExplosionRadius);
                         float damage = baseDamage * dark.ExplosionDamagePercent / 100f;
                         foreach (var explosionEnt in enemiesInRadius)
@@ -99,8 +100,7 @@ namespace Source.Scripts.System.Battle
                             lightningDmgE.Sender = sender;
                             lightningDmgE.Target = lightingTarget;
                         }
-                        
-                        
+
                         for (int i = 0; i < lightingTargets.Count-1; i++)
                         {
                             int fromE = lightingTargets[i];
@@ -116,29 +116,30 @@ namespace Source.Scripts.System.Battle
                             vfx.SetLength(dir.magnitude);
                             vfx.gameObject.SetActive(true);
                         }
-                    }else if (pool.Slime.Has(sender))
-                    {
-                        ref var slime = ref pool.Slime.Get(sender);
-                        var targetPos = pool.View.Get(target).Value.transform.position;
-                        var radius = slime.SlowRadius/config.ScaleFactor;
-
-                        var slimeView = Instantiate(config.SlimeZonePrefab);
-                        slimeView.transform.position = targetPos;
-                        slimeView.transform.localScale =
-                            new Vector3(radius, 1, radius);
-                        
-                        var slimeE = game.Fabric.InitView(slimeView);
-                        ref var slimeZone = ref pool.Slime.Add(slimeE);
-                        slimeZone = slime;
-                        pool.ZoneTick.Add(slimeE).Value = slime.Time;
-
-                        //event
-                        pool.SpawnZoneEvent.Add(eventWorld.NewEntity()).Entity = slimeE;
                     }
                     else
                     {
                         var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
                         vfx.gameObject.SetActive(true);
+                    }
+
+                    if (pool.ZoneSpread.Has(sender))
+                    {
+                        ref var zoneSpread = ref pool.ZoneSpread.Get(sender);
+                        var zoneSpreadRadius = zoneSpread.SpreadRadius;
+                        for (int i = 0; i < zoneSpread.Count; i++)
+                        {
+                            Vector3 pos=pool.View.Get(target).Value.transform.position;;
+
+                            if (i>0)
+                            {
+                                var rndOffset = new Vector3(Random.Range(-zoneSpreadRadius, zoneSpreadRadius),
+                                    0, Random.Range(-zoneSpreadRadius, zoneSpreadRadius));
+                                pos += rndOffset;
+                            }
+                            
+                            SpawnZone(sender,pos);
+                        }
                     }
                 }
 
@@ -147,6 +148,40 @@ namespace Source.Scripts.System.Battle
             }
 
             list.Clear();
+        }
+
+        private void SpawnZone(int sender,Vector3 pos)
+        {
+            var elementType = pool.Element.Get(sender).Value;
+            ref var zoneSpread = ref pool.ZoneSpread.Get(sender);
+            var radius = zoneSpread.ZoneRadius/config.ScaleFactor;
+
+            var zoneView = Instantiate(config.ZonesPrefabs[elementType]);
+            zoneView.transform.position = pos;
+            zoneView.transform.localScale = new Vector3(radius, 1, radius);
+                        
+            var zoneE = game.Fabric.InitView(zoneView);
+           
+            ref var zone = ref pool.Zone.Add(zoneE);
+            zone.Time = zoneSpread.Time;
+            zone.Radius = zoneSpread.ZoneRadius;
+
+            if (pool.Slime.Has(sender))
+            {
+                ref var slime = ref pool.Slime.Get(sender);
+                ref var slimeZone = ref pool.Slime.Add(zoneE);
+                slimeZone = slime;
+            }
+
+            if (pool.Fire.Has(sender))
+            {
+                ref var fire = ref pool.Fire.Get(sender);
+                ref var fireZone = ref pool.Fire.Add(zoneE);
+                fireZone = fire;
+            }
+
+            //event
+            pool.SpawnZoneEvent.Add(eventWorld.NewEntity()).Entity = zoneE;
         }
 
         private bool DetectHit(int sender, List<int> targets)
@@ -166,7 +201,7 @@ namespace Source.Scripts.System.Battle
                 }
             }
 
-            //update hit targets
+            //update prev hit targets
             HashSet<EcsPackedEntity> newSet = new();
             foreach (var ent in hashSet)
             {

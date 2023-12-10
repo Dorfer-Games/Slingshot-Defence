@@ -2,9 +2,8 @@
 namespace Source.Scripts.Component.Battle.Ball
 {
     [Serializable]
-    public struct Dark
+    public struct Explosive
     {
-        public int AddDamagePercent;
         public float ExplosionRadius;
         public int ExplosionDamagePercent;
     }

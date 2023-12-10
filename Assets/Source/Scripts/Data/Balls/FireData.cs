@@ -3,8 +3,8 @@
 namespace Source.Scripts.Component.Battle.Ball
 {
     [Serializable]
-    public struct Slime
+    public struct FireData
     {
-        public int SlowPercent;
+        public Fire Fire;
     }
 }

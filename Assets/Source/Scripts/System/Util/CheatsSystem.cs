@@ -40,8 +40,18 @@ namespace Source.Scripts.System.Util
                     var ammo = pool.Ammo.Get(game.PlayerEntity);
                     var firstAmmo = ammo.Value[^ammo.Count];
                     pool.Element.Get(firstAmmo).Value = kv.Key;
-                    pool.ModelChangerComponent.Get(firstAmmo).Value.SetModel((int)kv.Key);
-                    pool.Elements.Get(game.PlayerEntity).Value[kv.Key] = 1;
+                    ref var level =ref pool.Level.Get(firstAmmo).Value;
+                    level++;
+                    int modelID = (int) kv.Key;
+                    if (level>4)
+                    {
+                        pool.Ult.GetOrCreateRef(firstAmmo).Value = (UltType) kv.Key;
+                        modelID = config.ElementsCount-1+ (int)kv.Key;
+                    }
+                    
+                    pool.ModelChangerComponent.Get(firstAmmo).Value.SetModel(modelID);
+                  
+                    //pool.Elements.Get(game.PlayerEntity).Value[kv.Key] = 1;
                 });
             }
            /* rndButton.onClick.AddListener(() =>
