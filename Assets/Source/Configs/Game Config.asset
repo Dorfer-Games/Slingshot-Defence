@@ -185,12 +185,12 @@ MonoBehaviour:
       Value: 000000000a000000140000001e0000002800000064000000
   MeteorUlt:
     Fire:
-      BurnTime: 2
-      BurnTick: 1
-      BurnTickDamagePercent: 50
+      BurnTime: 5
+      BurnTick: 0.2
+      BurnTickDamagePercent: 10
     ZoneSpread:
       ZoneRadius: 1
-      Time: 2
+      Time: 5
       Count: 3
       SpreadRadius: 5
   SuperDarkUlt:

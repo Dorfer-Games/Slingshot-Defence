@@ -67,9 +67,13 @@ namespace Source.Scripts.System.Battle
             }
             else if (pool.Fire.Has(sender))
             {
+                var burnTickDamagePercent = pool.Fire.Get(sender).BurnTickDamagePercent / 100f;
+                var dmg = pool.Damage.Get(sender).Value;
+
                 ref var setOnFireEvent = ref pool.SetOnFireEvent.Add(eventWorld.NewEntity());
                 setOnFireEvent.Sender = sender;
                 setOnFireEvent.Target = target;
+                setOnFireEvent.Damage = dmg*burnTickDamagePercent;
             }
         }
 

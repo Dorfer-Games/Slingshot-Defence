@@ -39,7 +39,8 @@ namespace Source.Scripts.System.Trigger
         {
             //check collisions when init
             var zoneT = pool.View.Get(ent).Value.transform;
-            var colliders = Physics.OverlapSphere(zoneT.position, zoneT.localScale.x, config.EnemyLayerMask);
+            var radius = pool.Zone.Get(ent).Radius;
+            var colliders = Physics.OverlapSphere(zoneT.position, radius, config.EnemyLayerMask);
             foreach (var c in colliders)
                 ZoneEnter(zoneT, c.transform);
         }

@@ -178,6 +178,8 @@ namespace Source.Scripts.System.Battle
                 ref var fire = ref pool.Fire.Get(sender);
                 ref var fireZone = ref pool.Fire.Add(zoneE);
                 fireZone = fire;
+
+                pool.Damage.Add(zoneE).Value = pool.Damage.Get(sender).Value;
             }
 
             //event

@@ -4,6 +4,7 @@ using Source.Scripts.Component;
 using Source.Scripts.Component.Battle;
 using Source.Scripts.Component.Battle.Ball;
 using Source.Scripts.Component.Event;
+using Source.Scripts.Data.Enum;
 using UnityEngine;
 
 namespace Source.Scripts.System.Battle.BallPerks
@@ -37,6 +38,9 @@ namespace Source.Scripts.System.Battle.BallPerks
                 ref var burnTick = ref pool.BurnTick.GetOrCreateRef(target);
                 burnTick.Damage = damage * fire.BurnTickDamagePercent / 100f;
                 burnTick.Time = fire.BurnTick;
+                
+                var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) ElementType.FIRE];
+                vfx.gameObject.SetActive(true);
             }
 
             foreach (var ent in filterBurnTick)
@@ -53,6 +57,8 @@ namespace Source.Scripts.System.Battle.BallPerks
                     {
                         pool.BurnTick.Del(ent);
                         pool.Fire.Del(ent);
+                        var vfx = pool.HitVFXProviderComponent.Get(ent).Value.VFXs[(int) ElementType.FIRE];
+                        vfx.gameObject.SetActive(false);
                     }
                     else
                     {
