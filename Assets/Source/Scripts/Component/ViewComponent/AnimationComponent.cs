@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Source.Scripts.Component.ViewComponent
 {
-    public struct AnimatorComponent
+    public struct AnimationComponent
     {
         public AnimationView Value;
     }

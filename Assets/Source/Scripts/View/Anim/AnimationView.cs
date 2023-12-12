@@ -8,18 +8,31 @@ namespace Source.Scripts.View
 {
     public class AnimationView : MonoBehaviour
     {
-        private Animator visualAnimator;
         [SerializeField] private GameObject visual;
         [SerializeField] private ParticleSystem hitVFX;
         [SerializeField] private float minBounce;
         [SerializeField] private float maxBounce;
-        public bool BlockAnim;
 
+        public float DeathAnimLenght;
+
+        private Animator visualAnimator;
+        private Collider[] colliders;
+        
+        private bool BlockAnim=false;
         private Coroutine attackCoroutine;
 
         private void Awake()
         {
             visualAnimator = visual.GetComponentInChildren<Animator>();
+            colliders = GetComponentsInChildren<Collider>();
+        }
+
+        public void AnimateDeath()
+        {
+            visualAnimator.Play("Die");
+            BlockAnim = true;
+            foreach (var col in colliders)
+                col.enabled = false;
         }
 
         public void Play(string name)

@@ -1,5 +1,6 @@
 ﻿using Kuhpik;
 using Leopotam.EcsLite;
+using Source.Scripts.Component;
 using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Event;
 using UnityEngine;
@@ -44,10 +45,14 @@ namespace Source.Scripts.System.Move
                 if (knockedTick.Value<=0)
                 {
                     pool.KnockedTick.Del(ent);
-                    pool.NavMeshAgentComponent.Get(ent).Value.enabled = true;
-                    pool.NavMeshAgentComponent.Get(ent).Value.SetDestination(game.PlayerView.transform.position);
                     var rb = pool.Rb.Get(ent).Value;
                     rb.constraints = RigidbodyConstraints.FreezeAll;
+                    if (pool.DeathAnimTick.Has(ent))
+                        continue;
+                        
+                    pool.NavMeshAgentComponent.Get(ent).Value.enabled = true;
+                    pool.NavMeshAgentComponent.Get(ent).Value.SetDestination(game.PlayerView.transform.position);
+                   
                 }
                 else
                 {

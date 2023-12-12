@@ -1,5 +1,6 @@
 ﻿using Kuhpik;
 using Leopotam.EcsLite;
+using Source.Scripts.Component;
 using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Component.Movement;
@@ -14,15 +15,20 @@ namespace Source.Scripts.System.Anim
         private EcsFilter filterStopMove;
         private EcsFilter filterEvent;
         private EcsFilter filterStopMoveRb;
+        private EcsFilter filterDead;
+        private EcsFilter filterDeadTick;
 
 
         public override void OnInit()
         {
             base.OnInit();
 
-            filterMove = world.Filter<AnimatorComponent>().Inc<Speed>().Exc<CantMoveTag>().Exc<KnockedTick>().End();
-            filterStopMove = world.Filter<AnimatorComponent>().Inc<CantMoveTag>().End();
-            filterStopMoveRb = world.Filter<AnimatorComponent>().Inc<RigidbodyComponent>().Exc<Speed>().End();
+            filterMove = world.Filter<AnimationComponent>().Inc<Speed>().Exc<CantMoveTag>().Exc<KnockedTick>().End();
+            filterStopMove = world.Filter<AnimationComponent>().Inc<CantMoveTag>().End();
+            filterStopMoveRb = world.Filter<AnimationComponent>().Inc<RigidbodyComponent>().Exc<Speed>().End();
+            filterDead = world.Filter<AnimationComponent>().Inc<DeadTag>().Exc<DeathAnimTick>().End();
+            filterDeadTick = world.Filter<AnimationComponent>().Inc<DeadTag>().Inc<DeathAnimTick>().End();
+            
             filterEvent = eventWorld.Filter<DamageEvent>().End();
         }
 
@@ -57,6 +63,25 @@ namespace Source.Scripts.System.Anim
                 //animationView.Bounce();
                 animationView.Play("GetHit");
                 //animationView.GetHitVFX();
+            }
+
+            foreach (var ent in filterDead)
+            {
+                var animationView = pool.Anim.Get(ent).Value;
+                pool.DeathAnimTick.Add(ent).Value = animationView.DeathAnimLenght;
+                pool.NavMeshAgentComponent.Get(ent).Value.enabled = false;
+                animationView.AnimateDeath();
+            }
+
+            foreach (var ent in filterDeadTick)
+            {
+                ref var time = ref pool.DeathAnimTick.Get(ent).Value;
+                if (time <= 0)
+                {
+                    pool.DeathAnimTick.Del(ent);
+                }
+                else 
+                    time -= Time.deltaTime;
             }
         }
     }

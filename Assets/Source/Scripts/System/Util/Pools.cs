@@ -18,7 +18,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Direction> Dir;
         public readonly EcsPool<Speed> Speed;
         public readonly EcsPool<Hp> Hp;
-        public readonly EcsPool<AnimatorComponent> Anim;
+        public readonly EcsPool<AnimationComponent> Anim;
         public readonly EcsPool<Inventory> Inventory;
         public readonly EcsPool<CantMoveTag> CantMove;
         public readonly EcsPool<RigidbodyComponent> Rb;
@@ -61,6 +61,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Ult> Ult;
         public readonly EcsPool<Weakness> Weakness;
         public readonly EcsPool<KnockbackWave> KnockbackWave;
+        public readonly EcsPool<DeathAnimTick> DeathAnimTick;
 
 
 
@@ -84,7 +85,7 @@ namespace Source.Scripts.System.Util
             Dir = world.GetPool<Direction>();
             Speed = world.GetPool<Speed>();
             Hp = world.GetPool<Hp>();
-            Anim = world.GetPool<AnimatorComponent>();
+            Anim = world.GetPool<AnimationComponent>();
             Inventory = world.GetPool<Inventory>();
             CantMove = world.GetPool<CantMoveTag>();
             Dead = world.GetPool<DeadTag>();
@@ -127,6 +128,7 @@ namespace Source.Scripts.System.Util
             Ult = world.GetPool<Ult>();
             Weakness = world.GetPool<Weakness>();
             KnockbackWave = world.GetPool<KnockbackWave>();
+            DeathAnimTick = world.GetPool<DeathAnimTick>();
 
 
 

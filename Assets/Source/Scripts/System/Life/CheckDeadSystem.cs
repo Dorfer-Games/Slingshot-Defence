@@ -16,7 +16,7 @@ namespace Source.Scripts.System.Move
         {
             base.OnInit();
 
-            filter = world.Filter<Hp>().End();
+            filter = world.Filter<Hp>().Exc<DeadTag>().End();
         }
 
         public override void OnUpdate()
@@ -28,6 +28,7 @@ namespace Source.Scripts.System.Move
                 if ( hp.CurHp <=0)
                 {
                     pool.Dead.Add(ent);
+                    pool.CantMove.GetOrCreateRef(ent);
                 }
             }
         }

@@ -38,7 +38,7 @@ namespace Source.Scripts.System.Ui
             {
                 var hp = pool.Hp.Get(ent);
                 var hpView = pool.HpViewComponent.Get(ent).Value;
-                if (Mathf.Abs(hp.CurHp - hp.MaxHp) < 0.01f)
+                if (Mathf.Abs(hp.CurHp - hp.MaxHp) < 0.01f || pool.Dead.Has(ent))
                 {
                     hpView.ToggleActive(false);
                     hpView.SetValue(1);
