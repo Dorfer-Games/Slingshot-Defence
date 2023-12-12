@@ -40,8 +40,11 @@ namespace Source.Scripts.System.Input
                 return;
             
             var firstAmmo = ammo.Value[^ammo.Count];
-            var elementType = pool.Element.Get(firstAmmo).Value;
-            game.PlayerView.SlingBall.SetModel((int)elementType);
+            var elID = (int)pool.Element.Get(firstAmmo).Value;
+            if (pool.Ult.Has(firstAmmo))
+                elID += config.ElementsCount - 1;
+            
+            game.PlayerView.SlingBall.SetModel(elID);
             
             Time.timeScale = config.SlowTimeScale;
             cameraSwitcherView.Switch(CameraPositionType.AIMING);
