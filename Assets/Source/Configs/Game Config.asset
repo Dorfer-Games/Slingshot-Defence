@@ -236,3 +236,11 @@ MonoBehaviour:
     - Key: 5
       Value: {fileID: 7005869483508194767, guid: 17e57123dbc816a428cc7e3b090264a8,
         type: 3}
+  ZoneSpreadPrefabs:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 6483753764867920093, guid: d62e6fe4fd6fe3c4695eb85d2a2eab77,
+        type: 3}
+    - Key: 5
+      Value: {fileID: 8891631099945000953, guid: a361781da28fa8a45aa0d9790ff0bc3b,
+        type: 3}

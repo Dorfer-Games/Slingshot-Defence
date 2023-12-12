@@ -29,6 +29,9 @@ namespace Source.Scripts.System.Move
 
                 if (!pool.Rb.Has(target))
                     continue;
+                
+                if (!pool.Knockback.Has(sender))
+                    continue;
 
                 var force = pool.Knockback.Get(sender).Value;
 
