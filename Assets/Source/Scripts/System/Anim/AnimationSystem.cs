@@ -54,7 +54,7 @@ namespace Source.Scripts.System.Anim
                 if (damageEvent.Target == game.PlayerEntity)
                     continue;
                 var animationView = pool.Anim.Get(damageEvent.Target).Value;
-                animationView.Bounce();
+                //animationView.Bounce();
                 animationView.Play("GetHit");
                 //animationView.GetHitVFX();
             }

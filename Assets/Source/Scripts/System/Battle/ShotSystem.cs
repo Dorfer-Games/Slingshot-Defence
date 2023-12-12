@@ -40,8 +40,6 @@ namespace Source.Scripts.System.Sling.Shot
               
                 var ballsInShot = InitTomes(ent,firstAmmo);
                 InitBallsElement(ballsInShot,firstAmmo);
-              
-               
             }
         }
 
@@ -66,11 +64,15 @@ namespace Source.Scripts.System.Sling.Shot
                     weakness = config.SuperDarkUlt.Weakness;
                     break;
                 case UltType.THUNDER_BALL:
-                    ref var thunderBall = ref pool.ThunderBall.GetOrCreateRef(ent);
-                    thunderBall = config.ThunderBallUlt.ThunderBall;
+                    ref var lightning = ref pool.Lightning.GetOrCreateRef(ent);
+                    lightning = config.ThunderBallUlt.Lightning;
+                    lightning.Radius *= config.ScaleFactor;
                     break;
                 case UltType.SUPER_BOULDER:
-                    pool.Knockback.GetOrCreateRef(ent).Value += config.SuperBoulderUlt.BoulderData.AddKnockbackForce;
+                    pool.Knockback.GetOrCreateRef(ent).Value = config.BallBaseKnockback + config.SuperBoulderUlt.BoulderData.AddKnockbackForce;
+                    ref var knockbackWave = ref pool.KnockbackWave.GetOrCreateRef(ent);
+                    knockbackWave = config.SuperBoulderUlt.KnockbackWave;
+                    knockbackWave.Radius *= config.ScaleFactor;
                     break;
                 case UltType.SUPER_SLIME:
                     ref var slime = ref pool.Slime.GetOrCreateRef(ent);
@@ -87,6 +89,38 @@ namespace Source.Scripts.System.Sling.Shot
             //add ball perks
             var tomes = pool.Tomes.Get(game.PlayerEntity).Value;
             List<int> ballsInShot = new List<int>() {ent};
+
+            if (tomes[TomeType.MULT]>0)
+            {
+                ref var mult = ref pool.Mult.Add(ent);
+                mult = config.MultTome[tomes[TomeType.MULT]];
+                var ball1Tr = pool.View.Get(ent).Value.transform;
+                var scaleX = ball1Tr.localScale.x;
+                if (mult.AddBallCount == 1)
+                {
+                    MoveLocal(ent, new Vector3(-scaleX / 2f, 0, 0));
+                    var addBall = SpawnBall(firstAmmo);
+                    ballsInShot.Add(addBall);
+                    MoveLocal(addBall, new Vector3(scaleX / 2f, 0, 0));
+                }
+                else if (mult.AddBallCount == 2)
+                {
+                    var addBall1 = SpawnBall(firstAmmo);
+                    ballsInShot.Add(addBall1);
+                    MoveLocal(addBall1, new Vector3(-scaleX * 1.5f, 0, 0));
+                    RotateLocal(addBall1, -config.MultishotAngle);
+                    var addBall2 = SpawnBall(firstAmmo);
+                    ballsInShot.Add(addBall2);
+                    MoveLocal(addBall2, new Vector3(scaleX * 1.5f, 0, 0));
+                    RotateLocal(addBall2, config.MultishotAngle);
+                }
+
+                foreach (var multBall in ballsInShot)
+                {
+                    pool.Damage.Get(multBall).Value *= (mult.DamagePercent / 100f);
+                }
+            }
+            
             foreach (var tomeLvl in tomes)
             {
                 if (tomeLvl.Value == 0)
@@ -105,37 +139,9 @@ namespace Source.Scripts.System.Sling.Shot
                         ricochet = config.RicochetTome[tomeLvl.Value];
                         break;
                     case TomeType.KNOCKBACK:
-                        pool.Knockback.Get(ent).Value = config.KnockbackTome[tomeLvl.Value].Value;
+                        SetKnockback(ent,firstAmmo);
                         break;
                     case TomeType.MULT:
-                        ref var mult = ref pool.Mult.Add(ent);
-                        mult = config.MultTome[tomeLvl.Value];
-                        var ball1Tr = pool.View.Get(ent).Value.transform;
-                        var scaleX = ball1Tr.localScale.x;
-                        if (mult.AddBallCount == 1)
-                        {
-                            MoveLocal(ent, new Vector3(-scaleX / 2f, 0, 0));
-                            var addBall = SpawnBall(firstAmmo);
-                            ballsInShot.Add(addBall);
-                            MoveLocal(addBall, new Vector3(scaleX / 2f, 0, 0));
-                        }
-                        else if (mult.AddBallCount == 2)
-                        {
-                            var addBall1 = SpawnBall(firstAmmo);
-                            ballsInShot.Add(addBall1);
-                            MoveLocal(addBall1, new Vector3(-scaleX * 1.5f, 0, 0));
-                            RotateLocal(addBall1, -config.MultishotAngle);
-                            var addBall2 = SpawnBall(firstAmmo);
-                            ballsInShot.Add(addBall2);
-                            MoveLocal(addBall2, new Vector3(scaleX * 1.5f, 0, 0));
-                            RotateLocal(addBall2, config.MultishotAngle);
-                        }
-
-                        foreach (var multBall in ballsInShot)
-                        {
-                            pool.Damage.Get(multBall).Value *= (mult.DamagePercent / 100f);
-                        }
-
                         break;
                 }
             }
@@ -181,6 +187,34 @@ namespace Source.Scripts.System.Sling.Shot
                         break;
                 }
             }
+        }
+
+        private void SetKnockback(int ballE,int firstAmmo)
+        {
+            float value = 0f;
+            var tomes = pool.Tomes.Get(game.PlayerEntity).Value;
+            var elementType = pool.Element.Get(firstAmmo).Value;
+            var ammoLvl = pool.Level.Get(firstAmmo).Value;
+            if (elementType==ElementType.BOULDER && ammoLvl>0)
+            {
+                if (ammoLvl > 4)
+                {
+                    value += config.SuperBoulderUlt.BoulderData.AddKnockbackForce;
+                }
+                else
+                    value += config.BoulderBall[ammoLvl].AddKnockbackForce;
+            }
+
+            if (tomes[TomeType.KNOCKBACK]>0)
+            {
+                value += config.KnockbackTome[tomes[TomeType.KNOCKBACK]].Value;
+            }
+            else
+            {
+                value += config.BallBaseKnockback;
+            }
+
+            pool.Knockback.Get(ballE).Value = value;
         }
 
         private void AddDamagePercent(int ent,int firstAmmo)

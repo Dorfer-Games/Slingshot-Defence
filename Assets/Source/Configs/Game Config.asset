@@ -197,14 +197,19 @@ MonoBehaviour:
     Explosive:
       ExplosionRadius: 5
       ExplosionDamagePercent: 10
+    Weakness:
+      AddDamageIncomePercent: 100
+      Time: 5
   ThunderBallUlt:
-    ThunderBall:
-      ThunderTargetsCount: 3
-      ThunderDamagePercent: 100
+    Lightning:
+      TargetsCount: 3
+      LightningDamagePercent: 1
+      Radius: 20
   SuperBoulderUlt:
     BoulderData:
       AddKnockbackForce: 5
-    KnockbackWaveRadius: 1
+    KnockbackWave:
+      Radius: 2
   SuperSlimeUlt:
     Slime:
       SlowPercent: 50

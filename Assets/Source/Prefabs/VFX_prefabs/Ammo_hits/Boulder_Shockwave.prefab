@@ -9641,6 +9641,7 @@ GameObject:
   - component: {fileID: 1254859102817897988}
   - component: {fileID: 1415431722468409340}
   - component: {fileID: 1415882538785188792}
+  - component: {fileID: 1565494637330572003}
   m_Layer: 0
   m_Name: Boulder_Shockwave
   m_TagString: Untagged
@@ -9678,7 +9679,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -14445,6 +14446,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1565494637330572003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252915688273832746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33ef35dd5cb41769e86cd18ac7d21fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1252937041669273720
 GameObject:
   m_ObjectHideFlags: 0

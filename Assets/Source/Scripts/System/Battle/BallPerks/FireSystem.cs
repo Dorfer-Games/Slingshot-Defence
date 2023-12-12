@@ -38,9 +38,11 @@ namespace Source.Scripts.System.Battle.BallPerks
                 ref var burnTick = ref pool.BurnTick.GetOrCreateRef(target);
                 burnTick.Damage = damage * fire.BurnTickDamagePercent / 100f;
                 burnTick.Time = fire.BurnTick;
-                
-                var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) ElementType.FIRE];
-                vfx.gameObject.SetActive(true);
+
+                ref var vfxEvent = ref pool.VFXEvent.Add(eventWorld.NewEntity());
+                vfxEvent.VFXId = (int)ElementType.FIRE;
+                vfxEvent.Target = target;
+                vfxEvent.Toggle = true;
             }
 
             foreach (var ent in filterBurnTick)
@@ -57,8 +59,10 @@ namespace Source.Scripts.System.Battle.BallPerks
                     {
                         pool.BurnTick.Del(ent);
                         pool.Fire.Del(ent);
-                        var vfx = pool.HitVFXProviderComponent.Get(ent).Value.VFXs[(int) ElementType.FIRE];
-                        vfx.gameObject.SetActive(false);
+                        ref var vfxEvent = ref pool.VFXEvent.Add(eventWorld.NewEntity());
+                        vfxEvent.VFXId = (int)ElementType.FIRE;
+                        vfxEvent.Target = ent;
+                        vfxEvent.Toggle = false;
                     }
                     else
                     {

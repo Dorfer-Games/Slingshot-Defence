@@ -7,6 +7,6 @@ namespace Source.Scripts.Data.Ults
     public struct SuperBoulderData
     {
         public BoulderData BoulderData;
-        public float KnockbackWaveRadius;
+        public KnockbackWave KnockbackWave;
     }
 }

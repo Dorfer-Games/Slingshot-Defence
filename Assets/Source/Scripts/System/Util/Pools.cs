@@ -60,9 +60,9 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<ZoneSpread> ZoneSpread;
         public readonly EcsPool<Ult> Ult;
         public readonly EcsPool<Weakness> Weakness;
-        public readonly EcsPool<ThunderBall> ThunderBall;
-       
-        
+        public readonly EcsPool<KnockbackWave> KnockbackWave;
+
+
 
         //events
         public readonly EcsPool<HitEvent> HitEvent;
@@ -75,6 +75,8 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<SetOnFireEvent> SetOnFireEvent;
         public readonly EcsPool<ZoneExitEvent> ZoneExitEvent;
         public readonly EcsPool<ZoneEnterEvent> ZoneEnterEvent;
+        public readonly EcsPool<VFXEvent> VFXEvent;
+        public readonly EcsPool<KnockbackEvent> KnockbackEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -124,8 +126,8 @@ namespace Source.Scripts.System.Util
             ZoneSpread = world.GetPool<ZoneSpread>();
             Ult = world.GetPool<Ult>();
             Weakness = world.GetPool<Weakness>();
-            ThunderBall = world.GetPool<ThunderBall>();
-           
+            KnockbackWave = world.GetPool<KnockbackWave>();
+
 
 
             //events
@@ -139,6 +141,8 @@ namespace Source.Scripts.System.Util
             SetOnFireEvent = eventWorld.GetPool<SetOnFireEvent>();
             ZoneExitEvent = eventWorld.GetPool<ZoneExitEvent>();
             ZoneEnterEvent = eventWorld.GetPool<ZoneEnterEvent>();
+            VFXEvent = eventWorld.GetPool<VFXEvent>();
+            KnockbackEvent = eventWorld.GetPool<KnockbackEvent>();
         }
 
 

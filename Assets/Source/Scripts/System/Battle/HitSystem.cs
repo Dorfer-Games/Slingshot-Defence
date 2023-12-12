@@ -54,92 +54,49 @@ namespace Source.Scripts.System.Battle
                 }
 
                 var elementType = pool.Element.Get(sender).Value;
+                var vfxId = (int) elementType;
+                if (pool.Ult.Has(sender))
+                    vfxId += config.ElementsCount - 1;
                 var baseDamage = pool.Damage.Get(sender).Value;
                 foreach (var target in targets)
                 {
-                    ref var damageEvent = ref pool.DamageEvent.Add(eventWorld.NewEntity());
-                    damageEvent.Damage = baseDamage;
-                    damageEvent.Sender = sender;
-                    damageEvent.Target = target;
+                    bool sendVFX = true;
                     
+                    SendDamage(sender,target,baseDamage);
                     //proc element
                     if (pool.Fire.Has(sender))
                     {
-                        ref var setOnFireEvent = ref pool.SetOnFireEvent.Add(eventWorld.NewEntity());
-                        setOnFireEvent.Sender = sender;
-                        setOnFireEvent.Target = target;
-                        setOnFireEvent.Damage = baseDamage;
-                        var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
-                        vfx.gameObject.SetActive(true);
+                        ProcFire(sender, target, baseDamage);
+                    }
+                    
+                    if (pool.Explosive.Has(sender))
+                    { 
                         //each explodes
-                    }else if (pool.Explosive.Has(sender))
-                    {
-                        ref var dark = ref pool.Explosive.Get(sender);
-                        var enemiesInRadius = game.PositionService.GetEnemiesInRadius(target, dark.ExplosionRadius);
-                        float damage = baseDamage * dark.ExplosionDamagePercent / 100f;
-                        foreach (var explosionEnt in enemiesInRadius)
-                        {
-                            ref var explosionDmgE = ref pool.DamageEvent.Add(eventWorld.NewEntity());
-                            explosionDmgE.Damage = damage;
-                            explosionDmgE.Sender = sender;
-                            explosionDmgE.Target = explosionEnt;
-                        }
-                        var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
-                        vfx.gameObject.SetActive(true);
-                    }else if (pool.Lightning.Has(sender))
-                    {
-                        ref var lightning = ref pool.Lightning.Get(sender);
-                        var lightingTargets=game.PositionService.GetClosestSequence(target, lightning.Radius, lightning.TargetsCount,
-                            targets);
-                        
-                        float damage = baseDamage * lightning.LightningDamagePercent / 100f;
-                        foreach (var lightingTarget in lightingTargets)
-                        {
-                            ref var lightningDmgE = ref pool.DamageEvent.Add(eventWorld.NewEntity());
-                            lightningDmgE.Damage = damage;
-                            lightningDmgE.Sender = sender;
-                            lightningDmgE.Target = lightingTarget;
-                        }
-
-                        for (int i = 0; i < lightingTargets.Count-1; i++)
-                        {
-                            int fromE = lightingTargets[i];
-                            int toE = lightingTargets[i+1];
-                            var hitVFXProviderView = pool.HitVFXProviderComponent.Get(fromE).Value;
-                            var vfx = (LightningVFX)hitVFXProviderView.VFXs[(int) elementType];
-                            var fromPos = pool.View.Get(fromE).Value.transform.position;
-                            var toPos = pool.View.Get(toE).Value.transform.position;
-                            var dir = toPos-fromPos;
-                            
-                            vfx.transform.rotation = Quaternion.LookRotation(dir);
-                           
-                            vfx.SetLength(dir.magnitude);
-                            vfx.gameObject.SetActive(true);
-                        }
+                        ProcExplosion(sender, target, baseDamage,vfxId);
                     }
-                    else
+                    
+                    if (pool.Lightning.Has(sender))
                     {
-                        var vfx = pool.HitVFXProviderComponent.Get(target).Value.VFXs[(int) elementType];
-                        vfx.gameObject.SetActive(true);
+                        sendVFX = false;
+                        if (pool.Ult.Has(sender))
+                            ProcLightningUlt(sender, target, baseDamage,vfxId);
+                        else
+                            ProcLightning(sender, target, targets, baseDamage);
                     }
 
+                    if (pool.KnockbackWave.Has(sender))
+                    {
+                        ProcKnockbackWave(sender, target);
+                    }
+                    
                     if (pool.ZoneSpread.Has(sender))
                     {
-                        ref var zoneSpread = ref pool.ZoneSpread.Get(sender);
-                        var zoneSpreadRadius = zoneSpread.SpreadRadius;
-                        for (int i = 0; i < zoneSpread.Count; i++)
-                        {
-                            Vector3 pos=pool.View.Get(target).Value.transform.position;;
+                        ProcZoneSpread(sender, target);
+                    }
 
-                            if (i>0)
-                            {
-                                var rndOffset = new Vector3(Random.Range(-zoneSpreadRadius, zoneSpreadRadius),
-                                    0, Random.Range(-zoneSpreadRadius, zoneSpreadRadius));
-                                pos += rndOffset;
-                            }
-                            
-                            SpawnZone(sender,pos);
-                        }
+                    if (sendVFX)
+                    {
+                        SendVFX(vfxId,target);
                     }
                 }
 
@@ -148,6 +105,121 @@ namespace Source.Scripts.System.Battle
             }
 
             list.Clear();
+        }
+
+        private void ProcKnockbackWave(int sender,int target)
+        {
+            var knockbackWave = pool.KnockbackWave.Get(sender);
+            var enemiesInRadius = game.PositionService.GetBackEnemiesInRadius(sender, target, knockbackWave.Radius);
+            foreach (var en in enemiesInRadius)
+            {
+               ref var knockbackEvent = ref pool.KnockbackEvent.Add(eventWorld.NewEntity());
+               knockbackEvent.Sender = sender;
+               knockbackEvent.Target = en;
+               knockbackEvent.Force = pool.Knockback.Get(sender).Value;
+            }
+            //cast vfx here if needed to rescale
+        }
+
+        private void ProcFire(int sender,int target,float baseDamage)
+        {
+            ref var setOnFireEvent = ref pool.SetOnFireEvent.Add(eventWorld.NewEntity());
+            setOnFireEvent.Sender = sender;
+            setOnFireEvent.Target = target;
+            setOnFireEvent.Damage = baseDamage;
+        }
+
+        private void ProcExplosion(int sender,int target,float baseDamage,int vfxId)
+        {
+            ref var explosive = ref pool.Explosive.Get(sender);
+            var enemiesInRadius = game.PositionService.GetEnemiesInRadius(target, explosive.ExplosionRadius);
+            float damage = baseDamage * explosive.ExplosionDamagePercent / 100f;
+            foreach (var explosionEnt in enemiesInRadius)
+            {
+                SendDamage(sender,explosionEnt,damage);
+                if (pool.Weakness.Has(sender))
+                {
+                    ref var weakness = ref pool.Weakness.GetOrCreateRef(explosionEnt);
+                    weakness = pool.Weakness.Get(sender);
+                    SendVFX(vfxId,explosionEnt);
+                }
+            }
+            SendVFX((int)ElementType.DARKNESS,target);
+        }
+
+        private void ProcLightningUlt(int sender, int target, float baseDamage,int vfxId)
+        {
+            var lightning = pool.Lightning.Get(sender);
+            var rndEnemies = game.PositionService.GetRandomEnemiesInRadius(target, lightning.Radius, lightning.TargetsCount);
+            foreach (var rndEnemy in rndEnemies)
+            {
+                SendDamage(sender,rndEnemy,baseDamage*lightning.LightningDamagePercent/100f);
+                SendVFX(vfxId,target);
+            }
+        }
+
+        private void ProcLightning(int sender,int target,List<int> targets, float baseDamage)
+        {
+            ref var lightning = ref pool.Lightning.Get(sender);
+            var lightingTargets=game.PositionService.GetClosestSequence(target, lightning.Radius, lightning.TargetsCount,
+                targets);
+                        
+            float damage = baseDamage * lightning.LightningDamagePercent / 100f;
+            foreach (var lightingTarget in lightingTargets)
+            {
+                SendDamage(sender,lightingTarget,damage);
+            }
+
+            for (int i = 0; i < lightingTargets.Count-1; i++)
+            {
+                int fromE = lightingTargets[i];
+                int toE = lightingTargets[i+1];
+                var hitVFXProviderView = pool.HitVFXProviderComponent.Get(fromE).Value;
+                var vfx = (LightningVFX)hitVFXProviderView.VFXs[(int)ElementType.LIGHTNING];
+                var fromPos = pool.View.Get(fromE).Value.transform.position;
+                var toPos = pool.View.Get(toE).Value.transform.position;
+                var dir = toPos-fromPos;
+                            
+                vfx.transform.rotation = Quaternion.LookRotation(dir);
+                           
+                vfx.SetLength(dir.magnitude);
+                vfx.gameObject.SetActive(true);
+            }
+        }
+
+        private void ProcZoneSpread(int sender,int target)
+        {
+            ref var zoneSpread = ref pool.ZoneSpread.Get(sender);
+            var zoneSpreadRadius = zoneSpread.SpreadRadius;
+            for (int i = 0; i < zoneSpread.Count; i++)
+            {
+                Vector3 pos=pool.View.Get(target).Value.transform.position;;
+
+                if (i>0)
+                {
+                    var rndOffset = new Vector3(Random.Range(-zoneSpreadRadius, zoneSpreadRadius),
+                        0, Random.Range(-zoneSpreadRadius, zoneSpreadRadius));
+                    pos += rndOffset;
+                }
+                            
+                SpawnZone(sender,pos);
+            }
+        }
+
+
+        private void SendVFX(int vfxId,int target)
+        {
+            ref var vfxEvent = ref pool.VFXEvent.Add(eventWorld.NewEntity());
+            vfxEvent.VFXId = vfxId;
+            vfxEvent.Target = target;
+            vfxEvent.Toggle = true;
+        }
+        private void SendDamage(int sender,int target,float damage)
+        {
+            ref var damageEvent = ref pool.DamageEvent.Add(eventWorld.NewEntity());
+            damageEvent.Sender = sender;
+            damageEvent.Target = target;
+            damageEvent.Damage = damage;
         }
 
         private void SpawnZone(int sender,Vector3 pos)

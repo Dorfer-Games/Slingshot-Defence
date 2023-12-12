@@ -4,19 +4,17 @@ using Source.Scripts.Component.Battle.Tome;
 using Source.Scripts.Component.Event;
 using UnityEngine;
 
-namespace Source.Scripts.System.Battle
+namespace Source.Scripts.System.Move
 {
     public class KnockbackSystem : GameSystem
     {
         private EcsFilter filter;
         private EcsFilter filterTick;
-      
-
+        
         public override void OnInit()
         {
             base.OnInit();
-          
-            filter = eventWorld.Filter<DamageEvent>().End();
+            filter = eventWorld.Filter<KnockbackEvent>().End();
             filterTick = world.Filter<KnockedTick>().End();
         }
 
@@ -25,19 +23,13 @@ namespace Source.Scripts.System.Battle
             base.OnUpdate();
             foreach (var e in filter)
             {
-                var damageEvent = pool.DamageEvent.Get(e);
-                var sender = damageEvent.Sender;
+                var damageEvent = pool.KnockbackEvent.Get(e);
                 var target = damageEvent.Target;
-
-                if (damageEvent.Damage <= 0)
-                    continue;
-
-                if (!pool.Rb.Has(target))
-                    continue;
-
+                var force = damageEvent.Force;
+                
                 pool.KnockedTick.GetOrCreateRef(target).Value = config.KnockbackTime;
                 pool.NavMeshAgentComponent.Get(target).Value.enabled = false;
-                var force = pool.Knockback.Get(sender).Value;
+             
                 var tr = pool.View.Get(target).Value.transform;
 
                 var rb = pool.Rb.Get(target).Value;

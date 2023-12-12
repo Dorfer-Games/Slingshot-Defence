@@ -8,6 +8,7 @@ using Source.Scripts.Component.ViewComponent;
 using Source.Scripts.System.Util;
 using Source.Scripts.View;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Source.Scripts.Service
 {
@@ -33,6 +34,22 @@ namespace Source.Scripts.Service
             filterEnemy = world.Filter<Enemy>().End();
         }
 
+        public List<int> GetRandomEnemiesInRadius(int startEnt, float radius,int count)
+        {
+            var enemiesInRadius = GetEnemiesInRadius(startEnt, radius);
+            var rndEnemies = new List<int>(); 
+            for (int i = 0; i < count; i++)
+            {
+                if (enemiesInRadius.Count==0)
+                    break;
+                
+                var rndId = Random.Range(0, enemiesInRadius.Count);
+                rndEnemies.Add(enemiesInRadius[rndId]);
+                enemiesInRadius.RemoveAt(rndId);
+            }
+
+            return rndEnemies;
+        }
 
         public List<int> GetEntInRadius(int startEnt, float radius, EcsFilter filter)
         {
@@ -70,6 +87,28 @@ namespace Source.Scripts.Service
             {
                 return GetPriorList(list,lowPriorList);
             }
+        }
+
+        public List<int> GetBackEnemiesInRadius(int sender,int startEnt, float radius)
+        {
+            List<int> enemiesList = new List<int>();
+            var enemiesInRadius = GetEnemiesInRadius(startEnt,radius);
+            var t = pool.View.Get(sender).Value.transform;
+            var startPos = pool.View.Get(startEnt).Value.transform.position;
+            var p2 = startPos + t.right*radius;
+            var p1 = startPos + t.right*(-1*radius);
+
+            foreach (var en in enemiesInRadius)
+            {
+                var enPos = pool.View.Get(en).Value.transform.position;
+                var z = p1.z + (p2.z - p1.z) * (enPos.x - p1.x) / (p2.x - p1.x);
+                if (enPos.z>=z)
+                {
+                    enemiesList.Add(en);
+                }
+            }
+
+            return enemiesList;
         }
 
         private List<int> GetPriorList(List<int> high,ICollection<int> low)

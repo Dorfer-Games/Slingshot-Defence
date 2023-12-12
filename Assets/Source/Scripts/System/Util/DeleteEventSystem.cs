@@ -25,6 +25,8 @@ namespace Source.Scripts.System
             AddFilter<SetOnFireEvent>();
             AddFilter<ZoneEnterEvent>();
             AddFilter<ZoneExitEvent>();
+            AddFilter<VFXEvent>();
+            AddFilter<KnockbackEvent>();
         
         }
 

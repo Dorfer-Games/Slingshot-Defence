@@ -1,9 +1,10 @@
 ﻿using System;
+
 namespace Source.Scripts.Component.Battle.Ball
 {
     [Serializable]
-    public struct ThunderBallData
+    public struct KnockbackWave
     {
-        public Lightning Lightning;
+        public float Radius;
     }
 }
