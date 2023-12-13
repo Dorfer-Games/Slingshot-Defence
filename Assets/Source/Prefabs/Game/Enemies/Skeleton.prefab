@@ -27,30 +27,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7904626838420873289, guid: ed5cf95740edcfd49bbe83feee2316d6,
-        type: 3}
-      propertyPath: DeathAnimLenght
-      value: 1.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}
@@ -101,11 +81,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9124337465050803434, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}

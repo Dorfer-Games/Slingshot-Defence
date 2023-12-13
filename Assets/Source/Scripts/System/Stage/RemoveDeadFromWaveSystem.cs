@@ -16,7 +16,7 @@ namespace Source.Scripts.System.Move
         {
             base.OnInit();
 
-            filter = world.Filter<Enemy>().Inc<DeadTag>().End();
+            filter = world.Filter<Enemy>().Inc<DeadTag>().Exc<DeathAnimTick>().End();
         }
 
         public override void OnUpdate()

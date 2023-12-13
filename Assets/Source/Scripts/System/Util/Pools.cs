@@ -78,6 +78,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<ZoneEnterEvent> ZoneEnterEvent;
         public readonly EcsPool<VFXEvent> VFXEvent;
         public readonly EcsPool<KnockbackEvent> KnockbackEvent;
+        public readonly EcsPool<LvlUpEvent> LvlUpEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -145,6 +146,7 @@ namespace Source.Scripts.System.Util
             ZoneEnterEvent = eventWorld.GetPool<ZoneEnterEvent>();
             VFXEvent = eventWorld.GetPool<VFXEvent>();
             KnockbackEvent = eventWorld.GetPool<KnockbackEvent>();
+            LvlUpEvent = eventWorld.GetPool<LvlUpEvent>();
         }
 
 

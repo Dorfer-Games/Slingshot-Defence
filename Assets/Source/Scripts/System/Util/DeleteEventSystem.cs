@@ -27,6 +27,7 @@ namespace Source.Scripts.System
             AddFilter<ZoneExitEvent>();
             AddFilter<VFXEvent>();
             AddFilter<KnockbackEvent>();
+            AddFilter<LvlUpEvent>();
         
         }
 

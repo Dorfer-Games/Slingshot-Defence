@@ -28,7 +28,7 @@ MonoBehaviour:
   ReloadTime: 1
   SlowTimeScale: 0.4
   HpToDmgK: 1
-  ExpProgression: 000000000a0000000f000000
+  ExpProgression: 000000000a0000000f000000140000001e000000
   ThroughTome:
   - Value: 0
   - Value: 1
@@ -203,7 +203,7 @@ MonoBehaviour:
   ThunderBallUlt:
     Lightning:
       TargetsCount: 3
-      LightningDamagePercent: 1
+      LightningDamagePercent: 10
       Radius: 20
   SuperBoulderUlt:
     BoulderData:

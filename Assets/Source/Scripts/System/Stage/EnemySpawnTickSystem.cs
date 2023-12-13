@@ -76,6 +76,11 @@ namespace Source.Scripts.System.Battle
             hp.CurHp = hp.MaxHp = stats.Hp;
             pool.Exp.Add(enemyEnt).Value = stats.Exp;
             pool.Inventory.Add(enemyEnt);
+            var inv = pool.Inventory.Get(enemyEnt).Value;
+            foreach (var kv in stats.Inventory)
+            {
+                inv[kv.Key] = kv.Value;
+            }
             pool.Speed.Add(enemyEnt).Value = stats.Speed;
             pool.MaxSpeed.Get(enemyEnt).Value = stats.Speed;
             pool.NavMeshAgentComponent.Get(enemyEnt).Value.destination = game.PlayerView.transform.position;

@@ -19,10 +19,14 @@ namespace Source.Scripts.UI
         [SerializeField] private Image icon;
         [SerializeField] private SerializedDictionary<ResType, Sprite> activeIcons;
 
-        public void SetText(int value)
+        public void SetTextWithBgGrow(int value)
         {
             var fontSize = text.fontSize;
-            var digits = MathF.Floor(MathF.Log10(value) + 1);
+            var digits=0f;
+            if (value==0)
+                digits = 1;
+            else
+                digits = MathF.Floor(MathF.Log10(value) + 1);
             var offset = icon.rectTransform.rect.width / 2f;
             text.text = $"{value}";
             bg.rectTransform.sizeDelta = new Vector2(offset + digits * fontSize, bg.rectTransform.rect.height);
@@ -31,6 +35,10 @@ namespace Source.Scripts.UI
         public void SetText(int value, int maxValue)
         {
             text.text = $"{value}/{maxValue}";
+        }
+        public void SetText(int value)
+        {
+            text.text = $"{value}";
         }
 
         public void SetResImage(ResType costType)

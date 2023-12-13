@@ -30,5 +30,9 @@ namespace Kuhpik
         public PlayerView PlayerView;
         public CameraSwitcherView CameraSwitcherView;
         public Joystick Joystick;
+        
+        //game
+        public int LvlId;
+        public int CurExp;
     }
 }

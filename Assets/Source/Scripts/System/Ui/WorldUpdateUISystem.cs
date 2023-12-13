@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Source.Scripts.System.Ui
 {
-   public class UpdateUISystem : GameSystem
+   public class WorldUpdateUISystem : GameSystem
    {
        private EcsFilter filterPlayerDataChanged;
         private EcsFilter filterHpView;

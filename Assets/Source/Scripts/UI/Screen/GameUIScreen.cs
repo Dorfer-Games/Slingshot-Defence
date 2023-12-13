@@ -1,15 +1,25 @@
 using Kuhpik;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Source.Scripts.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using NaughtyAttributes;
-using Supyrb;
-using System.Linq;
 
 public class GameUIScreen : UIScreen
 {
-    
+    [SerializeField] private Image expFillBar;
+    [SerializeField] private TextMeshProUGUI expText;
+    [SerializeField] private CounterUIView goldCounter;
+
+
+    public void SetExp(int cur,int toGet)
+    {
+        float f = cur / (float) toGet;
+        expFillBar.fillAmount = f;
+        expText.text = $"{cur}/{toGet} XP";
+    }
+
+    public void SetGold(int count)
+    {
+        goldCounter.SetText(count);
+    }
 }
