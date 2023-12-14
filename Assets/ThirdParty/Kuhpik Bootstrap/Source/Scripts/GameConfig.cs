@@ -17,6 +17,7 @@ namespace Kuhpik
     public sealed class GameConfig : ScriptableObject
     {
         public int ElementsCount = 6;
+        public int MaxSimpleBallLevel = 4;
         public float ScaleFactor;
         public int SlingPointsCount;
         public float SlingInputOffset;
@@ -35,7 +36,9 @@ namespace Kuhpik
         public float HpToDmgK;
 
 
-        public int[] ExpProgression;
+        [BoxGroup("Ups")] public int[] ExpProgression;
+        [BoxGroup("Ups")] public int SameTomeInRollChancePercent;
+        [BoxGroup("Ups")] public int SameBallInRollChancePercent;
 
 
         [BoxGroup("Tomes")] public Through[] ThroughTome;
@@ -61,6 +64,7 @@ namespace Kuhpik
 
         [BoxGroup("Configs")] public SerializedDictionary<EnemyType, EnemyConfig> EnemyConfigs;
         [BoxGroup("Configs")]  public SerializedDictionary<SlingType, SlingConfig> SlingConfigs;
+        [BoxGroup("Configs")]  public UIConfig UIConfig;
 
 
         [Header("Prefabs")]

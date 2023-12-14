@@ -39,14 +39,18 @@ namespace Source.Scripts.System.Loot
                         sum -= config.ExpProgression[game.LvlId + 1];
                         game.LvlId++;
                         game.CurExp = sum;
+                        pool.LvlUpEvent.Add(eventWorld.NewEntity());
                     }
                     else
                         game.CurExp = sum;
                     
                     SetExp();
-                    pool.LvlUpEvent.Add(eventWorld.NewEntity());
                 }
-                
+                else
+                {
+                    screen.SetMaxExp();
+                }
+
             }
             
             if (goldValue>0)

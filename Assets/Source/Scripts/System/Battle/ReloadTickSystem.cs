@@ -63,7 +63,7 @@ namespace Source.Scripts.System.Battle
             }
         }
         
-        public void Shuffle(List<int> list)  
+        private void Shuffle(List<int> list)  
         {
             int n = list.Count;  
             while (n > 1) {  

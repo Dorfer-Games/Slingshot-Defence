@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3181f0bdb4b04adc9dbf2fbc4378b059, type: 3}
+  m_Name: UI Config
+  m_EditorClassIdentifier: 
+  ElementIcons:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 21300000, guid: 6a311b86f62f05a4cb9ad38422764f1c, type: 3}
+    - Key: 2
+      Value: {fileID: 21300000, guid: a6d0f5dfa69f3bc469a096670c79ff9c, type: 3}
+    - Key: 3
+      Value: {fileID: 21300000, guid: 80b322282b8a3a14ba70b5b6dbb84019, type: 3}
+    - Key: 4
+      Value: {fileID: 21300000, guid: deaab0282243b2e4b98ad711894c0681, type: 3}
+    - Key: 5
+      Value: {fileID: 21300000, guid: 84da608d2de1faa46ad6cd0a97b088af, type: 3}
+  UltIcons:
+    _serializedList:
+    - Key: 1
+      Value: {fileID: 21300000, guid: 669d4d825b049374f921b8b7111fb6a6, type: 3}
+    - Key: 2
+      Value: {fileID: 21300000, guid: ead3ac3586b565844b149ce06bdb8763, type: 3}
+    - Key: 3
+      Value: {fileID: 21300000, guid: 87c2eea74d7700946867cd14fc79cdb7, type: 3}
+    - Key: 4
+      Value: {fileID: 21300000, guid: c2b6e9f802baffa44bdd13ba96bd6aff, type: 3}
+    - Key: 5
+      Value: {fileID: 21300000, guid: 6f006abf52345a04db076ccc6b8356e5, type: 3}
+  TomeIcons:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 5c99c7357a088b04eb8b43269bbe0b3c, type: 3}
+    - Key: 1
+      Value: {fileID: 21300000, guid: 06a1998416f0b6d48ac8e84b190fd36f, type: 3}
+    - Key: 2
+      Value: {fileID: 21300000, guid: d7a6b2b65c4ef8c48b4f6c4c87fab8c1, type: 3}
+    - Key: 3
+      Value: {fileID: 21300000, guid: d755e63dfcec89742b0e027a12e0cfa4, type: 3}
+    - Key: 4
+      Value: {fileID: 21300000, guid: e93e47ed9c146ce4c89f5c5abecba844, type: 3}
+  TomeBallIcons:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 21300000, guid: 6f442bfdff2a21d42b1b5b3de63f778d, type: 3}
+    - Key: 1
+      Value: {fileID: 21300000, guid: f0c75000c8879b9478f4fbb5d0b46ef4, type: 3}
+    - Key: 2
+      Value: {fileID: 21300000, guid: 5e3d722a6d5395a4c99a4b5704447331, type: 3}
+    - Key: 3
+      Value: {fileID: 21300000, guid: 22e600439a0d7244e9dcaa225e43da41, type: 3}
+    - Key: 4
+      Value: {fileID: 21300000, guid: 8bfc3ad1f322e894c99d668691130717, type: 3}
+  ElementNames:
+    _serializedList:
+    - Key: 1
+      Value: fire
+    - Key: 2
+      Value: darkness
+    - Key: 3
+      Value: lightning
+    - Key: 4
+      Value: boulder
+    - Key: 5
+      Value: slime
+  UltNames:
+    _serializedList:
+    - Key: 1
+      Value: meteor
+    - Key: 2
+      Value: super darkness
+    - Key: 3
+      Value: thunder ball
+    - Key: 4
+      Value: super boulder
+    - Key: 5
+      Value: super slime
+  TomeNames:
+    _serializedList:
+    - Key: 0
+      Value: through
+    - Key: 1
+      Value: radius
+    - Key: 2
+      Value: ricochet
+    - Key: 3
+      Value: pushback
+    - Key: 4
+      Value: multiball
+  ElementBG: {fileID: 21300000, guid: 955973ce6faedb6448c7ab0cc9129418, type: 3}
+  UltBG: {fileID: 21300000, guid: 67c1f28ea17f19f40ade031b45172f98, type: 3}
+  TomeBG: {fileID: 21300000, guid: 4e32ecb6eb1566f44898eeed069c86ee, type: 3}

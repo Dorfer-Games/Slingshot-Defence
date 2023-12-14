@@ -22,4 +22,10 @@ public class GameUIScreen : UIScreen
     {
         goldCounter.SetText(count);
     }
+
+    public void SetMaxExp()
+    {
+        expFillBar.fillAmount = 1f;
+        expText.text = $"MAX";
+    }
 }

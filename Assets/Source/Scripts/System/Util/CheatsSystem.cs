@@ -12,6 +12,7 @@ namespace Source.Scripts.System.Util
 {
     public class CheatsSystem : GameSystem
     {
+        [SerializeField] private Button lvlup;
         [SerializeField] private SerializedDictionary<ElementType, Button> buttons;
 
         [SerializeField] private SerializedDictionary<TomeType, Button> tomeButtons;
@@ -20,7 +21,10 @@ namespace Source.Scripts.System.Util
         public override void OnInit()
         {
             base.OnInit();
-
+            lvlup.onClick.AddListener(()=>
+            {
+                pool.LvlUpEvent.Add(eventWorld.NewEntity());
+            });
             foreach (var kv in tomeButtons)
             {
                 kv.Value.onClick.AddListener(() =>
@@ -50,7 +54,8 @@ namespace Source.Scripts.System.Util
                         modelID = config.ElementsCount - 1 + (int) kv.Key;
                         pool.Ult.GetOrCreateRef(firstAmmo).Value = (UltType) kv.Key;
                     }
-
+                    kv.Value.GetComponentInChildren<TextMeshProUGUI>().text +=
+                        "\n" + level;
                     pool.ModelChangerComponent.Get(firstAmmo).Value.SetModel(modelID);
 
                     //pool.Elements.Get(game.PlayerEntity).Value[kv.Key] = 1;
