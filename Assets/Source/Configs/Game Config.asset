@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Game Config
   m_EditorClassIdentifier: 
   ElementsCount: 6
-  MaxSimpleBallLevel: 4
   ScaleFactor: 4
   SlingPointsCount: 10
   SlingInputOffset: 0.5
@@ -29,9 +28,7 @@ MonoBehaviour:
   ReloadTime: 1
   SlowTimeScale: 0.4
   HpToDmgK: 1
-  ExpProgression: 000000000a00000014000000
-  SameTomeInRollChancePercent: 5
-  SameBallInRollChancePercent: 100
+  ExpProgression: 000000000a000000140000001e00000032000000460000005a0000007800000096000000
   ThroughTome:
   - Value: 0
   - Value: 1
@@ -60,11 +57,11 @@ MonoBehaviour:
   - AddBallCount: 0
     DamagePercent: 0
   - AddBallCount: 1
+    DamagePercent: 20
+  - AddBallCount: 2
+    DamagePercent: 30
+  - AddBallCount: 2
     DamagePercent: 50
-  - AddBallCount: 2
-    DamagePercent: 60
-  - AddBallCount: 2
-    DamagePercent: 70
   FireBall:
   - Fire:
       BurnTime: 0
@@ -81,11 +78,11 @@ MonoBehaviour:
   - Fire:
       BurnTime: 2
       BurnTick: 0.2
-      BurnTickDamagePercent: 20
+      BurnTickDamagePercent: 15
   - Fire:
-      BurnTime: 2
+      BurnTime: 3
       BurnTick: 0.2
-      BurnTickDamagePercent: 20
+      BurnTickDamagePercent: 15
   DarkBall:
   - Explosive:
       ExplosionRadius: 0
@@ -95,13 +92,13 @@ MonoBehaviour:
       ExplosionDamagePercent: 10
   - Explosive:
       ExplosionRadius: 2
-      ExplosionDamagePercent: 10
+      ExplosionDamagePercent: 15
   - Explosive:
       ExplosionRadius: 2
-      ExplosionDamagePercent: 10
+      ExplosionDamagePercent: 20
   - Explosive:
       ExplosionRadius: 2
-      ExplosionDamagePercent: 10
+      ExplosionDamagePercent: 25
   LightningBall:
   - Lightning:
       TargetsCount: 0
@@ -109,26 +106,26 @@ MonoBehaviour:
       Radius: 0
   - Lightning:
       TargetsCount: 3
-      LightningDamagePercent: 10
+      LightningDamagePercent: 15
       Radius: 2
   - Lightning:
-      TargetsCount: 3
-      LightningDamagePercent: 10
+      TargetsCount: 4
+      LightningDamagePercent: 15
       Radius: 2
   - Lightning:
-      TargetsCount: 3
-      LightningDamagePercent: 10
+      TargetsCount: 5
+      LightningDamagePercent: 15
       Radius: 2
   - Lightning:
-      TargetsCount: 3
-      LightningDamagePercent: 10
+      TargetsCount: 6
+      LightningDamagePercent: 15
       Radius: 2
   BoulderBall:
   - AddKnockbackForce: 0
   - AddKnockbackForce: 4
-  - AddKnockbackForce: 4
-  - AddKnockbackForce: 4
-  - AddKnockbackForce: 4
+  - AddKnockbackForce: 6
+  - AddKnockbackForce: 8
+  - AddKnockbackForce: 10
   SlimeBall:
   - Slime:
       SlowPercent: 0
@@ -138,47 +135,47 @@ MonoBehaviour:
       Count: 0
       SpreadRadius: 0
   - Slime:
+      SlowPercent: 20
+    ZoneSpread:
+      ZoneRadius: 2
+      Time: 2
+      Count: 2
+      SpreadRadius: 5
+  - Slime:
+      SlowPercent: 30
+    ZoneSpread:
+      ZoneRadius: 2
+      Time: 3
+      Count: 3
+      SpreadRadius: 5
+  - Slime:
+      SlowPercent: 40
+    ZoneSpread:
+      ZoneRadius: 2
+      Time: 4
+      Count: 4
+      SpreadRadius: 5
+  - Slime:
       SlowPercent: 50
     ZoneSpread:
-      ZoneRadius: 1
-      Time: 2
-      Count: 1
-      SpreadRadius: 5
-  - Slime:
-      SlowPercent: 20
-    ZoneSpread:
-      ZoneRadius: 1
-      Time: 2
-      Count: 1
-      SpreadRadius: 5
-  - Slime:
-      SlowPercent: 20
-    ZoneSpread:
-      ZoneRadius: 1
-      Time: 2
-      Count: 1
-      SpreadRadius: 5
-  - Slime:
-      SlowPercent: 20
-    ZoneSpread:
-      ZoneRadius: 1
-      Time: 2
-      Count: 1
+      ZoneRadius: 2
+      Time: 5
+      Count: 5
       SpreadRadius: 5
   AddDamagePercentProg:
     _serializedList:
     - Key: 0
-      Value: 000000000000000000000000000000000000000000000000
+      Value: 0000000003000000050000000700000009000000
     - Key: 1
-      Value: 000000000a000000140000001e0000002800000064000000
+      Value: 0000000003000000050000000700000009000000
     - Key: 2
-      Value: 000000000a000000140000001e0000002800000064000000
+      Value: 0000000003000000050000000700000009000000
     - Key: 3
-      Value: 000000000a000000140000001e0000002800000064000000
+      Value: 0000000003000000050000000700000009000000
     - Key: 4
-      Value: 000000000a000000140000001e0000002800000064000000
+      Value: 0000000003000000050000000700000009000000
     - Key: 5
-      Value: 000000000a000000140000001e0000002800000064000000
+      Value: 0000000003000000050000000700000009000000
   MeteorUlt:
     Fire:
       BurnTime: 5
@@ -192,18 +189,18 @@ MonoBehaviour:
   SuperDarkUlt:
     Explosive:
       ExplosionRadius: 5
-      ExplosionDamagePercent: 10
+      ExplosionDamagePercent: 15
     Weakness:
       AddDamageIncomePercent: 100
-      Time: 5
+      Time: 2
   ThunderBallUlt:
     Lightning:
-      TargetsCount: 3
-      LightningDamagePercent: 10
+      TargetsCount: 5
+      LightningDamagePercent: 15
       Radius: 20
   SuperBoulderUlt:
     BoulderData:
-      AddKnockbackForce: 5
+      AddKnockbackForce: 10
     KnockbackWave:
       Radius: 2
   SuperSlimeUlt:
@@ -218,13 +215,10 @@ MonoBehaviour:
     _serializedList:
     - Key: 0
       Value: {fileID: 11400000, guid: 6ce22e4f23cf2504a9f35818ea0a8842, type: 2}
-    - Key: 1
-      Value: {fileID: 11400000, guid: 25592fc073910274b8ae09c3306b5789, type: 2}
   SlingConfigs:
     _serializedList:
     - Key: 0
       Value: {fileID: 11400000, guid: 6e1168c511d87ed448d9940ab52429bb, type: 2}
-  UIConfig: {fileID: 11400000, guid: 9d6770c7d8b15af44b93dc7b2c0d70a9, type: 2}
   BallPrefab: {fileID: 1962176878986198001, guid: b74b5bc211e5dea4283f768bde908019,
     type: 3}
   ZonesPrefabs:

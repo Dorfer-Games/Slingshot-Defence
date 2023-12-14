@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 30
+  - Hp: 10
     Speed: 2
     Exp: 5
     SpawnDelay: 1
@@ -21,4 +21,36 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
+  - Hp: 15
+    Speed: 3
+    Exp: 6
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 10
+  - Hp: 20
+    Speed: 3
+    Exp: 6
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 15
+  - Hp: 25
+    Speed: 4
+    Exp: 7
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 20
+  - Hp: 30
+    Speed: 4
+    Exp: 8
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 25
   Prefab: {fileID: 6317693359021089618, guid: f104c577c809c8e41a03ead11794890c, type: 3}
