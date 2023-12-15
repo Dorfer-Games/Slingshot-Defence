@@ -27,5 +27,14 @@ namespace Source.Scripts.System
             base.OnUpdate();
             _systems?.Run();
         }
+        
+        private void OnDestroy()
+        {
+            if (_systems!=null)
+            {
+                _systems.Destroy();
+                _systems = null;
+            }
+        }
     }
 }

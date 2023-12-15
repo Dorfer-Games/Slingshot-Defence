@@ -40,6 +40,7 @@ namespace Source.Scripts.System.Move
                     else
                     {
                         //Next Level
+                        pool.NextStageEvent.Add(eventWorld.NewEntity());
                     }
 
                 }

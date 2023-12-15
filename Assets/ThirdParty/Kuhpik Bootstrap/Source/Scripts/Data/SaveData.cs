@@ -17,6 +17,8 @@ namespace Kuhpik
         public Dictionary<SlingType,Dictionary<UpType, int>> SlingUps;
         public SlingType CurrentSling;
         public List<SlingType> Slings;
+        public int StageToLoad;
+        public bool SkipMenu;
 
     }
 }

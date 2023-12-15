@@ -28,6 +28,7 @@ namespace Source.Scripts.System
             AddFilter<VFXEvent>();
             AddFilter<KnockbackEvent>();
             AddFilter<LvlUpEvent>();
+            AddFilter<NextStageEvent>();
         
         }
 

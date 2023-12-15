@@ -13,6 +13,7 @@ namespace Source.Scripts.System.Util
     public class CheatsSystem : GameSystem
     {
         [SerializeField] private Button lvlup;
+        [SerializeField] private Button nextStage;
         [SerializeField] private SerializedDictionary<ElementType, Button> buttons;
 
         [SerializeField] private SerializedDictionary<TomeType, Button> tomeButtons;
@@ -25,6 +26,12 @@ namespace Source.Scripts.System.Util
             {
                 pool.LvlUpEvent.Add(eventWorld.NewEntity());
             });
+            
+            lvlup.onClick.AddListener(()=>
+            {
+                pool.NextStageEvent.Add(eventWorld.NewEntity());
+            });
+            
             foreach (var kv in tomeButtons)
             {
                 kv.Value.onClick.AddListener(() =>
