@@ -70,7 +70,7 @@ namespace Source.Scripts.System.Trigger
                 var otherE = other.GetComponentInParent<BaseView>().Entity;
                 if (pool.Obstacle.Has(otherE))
                 {
-                    pool.Dead.Add(senderE);
+                    pool.Dead.GetOrCreateRef(senderE);
                     return;
                 }
             }

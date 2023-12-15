@@ -27,7 +27,7 @@ namespace Source.Scripts.System.Util
                 pool.LvlUpEvent.Add(eventWorld.NewEntity());
             });
             
-            lvlup.onClick.AddListener(()=>
+            nextStage.onClick.AddListener(()=>
             {
                 pool.NextStageEvent.Add(eventWorld.NewEntity());
             });
