@@ -6,16 +6,18 @@ using UnityEngine.UI;
 
 public class GameUIScreen : UIScreen
 {
-    [SerializeField] private Image expFillBar;
-    [SerializeField] private TextMeshProUGUI expText;
+    [SerializeField] private ProgressBarView expBar;
+    [SerializeField] private ProgressBarView hpBar;
     [SerializeField] private CounterUIView goldCounter;
-
-
-    public void SetExp(int cur,int toGet)
+    
+    public void SetHp(int cur, int toGet)
     {
-        float f = cur / (float) toGet;
-        expFillBar.fillAmount = f;
-        expText.text = $"{cur}/{toGet} XP";
+        hpBar.SetProgress(cur, toGet);
+    }
+
+    public void SetExp(int cur, int toGet)
+    {
+        expBar.SetProgress(cur, toGet);
     }
 
     public void SetGold(int count)
@@ -25,7 +27,6 @@ public class GameUIScreen : UIScreen
 
     public void SetMaxExp()
     {
-        expFillBar.fillAmount = 1f;
-        expText.text = $"MAX";
+        expBar.SetMaxExp();
     }
 }
