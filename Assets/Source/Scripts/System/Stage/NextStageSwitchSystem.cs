@@ -25,6 +25,10 @@ namespace Source.Scripts.System.Move
             foreach (var ent in filter)
             {
                 save.StageToLoad++;
+                if (save.StageToLoad==config.MaxLevels)
+                {
+                    save.StageToLoad--;
+                }
                 save.SkipMenu = true;
                 Bootstrap.Instance.SaveGame();
                 Bootstrap.Instance.GameRestart(0);

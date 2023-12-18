@@ -19,6 +19,8 @@ namespace Kuhpik
         public List<SlingType> Slings;
         public int StageToLoad;
         public bool SkipMenu;
+        
+        public bool VibroOn=true;
 
     }
 }

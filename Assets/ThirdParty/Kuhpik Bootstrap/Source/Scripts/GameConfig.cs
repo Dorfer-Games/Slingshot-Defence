@@ -66,6 +66,7 @@ namespace Kuhpik
         [BoxGroup("Configs")] public SerializedDictionary<EnemyType, EnemyConfig> EnemyConfigs;
         [BoxGroup("Configs")]  public SerializedDictionary<SlingType, SlingConfig> SlingConfigs;
         [BoxGroup("Configs")]  public UIConfig UIConfig;
+        [BoxGroup("Configs")]  public WorldMenuConfig WorldMenuDataConfig;
 
 
         [Header("Prefabs")]
