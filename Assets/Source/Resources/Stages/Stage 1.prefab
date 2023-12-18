@@ -904,6 +904,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5334263324474996420}
     m_Modifications:
+    - target: {fileID: 966512665535860439, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: isRoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 966512665535860439, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: tileType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_RootOrder
@@ -927,22 +937,22 @@ PrefabInstance:
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
@@ -952,7 +962,7 @@ PrefabInstance:
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
@@ -963,6 +973,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tile_full
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124550631011224476, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775877445144829167, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd135df053ccee540b58711e877ac865, type: 3}
@@ -2077,6 +2097,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5334263324474996420}
     m_Modifications:
+    - target: {fileID: 966512665535860439, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: isRoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 966512665535860439, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: tileType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_RootOrder
@@ -2136,6 +2166,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tile_full
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124550631011224476, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775877445144829167, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd135df053ccee540b58711e877ac865, type: 3}
@@ -3871,6 +3911,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5334263324474996420}
     m_Modifications:
+    - target: {fileID: 966512665535860439, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: isRoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 966512665535860439, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: tileType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3886986975742815941, guid: dd135df053ccee540b58711e877ac865,
         type: 3}
       propertyPath: m_RootOrder
@@ -3930,6 +3980,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tile_full
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124550631011224476, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423633764261288513, guid: dd135df053ccee540b58711e877ac865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd135df053ccee540b58711e877ac865, type: 3}
@@ -9668,12 +9728,12 @@ PrefabInstance:
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: CommonSpawnDelay
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
@@ -9688,17 +9748,42 @@ PrefabInstance:
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.data[1].Enemies.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.data[2].Enemies.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.data[3].Enemies.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[1].Enemies.Array.data[0].Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[1].Enemies.Array.data[1].Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[2].Enemies.Array.data[0].Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[2].Enemies.Array.data[1].Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[2].Enemies.Array.data[2].Level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
@@ -9708,12 +9793,27 @@ PrefabInstance:
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.data[1].Enemies.Array.data[1].EnemyType
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[1].Enemies.Array.data[2].EnemyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[2].Enemies.Array.data[1].EnemyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: Waves.Array.data[2].Enemies.Array.data[2].EnemyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.data[2].Enemies.Array.data[3].EnemyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
