@@ -22,7 +22,7 @@ MonoBehaviour:
       - Key: 0
         Value: 5
   - Hp: 10
-    Speed: 4
+    Speed: 3.5
     Exp: 6
     SpawnDelay: 1
     Inventory:
@@ -30,7 +30,7 @@ MonoBehaviour:
       - Key: 0
         Value: 10
   - Hp: 13
-    Speed: 4
+    Speed: 3.5
     Exp: 7
     SpawnDelay: 1
     Inventory:
@@ -38,7 +38,7 @@ MonoBehaviour:
       - Key: 0
         Value: 15
   - Hp: 16
-    Speed: 5
+    Speed: 3.5
     Exp: 8
     SpawnDelay: 1
     Inventory:
@@ -46,7 +46,7 @@ MonoBehaviour:
       - Key: 0
         Value: 20
   - Hp: 19
-    Speed: 5
+    Speed: 3.5
     Exp: 9
     SpawnDelay: 1
     Inventory:
@@ -54,7 +54,7 @@ MonoBehaviour:
       - Key: 0
         Value: 25
   - Hp: 21
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -62,7 +62,7 @@ MonoBehaviour:
       - Key: 0
         Value: 30
   - Hp: 24
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -70,7 +70,7 @@ MonoBehaviour:
       - Key: 0
         Value: 35
   - Hp: 27
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -78,7 +78,7 @@ MonoBehaviour:
       - Key: 0
         Value: 40
   - Hp: 30
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -86,7 +86,7 @@ MonoBehaviour:
       - Key: 0
         Value: 45
   - Hp: 33
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -94,7 +94,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 36
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -102,7 +102,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 39
-    Speed: 7
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -110,7 +110,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 42
-    Speed: 7
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -118,7 +118,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 45
-    Speed: 7
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -126,7 +126,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 48
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -134,7 +134,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 52
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -142,7 +142,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 55
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -150,7 +150,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 58
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -158,7 +158,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 61
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -166,7 +166,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 64
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -174,7 +174,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 67
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -182,7 +182,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 70
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -190,7 +190,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 73
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -198,7 +198,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 76
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -206,7 +206,7 @@ MonoBehaviour:
       - Key: 0
         Value: 50
   - Hp: 79
-    Speed: 5
+    Speed: 3.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
