@@ -29,10 +29,10 @@ namespace Source.Scripts.System.Move
                 var force = damageEvent.Force;
                 
                 pool.KnockedTick.GetOrCreateRef(target).Value = config.KnockbackTime;
-                pool.NavMeshAgentComponent.Get(target).Value.enabled = false;
-             
+                if ( pool.NavMeshAgentComponent.Has(target))
+                    pool.NavMeshAgentComponent.Get(target).Value.enabled = false;
+                
                 var tr = pool.View.Get(target).Value.transform;
-
                 var rb = pool.Rb.Get(target).Value;
                 rb.constraints =RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
                 
@@ -45,9 +45,13 @@ namespace Source.Scripts.System.Move
                 if (knockedTick.Value<=0)
                 {
                     pool.KnockedTick.Del(ent);
-                    var rb = pool.Rb.Get(ent).Value;
-                    rb.constraints = RigidbodyConstraints.FreezeAll;
-                    if (pool.DeathAnimTick.Has(ent))
+                   
+                    if (pool.NavMeshAgentComponent.Has(ent))
+                    {
+                        var rb = pool.Rb.Get(ent).Value;
+                        rb.constraints = RigidbodyConstraints.FreezeAll;
+                    }
+                    if (pool.DeathAnimTick.Has(ent) || !pool.NavMeshAgentComponent.Has(ent))
                         continue;
                         
                     pool.NavMeshAgentComponent.Get(ent).Value.enabled = true;

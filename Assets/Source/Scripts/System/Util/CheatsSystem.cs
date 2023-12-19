@@ -36,7 +36,7 @@ namespace Source.Scripts.System.Util
             {
                 kv.Value.onClick.AddListener(() =>
                 {
-                    if (pool.Tomes.Get(game.PlayerEntity).Value[kv.Key] < 4)
+                    if (pool.Tomes.Get(game.PlayerEntity).Value[kv.Key] < config.ThroughTome.Length-1)
                     {
                         pool.Tomes.Get(game.PlayerEntity).Value[kv.Key] += 1;
                         kv.Value.GetComponentInChildren<TextMeshProUGUI>().text +=

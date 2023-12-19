@@ -70,7 +70,7 @@ namespace Source.Scripts.System.Battle
             var stats = config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level];
 
             //add other stats
-            pool.Enemy.Add(enemyEnt);
+            pool.Enemy.Add(enemyEnt).EnemyType=enemy.EnemyType;
             pool.ZoneTriggers.Add(enemyEnt).Value = new HashSet<int>();
             ref var hp =ref pool.Hp.Add(enemyEnt);
             hp.CurHp = hp.MaxHp = stats.Hp;
@@ -78,12 +78,19 @@ namespace Source.Scripts.System.Battle
             pool.Inventory.Add(enemyEnt);
             var inv = pool.Inventory.Get(enemyEnt).Value;
             foreach (var kv in stats.Inventory)
-            {
                 inv[kv.Key] = kv.Value;
-            }
+            
             pool.Speed.Add(enemyEnt).Value = stats.Speed;
             pool.MaxSpeed.Get(enemyEnt).Value = stats.Speed;
-            pool.NavMeshAgentComponent.Get(enemyEnt).Value.destination = game.PlayerView.transform.position;
+            if (pool.NavMeshAgentComponent.Has(enemyEnt))
+            {
+                pool.NavMeshAgentComponent.Get(enemyEnt).Value.destination = game.PlayerView.transform.position;
+            }
+            else
+            {
+                pool.FollowPosition.Add(enemyEnt).Value = game.PlayerView.transform.position;
+            }
+           
 
             stage.AliveEnemies.Add(enemyEnt);
             stage.CurrentWaveEnemiesSpawnedCount++;

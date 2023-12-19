@@ -62,6 +62,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<Weakness> Weakness;
         public readonly EcsPool<KnockbackWave> KnockbackWave;
         public readonly EcsPool<DeathAnimTick> DeathAnimTick;
+        public readonly EcsPool<FollowPosition> FollowPosition;
 
 
 
@@ -131,6 +132,7 @@ namespace Source.Scripts.System.Util
             Weakness = world.GetPool<Weakness>();
             KnockbackWave = world.GetPool<KnockbackWave>();
             DeathAnimTick = world.GetPool<DeathAnimTick>();
+            FollowPosition = world.GetPool<FollowPosition>();
 
 
 

@@ -66,6 +66,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6449131658481645307, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}
+      propertyPath: m_BaseOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6449131658481645307, guid: ed5cf95740edcfd49bbe83feee2316d6,
+        type: 3}
       propertyPath: m_AgentTypeID
       value: -1372625422
       objectReference: {fileID: 0}
@@ -74,10 +79,20 @@ PrefabInstance:
       propertyPath: m_WalkableMask
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: -6449131658481645307, guid: ed5cf95740edcfd49bbe83feee2316d6,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7904626838420873289, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}
       propertyPath: DeathAnimLenght
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117047957266514848, guid: ed5cf95740edcfd49bbe83feee2316d6,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 8788987844579590189, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}
@@ -139,7 +154,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6449131658481645307, guid: ed5cf95740edcfd49bbe83feee2316d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed5cf95740edcfd49bbe83feee2316d6, type: 3}
 --- !u!4 &5781139594378654021 stripped
 Transform:

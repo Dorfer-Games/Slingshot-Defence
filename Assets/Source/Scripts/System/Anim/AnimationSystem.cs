@@ -69,7 +69,8 @@ namespace Source.Scripts.System.Anim
             {
                 var animationView = pool.Anim.Get(ent).Value;
                 pool.DeathAnimTick.Add(ent).Value = animationView.DeathAnimLenght;
-                pool.NavMeshAgentComponent.Get(ent).Value.enabled = false;
+                if (pool.NavMeshAgentComponent.Has(ent))
+                    pool.NavMeshAgentComponent.Get(ent).Value.enabled = false;
                 animationView.AnimateDeath();
             }
 
