@@ -84,6 +84,11 @@ PrefabInstance:
       propertyPath: m_ObstacleAvoidanceType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4205088807682269735, guid: ed5cf95740edcfd49bbe83feee2316d6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7904626838420873289, guid: ed5cf95740edcfd49bbe83feee2316d6,
         type: 3}
       propertyPath: DeathAnimLenght
