@@ -20,7 +20,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 10
+        Value: 5
   - Hp: 18
     Speed: 1
     Exp: 9
@@ -28,7 +28,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 15
+        Value: 5
   - Hp: 23
     Speed: 1
     Exp: 10
@@ -36,7 +36,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 20
+        Value: 5
   - Hp: 28
     Speed: 1
     Exp: 10
@@ -44,7 +44,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 25
+        Value: 5
   - Hp: 32
     Speed: 1
     Exp: 10
@@ -52,7 +52,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 30
+        Value: 6
   - Hp: 37
     Speed: 1
     Exp: 11
@@ -60,7 +60,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 35
+        Value: 6
   - Hp: 42
     Speed: 1
     Exp: 12
@@ -68,7 +68,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 40
+        Value: 6
   - Hp: 47
     Speed: 1
     Exp: 13
@@ -76,7 +76,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 45
+        Value: 6
   - Hp: 52
     Speed: 1
     Exp: 14
@@ -84,7 +84,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 6
   - Hp: 57
     Speed: 1
     Exp: 15
@@ -92,7 +92,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 6
   - Hp: 62
     Speed: 1
     Exp: 15
@@ -100,7 +100,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 6
   - Hp: 67
     Speed: 1
     Exp: 15
@@ -108,7 +108,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 6
   - Hp: 72
     Speed: 1
     Exp: 15
@@ -116,7 +116,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 7
   - Hp: 77
     Speed: 1
     Exp: 15
@@ -124,7 +124,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 7
   - Hp: 82
     Speed: 1
     Exp: 15
@@ -132,7 +132,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 7
   - Hp: 87
     Speed: 1
     Exp: 15
@@ -140,7 +140,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 7
   - Hp: 92
     Speed: 1
     Exp: 15
@@ -148,7 +148,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 7
   - Hp: 97
     Speed: 1
     Exp: 15
@@ -156,7 +156,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 7
   - Hp: 102
     Speed: 1
     Exp: 15
@@ -164,7 +164,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 8
   - Hp: 107
     Speed: 1
     Exp: 15
@@ -172,7 +172,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 8
   - Hp: 112
     Speed: 1
     Exp: 15
@@ -180,7 +180,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 8
   - Hp: 117
     Speed: 1
     Exp: 15
@@ -188,7 +188,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 8
   - Hp: 122
     Speed: 1
     Exp: 15
@@ -196,7 +196,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 10
   - Hp: 127
     Speed: 1
     Exp: 15
@@ -204,7 +204,7 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 10
   - Hp: 132
     Speed: 1
     Exp: 15
@@ -212,5 +212,5 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 50
+        Value: 10
   Prefab: {fileID: 2592167897373029447, guid: 4a879af8bccb1744cb60e91e85a2e2aa, type: 3}
