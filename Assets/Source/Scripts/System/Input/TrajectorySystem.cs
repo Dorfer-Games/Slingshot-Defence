@@ -26,15 +26,12 @@ namespace Source.Scripts.System.Input
                 return;
             }
 
-            var normalized = joystick.Direction.normalized;
-            pool.Dir.Get(game.PlayerEntity).Value =
-                new Vector3(-normalized.x, 0, -normalized.y);
-
-            var list = new Vector3[config.SlingPointsCount];
+            int pointsCount = (int)(config.SlingPointsCount * joystick.Direction.magnitude);
+            var list = new Vector3[pointsCount];
             var dir = game.PlayerView.BallSpawnPos.forward;
             var ballSpawnPos = game.PlayerView.BallSpawnPos.position;
 
-            for (int i = 0; i < list.Length; i++)
+            for (int i = 0; i < pointsCount; i++)
             {
                 list[i] =  ballSpawnPos+ dir*(i * 0.1f * config.BallSpeed);
             }

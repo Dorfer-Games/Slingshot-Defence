@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 6570669707156639638, guid: 3e8ebdb696a60894892cb90d1f99fdb4,
         type: 3}
       propertyPath: m_Name
-      value: Wall Obstacle
+      value: Wall Obstacle 2
       objectReference: {fileID: 0}
     - target: {fileID: 6570669707156639638, guid: 3e8ebdb696a60894892cb90d1f99fdb4,
         type: 3}
@@ -123,3 +123,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: 0
+--- !u!208 &1545658873534228543
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969162145929790269}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
