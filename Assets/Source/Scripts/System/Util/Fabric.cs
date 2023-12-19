@@ -120,6 +120,8 @@ namespace Source.Scripts.System
             if (stageView!=null)
             {
                 ref var stage =ref pool.Stage.Add(entity);
+                stage.StartReward = stageView.StartReward;
+                stage.RewardPerWave = stageView.RewardPerWave;
                 stage.Waves = stageView.Waves;
                 stage.SpawnPos = stageView.SpawnPos;
                 stage.UseCommonSpawnDelay = stageView.UseCommonSpawnDelay;

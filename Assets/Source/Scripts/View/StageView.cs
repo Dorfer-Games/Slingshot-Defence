@@ -9,6 +9,8 @@ namespace Source.Scripts.View
 {
     public class StageView : MonoBehaviour
     {
+        public int StartReward;
+        public int RewardPerWave;
         public bool UseCommonSpawnDelay=true;
         [ShowIf("UseCommonSpawnDelay")]
         public float CommonSpawnDelay;

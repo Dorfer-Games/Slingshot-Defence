@@ -74,6 +74,7 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
             {
                 screen.SetStagesText(delta, worldMenuData.StagesCount);
                 screen.SetWorldText(worldMenuData.WorldName);
+                break;
             }
             else
                 delta -= worldMenuData.StagesCount;

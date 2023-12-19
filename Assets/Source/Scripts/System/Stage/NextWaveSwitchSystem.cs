@@ -38,7 +38,7 @@ namespace Source.Scripts.System.Move
                         stage.CurrentWaveEnemiesSpawnedCount = 0;
                     }
                     else
-                    {
+                    { 
                         //Next Level
                         pool.NextStageEvent.Add(eventWorld.NewEntity());
                     }

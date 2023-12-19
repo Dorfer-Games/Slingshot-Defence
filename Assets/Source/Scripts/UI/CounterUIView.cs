@@ -40,6 +40,11 @@ namespace Source.Scripts.UI
         {
             text.text = $"{value}";
         }
+        
+        public void SetText(string value)
+        {
+            text.text = value;
+        }
 
         public void SetResImage(ResType costType)
         {

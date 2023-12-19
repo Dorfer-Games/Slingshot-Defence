@@ -6,6 +6,9 @@ namespace Source.Scripts.Component.Battle
 {
     public struct Stage
     {
+        public int StartReward;
+        public int RewardPerWave;
+        
         public List<Wave> Waves;
         public List<int> AliveEnemies;
         public int CurrentWaveId;

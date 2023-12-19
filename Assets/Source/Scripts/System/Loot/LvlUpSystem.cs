@@ -7,6 +7,7 @@ using Source.Scripts.Component;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Data.Enum;
 using Source.Scripts.UI;
+using Source.Scripts.View.Stage;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -33,7 +34,7 @@ namespace Source.Scripts.System.Loot
             base.OnUpdate();
             foreach (var ent in filter)
             {
-                if (upsCount == 0 && game.Joystick.Direction.Equals(Vector2.zero))
+                if (upsCount == 0 && game.Joystick.Direction.Equals(Vector2.zero) && !game.IsFinished)
                 {
                     SetScreen();
                 }

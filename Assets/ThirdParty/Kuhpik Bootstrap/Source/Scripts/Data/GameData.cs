@@ -34,5 +34,7 @@ namespace Kuhpik
         //game
         public int LvlId;
         public int CurExp;
+        public int KillsCount;
+        public bool IsFinished;
     }
 }
