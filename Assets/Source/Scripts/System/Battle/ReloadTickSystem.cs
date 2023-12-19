@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Source.Scripts.System.Battle
 {
-    public class ReloadTickSystem : GameSystem
+    public class ReloadTickSystem : GameSystemWithScreen<GameUIScreen>
     {
         private EcsFilter filterAddTick;
         private EcsFilter filterTick;
@@ -29,6 +29,7 @@ namespace Source.Scripts.System.Battle
                 if (count==0)
                 {
                     pool.ReloadTick.Add(ent).Value = config.ReloadTime;
+                    screen.ToggleReload(true);
                 }
             }
 
@@ -39,6 +40,7 @@ namespace Source.Scripts.System.Battle
                 {
                     pool.ReloadTick.Del(ent);
                     Reload(ent);
+                    screen.ToggleReload(false);
                 }
                 else
                 {

@@ -137,6 +137,7 @@ MonoBehaviour:
   expBar: {fileID: 2538455606584719023}
   hpBar: {fileID: 6505092054952817036}
   goldCounter: {fileID: 220394426611552055}
+  reloadGO: {fileID: 8093172588319347653}
 --- !u!1 &6199231005719153221
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5273728777293171274
 RectTransform:
   m_ObjectHideFlags: 0
