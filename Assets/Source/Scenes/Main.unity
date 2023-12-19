@@ -1748,7 +1748,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 13
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &641184651
 MonoBehaviour:
@@ -2042,7 +2042,7 @@ Transform:
   - {fileID: 249921495}
   - {fileID: 1722670792}
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &758545569
 GameObject:
@@ -2562,7 +2562,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959830121
 MonoBehaviour:
@@ -2759,7 +2759,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &986901717
 MonoBehaviour:
@@ -2803,7 +2803,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1015165227
 MonoBehaviour:
@@ -3403,7 +3403,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2035646351}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1568459369
 MonoBehaviour:
@@ -4102,12 +4102,12 @@ Transform:
   - {fileID: 1655116558}
   - {fileID: 2102207546}
   - {fileID: 1924087515}
+  - {fileID: 641184650}
   - {fileID: 986901716}
   - {fileID: 1015165226}
   - {fileID: 721775541}
   - {fileID: 959830120}
   - {fileID: 1568459368}
-  - {fileID: 641184650}
   - {fileID: 886151827}
   - {fileID: 399455278}
   - {fileID: 1659480140}
@@ -4136,6 +4136,18 @@ MonoBehaviour:
   additionalStatesInTheBegining: 28000000
   additionalStatesInTheEnd: 
   systemNames: []
+--- !u!1 &2041704567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5620711461956990288, guid: 60120bd2a13e6034eb64f8ca30e999f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5620711460417535592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2091058688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1225558919068840192, guid: 0116ae1acf2229f4e86cf1a0ac0c5273,
+    type: 3}
+  m_PrefabInstance: {fileID: 1902053373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102207545
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,6 +4243,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 251116723}
     m_Modifications:
+    - target: {fileID: 3414926083438732322, guid: 280ce06d7d9a82c4fb123387dc1da6ca,
+        type: 3}
+      propertyPath: hideElementsOnOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414926083438732322, guid: 280ce06d7d9a82c4fb123387dc1da6ca,
+        type: 3}
+      propertyPath: elementsToHideOnOpen.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414926083438732322, guid: 280ce06d7d9a82c4fb123387dc1da6ca,
+        type: 3}
+      propertyPath: elementsToHideOnOpen.Array.data[0]
+      value: 
+      objectReference: {fileID: 2041704567}
+    - target: {fileID: 3414926083438732322, guid: 280ce06d7d9a82c4fb123387dc1da6ca,
+        type: 3}
+      propertyPath: elementsToHideOnOpen.Array.data[1]
+      value: 
+      objectReference: {fileID: 2091058688}
     - target: {fileID: 3414926083438732324, guid: 280ce06d7d9a82c4fb123387dc1da6ca,
         type: 3}
       propertyPath: m_Name
@@ -4365,6 +4397,26 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2828498231252432378, guid: 4333bac5f7c143c4a9c31e1dde0a0958,
+        type: 3}
+      propertyPath: hideElementsOnOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828498231252432378, guid: 4333bac5f7c143c4a9c31e1dde0a0958,
+        type: 3}
+      propertyPath: elementsToHideOnOpen.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828498231252432378, guid: 4333bac5f7c143c4a9c31e1dde0a0958,
+        type: 3}
+      propertyPath: elementsToHideOnOpen.Array.data[0]
+      value: 
+      objectReference: {fileID: 2041704567}
+    - target: {fileID: 2828498231252432378, guid: 4333bac5f7c143c4a9c31e1dde0a0958,
+        type: 3}
+      propertyPath: elementsToHideOnOpen.Array.data[1]
+      value: 
+      objectReference: {fileID: 2091058688}
     - target: {fileID: 7150253712382850142, guid: 4333bac5f7c143c4a9c31e1dde0a0958,
         type: 3}
       propertyPath: m_Name

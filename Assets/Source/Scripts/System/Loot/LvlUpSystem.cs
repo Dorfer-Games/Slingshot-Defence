@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Kuhpik;
@@ -17,6 +18,7 @@ namespace Source.Scripts.System.Loot
     {
         private EcsFilter filter;
         private int upsCount;
+        private Coroutine waitCor;
 
         public override void OnInit()
         {
@@ -38,8 +40,24 @@ namespace Source.Scripts.System.Loot
                 {
                     SetScreen();
                 }
-
+                
                 upsCount++;
+                if (waitCor==null && !game.IsFinished)
+                {
+                    StartCoroutine(WaitJoystick());
+                }
+            }
+        }
+
+        private IEnumerator WaitJoystick()
+        {
+           
+            yield return new WaitUntil(() => game.Joystick.Direction.Equals(Vector2.zero));
+           
+            if (!game.IsFinished)
+            {
+                SetScreen();
+                waitCor = null;
             }
         }
 
@@ -113,7 +131,7 @@ namespace Source.Scripts.System.Loot
         {
             screen.Open();
             Time.timeScale = 0;
-            game.Joystick.OnPointerUp(null);
+            //game.Joystick.OnPointerUp(null);
 
             ConsiderUps(out List<ElementType> resElements, out List<ElementType> resUlts, out List<TomeType> resTomes);
             SetUpgradesUI(resElements, resUlts, resTomes);
@@ -121,12 +139,15 @@ namespace Source.Scripts.System.Loot
 
         private void OnUpsEnd()
         {
-            Time.timeScale = 1;
-            screen.Close();
             upsCount--;
             if (upsCount > 0)
             {
                 SetScreen();
+            }
+            else
+            {
+                Time.timeScale = 1;
+                screen.Close();
             }
         }
 
@@ -202,7 +223,7 @@ namespace Source.Scripts.System.Loot
                 }
                 else
                 {
-                    resTomes.Add(allTomes[Random.Range(0, allElements.Count)]);
+                    resTomes.Add(allTomes[Random.Range(0, allTomes.Count)]);
                 }
             }
 
