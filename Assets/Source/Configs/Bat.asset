@@ -21,7 +21,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 3
-  - Hp: 10
+  - Hp: 9
     Speed: 3.5
     Exp: 6
     SpawnDelay: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 4
-  - Hp: 13
+  - Hp: 11
     Speed: 3.5
     Exp: 7
     SpawnDelay: 1
@@ -37,7 +37,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 16
+  - Hp: 13
     Speed: 3.5
     Exp: 8
     SpawnDelay: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 19
+  - Hp: 15
     Speed: 3.5
     Exp: 9
     SpawnDelay: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 21
+  - Hp: 17
     Speed: 3.5
     Exp: 10
     SpawnDelay: 1
@@ -61,8 +61,32 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 24
+  - Hp: 19
     Speed: 3.5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 5
+  - Hp: 21
+    Speed: 4
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 5
+  - Hp: 23
+    Speed: 4
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 5
+  - Hp: 25
+    Speed: 4
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -70,38 +94,14 @@ MonoBehaviour:
       - Key: 0
         Value: 5
   - Hp: 27
-    Speed: 3.5
+    Speed: 4.5
     Exp: 10
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 30
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 5
-  - Hp: 33
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 5
-  - Hp: 36
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 5
-  - Hp: 39
+  - Hp: 29
     Speed: 3.5
     Exp: 10
     SpawnDelay: 1
@@ -109,8 +109,56 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 7
-  - Hp: 42
-    Speed: 3.5
+  - Hp: 31
+    Speed: 4.5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 33
+    Speed: 4.5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 35
+    Speed: 4.5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 37
+    Speed: 5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 39
+    Speed: 5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 41
+    Speed: 5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 43
+    Speed: 5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -118,23 +166,39 @@ MonoBehaviour:
       - Key: 0
         Value: 7
   - Hp: 45
-    Speed: 3.5
+    Speed: 5
     Exp: 10
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
         Value: 7
-  - Hp: 48
-    Speed: 3.5
+  - Hp: 47
+    Speed: 5
     Exp: 10
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
         Value: 7
-  - Hp: 52
-    Speed: 3.5
+  - Hp: 49
+    Speed: 5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 51
+    Speed: 5
+    Exp: 10
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 7
+  - Hp: 53
+    Speed: 5
     Exp: 10
     SpawnDelay: 1
     Inventory:
@@ -142,71 +206,7 @@ MonoBehaviour:
       - Key: 0
         Value: 7
   - Hp: 55
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 58
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 61
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 64
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 67
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 70
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 73
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 76
-    Speed: 3.5
-    Exp: 10
-    SpawnDelay: 1
-    Inventory:
-      _serializedList:
-      - Key: 0
-        Value: 7
-  - Hp: 79
-    Speed: 3.5
+    Speed: 5
     Exp: 10
     SpawnDelay: 1
     Inventory:
