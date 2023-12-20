@@ -34,11 +34,6 @@ namespace Source.Scripts.System.Player
             base.OnUpdate();
             foreach (var ent in filter)
             {
-                if (upsCount == 0 && game.Joystick.Direction.Equals(Vector2.zero) && !game.IsFinished)
-                {
-                    SetScreen();
-                }
-                
                 upsCount++;
                 if (waitCor==null && !game.IsFinished)
                 {
@@ -52,7 +47,6 @@ namespace Source.Scripts.System.Player
             game.PlayerView.LvlUpVFX.gameObject.SetActive(true);
             yield return new WaitForSeconds(1f);
             yield return new WaitUntil(() => game.Joystick.Direction.Equals(Vector2.zero));
-           
             if (!game.IsFinished)
             {
                 SetScreen();
