@@ -64,7 +64,7 @@ namespace Source.Scripts.System.Battle
             ref var stage = ref pool.Stage.Get(ent);
             var enemy = stage.CurrentWave.Enemies[stage.CurrentWaveEnemiesSpawnedCount];
             var baseView = Instantiate(config.EnemyConfigs[enemy.EnemyType].Prefab);
-            baseView.transform.position = stage.SpawnPos.position;
+            baseView.transform.position = stage.SpawnPositions[Random.Range(0,stage.SpawnPositions.Length)].position;
             baseView.transform.rotation = Quaternion.Euler(0, 180, 0);
             var enemyEnt = game.Fabric.InitView(baseView);
             var stats = config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level];

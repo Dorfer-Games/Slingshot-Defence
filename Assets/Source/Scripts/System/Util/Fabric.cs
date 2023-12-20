@@ -123,7 +123,7 @@ namespace Source.Scripts.System
                 stage.StartReward = stageView.StartReward;
                 stage.RewardPerWave = stageView.RewardPerWave;
                 stage.Waves = stageView.Waves;
-                stage.SpawnPos = stageView.SpawnPos;
+                stage.SpawnPositions = stageView.SpawnPositions;
                 stage.UseCommonSpawnDelay = stageView.UseCommonSpawnDelay;
                 stage.CommonSpawnDelay = stageView.CommonSpawnDelay;
                 stage.AliveEnemies = new List<int>();

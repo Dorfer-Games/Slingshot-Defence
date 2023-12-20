@@ -15,6 +15,6 @@ namespace Source.Scripts.View
         [ShowIf("UseCommonSpawnDelay")]
         public float CommonSpawnDelay;
         public List<Wave> Waves;
-        public Transform SpawnPos;
+        public Transform[] SpawnPositions;
     }
 }

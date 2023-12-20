@@ -16,7 +16,7 @@ MonoBehaviour:
   ElementsCount: 6
   MaxSimpleBallLevel: 4
   ScaleFactor: 4
-  SlingPointsCount: 10
+  SlingPointsCount: 80
   SlingInputOffset: 0.5
   UnitRotSpeed: 0.5
   BallSpeed: 35

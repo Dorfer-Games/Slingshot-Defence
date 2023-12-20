@@ -13,7 +13,7 @@ namespace Source.Scripts.Component.Battle
         public List<int> AliveEnemies;
         public int CurrentWaveId;
         public int CurrentWaveEnemiesSpawnedCount;
-        public Transform SpawnPos;
+        public Transform[] SpawnPositions;
         public bool UseCommonSpawnDelay;
         public float CommonSpawnDelay;
 
