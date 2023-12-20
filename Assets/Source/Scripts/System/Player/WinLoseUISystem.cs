@@ -2,6 +2,7 @@
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Event;
+using Source.Scripts.Data.Enum;
 using Source.Scripts.View;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace Source.Scripts.System.Player
                         break;
                     game.IsFinished = true;
                     
-                    SetUILose();
+                    SetUI(false);
                     loseUIScreen.MenuButton.onClick.AddListener(() =>
                     {
                         save.SkipMenu = false;
@@ -59,7 +60,7 @@ namespace Source.Scripts.System.Player
                 if (save.StageToLoad==config.MaxLevels)
                     save.StageToLoad--;
 
-                SetUIWin();
+                SetUI(true);
                 winUIScreen.NextStageButton.onClick.AddListener(() =>
                 {
                     save.SkipMenu = true;
@@ -70,30 +71,38 @@ namespace Source.Scripts.System.Player
                 winUIScreen.Open();
             }
         }
-        
 
-        private void SetUIWin()
+
+        private void SetUI(bool isWin)
         {
             var stage = pool.Stage.Get(game.StageEntity);
-            var wavesCount = stage.Waves.Count;
+            int wavesCount;
+            if (isWin)
+                wavesCount = stage.Waves.Count;
+            else
+                wavesCount = stage.CurrentWaveId;
+            
+            var reward = (int) (stage.StartReward + wavesCount * stage.RewardPerWave);
+            save.PlayerInventory[ResType.GOLD] += reward;
             //stage is already incremented
-            winUIScreen.SetStageNumber(save.StageToLoad+1-1);
-            winUIScreen.SetKills(game.KillsCount);
-            winUIScreen.SetReward((int) (stage.StartReward+wavesCount*stage.RewardPerWave));
-            winUIScreen.SetWaves(wavesCount);
-            Time.timeScale = 0;
-        }
-        private void SetUILose()
-        {  
-            var stage = pool.Stage.Get(game.StageEntity);
-            var wavesCount = stage.CurrentWaveId;
-            //loseUIScreen.SetStageNumber(save.StageToLoad+1);
-            loseUIScreen.SetKills(game.KillsCount);
-            loseUIScreen.SetReward((int) (stage.StartReward+wavesCount*stage.RewardPerWave));
-            loseUIScreen.SetWaves(wavesCount);
+            if (isWin)
+            {
+                winUIScreen.SetStageNumber(save.StageToLoad+1-1);
+                winUIScreen.SetKills(game.KillsCount);
+                winUIScreen.SetReward(reward);
+                winUIScreen.SetWaves(wavesCount);
+            }
+            else
+            {
+                loseUIScreen.SetKills(game.KillsCount);
+                loseUIScreen.SetReward(reward);
+                loseUIScreen.SetWaves(wavesCount);
+            }
+               
             Time.timeScale = 0;
         }
 
+       
 
     }
 }
