@@ -40,9 +40,9 @@ MonoBehaviour:
   - Value: 3
   RadiusTome:
   - Value: 0
-  - Value: 3
-  - Value: 4
-  - Value: 5
+  - Value: 1
+  - Value: 1.5
+  - Value: 2
   RicochetTome:
   - Count: 0
     Radius: 0
@@ -92,16 +92,16 @@ MonoBehaviour:
       ExplosionRadius: 0
       ExplosionDamagePercent: 0
   - Explosive:
-      ExplosionRadius: 2
+      ExplosionRadius: 1
       ExplosionDamagePercent: 10
   - Explosive:
-      ExplosionRadius: 2
+      ExplosionRadius: 1.5
       ExplosionDamagePercent: 15
   - Explosive:
       ExplosionRadius: 2
       ExplosionDamagePercent: 20
   - Explosive:
-      ExplosionRadius: 2
+      ExplosionRadius: 2.5
       ExplosionDamagePercent: 25
   LightningBall:
   - Lightning:
@@ -141,14 +141,14 @@ MonoBehaviour:
   - Slime:
       SlowPercent: 20
     ZoneSpread:
-      ZoneRadius: 2
+      ZoneRadius: 1
       Time: 2
       Count: 2
       SpreadRadius: 5
   - Slime:
       SlowPercent: 30
     ZoneSpread:
-      ZoneRadius: 2
+      ZoneRadius: 1.5
       Time: 3
       Count: 3
       SpreadRadius: 5
@@ -201,7 +201,7 @@ MonoBehaviour:
     Lightning:
       TargetsCount: 5
       LightningDamagePercent: 15
-      Radius: 20
+      Radius: 3
   SuperBoulderUlt:
     BoulderData:
       AddKnockbackForce: 10
@@ -211,7 +211,7 @@ MonoBehaviour:
     Slime:
       SlowPercent: 50
     ZoneSpread:
-      ZoneRadius: 2
+      ZoneRadius: 3
       Time: 3
       Count: 3
       SpreadRadius: 5
