@@ -31,9 +31,10 @@ namespace Source.Scripts.System.Input
             var dir = game.PlayerView.BallSpawnPos.forward;
             var ballSpawnPos = game.PlayerView.BallSpawnPos.position;
 
+            float k = 0.01f /*/ config.SlingPointsCount*/;
             for (int i = 0; i < pointsCount; i++)
             {
-                list[i] =  ballSpawnPos+ dir*(i * 0.1f * config.BallSpeed);
+                list[i] =  ballSpawnPos+ dir*(i * k * config.BallSpeed);
             }
 
             var lineRenderer = game.PlayerView.LineRenderer;
