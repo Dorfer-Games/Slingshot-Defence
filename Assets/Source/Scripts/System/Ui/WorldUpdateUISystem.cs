@@ -54,10 +54,19 @@ namespace Source.Scripts.System.Ui
             foreach (var e in filterDamageEvent)
             {
                 var damageEvent = pool.DamageEvent.Get(e);
-                if (pool.HpViewComponent.Has(damageEvent.Target))
+                var target = damageEvent.Target;
+                if (pool.HpViewComponent.Has(target))
                 {
-                    pool.HpViewComponent.Get(damageEvent.Target).Value.AnimateDamageFadeNumber(Mathf.CeilToInt(damageEvent.Damage),pool.View.Get(damageEvent.Target).Value.gameObject);
-                }
+                    var hpBarUIView = pool.HpViewComponent.Get(target).Value;
+                    var link = pool.View.Get(target).Value.gameObject;
+                    hpBarUIView.AnimateDamageFadeNumber(Mathf.CeilToInt(damageEvent.Damage),link);
+
+                    if (pool.Dead.Has(target))
+                    {
+                        hpBarUIView.AnimateGoldFadeNumber(pool.Inventory.Get(target).Value[ResType.GOLD],link);
+                    }
+                } 
+                
             }
             
         }

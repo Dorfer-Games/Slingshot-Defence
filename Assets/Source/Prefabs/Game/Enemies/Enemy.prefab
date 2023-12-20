@@ -346,7 +346,12 @@ PrefabInstance:
     - target: {fileID: 3508865354551908580, guid: 51eb2c727eeb5a845a1120aa3bdd659d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745861741446902942, guid: 51eb2c727eeb5a845a1120aa3bdd659d,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6163647641285080139, guid: 51eb2c727eeb5a845a1120aa3bdd659d,
         type: 3}
@@ -592,6 +597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HpBarView
+      objectReference: {fileID: 0}
+    - target: {fileID: 592507683929825855, guid: 03800ae2696370c4eba05fc3c7efd934,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4624660292483405951, guid: 03800ae2696370c4eba05fc3c7efd934,
         type: 3}

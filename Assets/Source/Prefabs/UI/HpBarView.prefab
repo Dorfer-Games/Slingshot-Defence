@@ -130,6 +130,8 @@ MonoBehaviour:
   progressImage: {fileID: 4624660292483405951}
   fadingNumberUIViewPrefab: {fileID: 7784353855681222394, guid: 312ec1e8ce316164489ac9fec17cc7bb,
     type: 3}
+  fadingGoldUIPrefab: {fileID: 7784353855681222394, guid: 09c5a08871cc49745b8c154dcfd7d097,
+    type: 3}
 --- !u!1 &3112247193844005322
 GameObject:
   m_ObjectHideFlags: 0
