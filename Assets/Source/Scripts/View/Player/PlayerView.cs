@@ -15,6 +15,7 @@ namespace Source.Scripts.View
         public Animator StickmanAnimator;
         public ModelChangerView SlingBall;
         public PlayerAnimatorView PlayerAnimatorView;
+        public ParticleSystem LvlUpVFX;
 
 
     }

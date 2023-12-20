@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Kuhpik;
 using Leopotam.EcsLite;
-using Source.Scripts.Component;
 using Source.Scripts.Component.Event;
 using Source.Scripts.Data.Enum;
 using Source.Scripts.UI;
-using Source.Scripts.View.Stage;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Source.Scripts.System.Loot
+namespace Source.Scripts.System.Player
 {
     public class LvlUpSystem : GameSystemWithScreen<LvlUpUIScreen>
     {
@@ -44,14 +42,15 @@ namespace Source.Scripts.System.Loot
                 upsCount++;
                 if (waitCor==null && !game.IsFinished)
                 {
-                    StartCoroutine(WaitJoystick());
+                    StartCoroutine(WaitJoystickAndVfx());
                 }
             }
         }
 
-        private IEnumerator WaitJoystick()
+        private IEnumerator WaitJoystickAndVfx()
         {
-           
+            game.PlayerView.LvlUpVFX.gameObject.SetActive(true);
+            yield return new WaitForSeconds(1f);
             yield return new WaitUntil(() => game.Joystick.Direction.Equals(Vector2.zero));
            
             if (!game.IsFinished)
