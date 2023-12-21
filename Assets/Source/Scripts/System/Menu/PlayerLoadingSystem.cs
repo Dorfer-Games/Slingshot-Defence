@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Ketchapp.MayoSDK;
 using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Movement;
+using Source.Scripts.Data;
 using Source.Scripts.Data.Enum;
 using Source.Scripts.View;
 using Source.Scripts.View.Cam;
@@ -20,6 +22,13 @@ public class PlayerLoadingSystem : GameSystem
         var joystick = FindObjectOfType<Joystick>();
 
         save.Slings ??= new() {SlingType.DEFAULT};
+        save.AnalyticsProgress ??= new AnalyticsProgress();
+        if (!save.AnalyticsProgress.IsLoggedTutorialCompleted)
+        {
+            save.AnalyticsProgress = new AnalyticsProgress();
+        }
+
+        LogFirstGameLaunch();
         
         
         game.PlayerEntity = game.Fabric.InitView(playerView);
@@ -42,5 +51,15 @@ public class PlayerLoadingSystem : GameSystem
         ref var ammo = ref pool.Ammo.Add(game.PlayerEntity);
         ammo.Value = list;
         ammo.Count = list.Count;
+    }
+    
+    private void LogFirstGameLaunch()
+    {
+        if (!save.AnalyticsProgress.IsLoggedFirstLaunched)
+        {
+            KetchappSDK.Analytics.CustomEvent("first_game_launch");
+            save.AnalyticsProgress.IsLoggedFirstLaunched = true;
+            Bootstrap.Instance.SaveGame();
+        }
     }
 }

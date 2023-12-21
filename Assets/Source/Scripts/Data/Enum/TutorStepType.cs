@@ -5,6 +5,7 @@
         FIRST_ENEMY_RUN,
         SHOW_CONTROLS,
         GIVE_UPGRADES,
-        SHOW_AMMO
+        SHOW_AMMO,
+        COMPLETE
     }
 }

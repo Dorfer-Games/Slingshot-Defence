@@ -127,11 +127,17 @@ namespace Source.Scripts.System.Player
             //game.Joystick.OnPointerUp(null);
 
             ConsiderUps(out List<ElementType> resElements, out List<ElementType> resUlts, out List<TomeType> resTomes);
+            if (save.AnalyticsProgress.TutorStepType==TutorStepType.GIVE_UPGRADES)
+            {
+                resElements = new List<ElementType>() {ElementType.FIRE, ElementType.SLIME};
+                resTomes = new List<TomeType>() {TomeType.RADIUS};
+            }
             SetUpgradesUI(resElements, resUlts, resTomes);
         }
 
         private void OnUpsEnd()
         {
+            TutorStepOnClick();
             upsCount--;
             if (upsCount > 0)
             {
@@ -144,10 +150,34 @@ namespace Source.Scripts.System.Player
             }
         }
 
+        private void TutorStepOnClick()
+        {
+            if (save.AnalyticsProgress.TutorStepType == TutorStepType.GIVE_UPGRADES)
+            { 
+                screen.TogglePointer(false);
+                
+                foreach (var screenUpCard in screen.UpCards)
+                {
+                    screenUpCard.ToggleClickBlock(false);
+                }
+
+                pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                    $"tutorial_step{(int)save.AnalyticsProgress.TutorStepType+1}_{save.AnalyticsProgress.TutorStepType.ToString().ToLower()}";
+                save.AnalyticsProgress.TutorStepType++;
+            }
+        }
+
         private void SetUpgradesUI(List<ElementType> resElements, List<ElementType> resUlts, List<TomeType> resTomes)
         {
             var screenUpCards = screen.UpCards.ToList();
-            Shuffle(screenUpCards);
+
+            if (save.AnalyticsProgress.TutorStepType == TutorStepType.GIVE_UPGRADES)
+            {
+                screen.TogglePointer(true);
+                screenUpCards[1].ToggleClickBlock(true);
+                screenUpCards[2].ToggleClickBlock(true);
+            }else
+                Shuffle(screenUpCards);
 
             foreach (var elementType in resUlts)
             {

@@ -28,7 +28,7 @@ namespace Source.Scripts.UI
         private void Update()
         {
             if (!_move) return;
-            _time += Time.deltaTime * _speed;
+            _time += Time.unscaledDeltaTime * _speed;
 
             var clampTime = Mathf.Cos(_time);
             clampTime = Remap(clampTime, -1, 1, 0, 1);

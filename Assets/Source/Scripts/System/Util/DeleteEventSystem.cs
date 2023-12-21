@@ -30,6 +30,7 @@ namespace Source.Scripts.System
             AddFilter<LvlUpEvent>();
             AddFilter<NextStageEvent>();
             AddFilter<ReachEvent>();
+            AddFilter<AnalyticsEvent>();
         
         }
 

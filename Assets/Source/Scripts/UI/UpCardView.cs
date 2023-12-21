@@ -15,12 +15,17 @@ namespace Source.Scripts.UI
         [SerializeField] private Image bg;
         [SerializeField] private Image icon;
         [SerializeField] private Image tomeBallicon;
+        [SerializeField] private GameObject clickBlock;
 
         private UIConfig config;
 
         public void Init(UIConfig uiConfig)
         {
             config = uiConfig;
+        }
+        public void ToggleClickBlock(bool a)
+        {
+            clickBlock.gameObject.SetActive(a);
         }
 
         public void SetBall(ElementType elementType,int lvl)

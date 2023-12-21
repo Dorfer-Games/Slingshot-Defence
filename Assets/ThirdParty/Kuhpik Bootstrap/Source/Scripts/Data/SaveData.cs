@@ -3,6 +3,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Source.Scripts.Data;
 using Source.Scripts.Data.Enum;
 
 namespace Kuhpik
@@ -19,6 +20,8 @@ namespace Kuhpik
         public List<SlingType> Slings;
         public int StageToLoad;
         public bool SkipMenu;
+        
+        public AnalyticsProgress AnalyticsProgress;
         
         public bool VibroOn=true;
 
