@@ -1,0 +1,331 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1036176705, guid: be337fccd7d04a3887ae41770c05c0f5, type: 3}
+  m_Name: KetchappSettings
+  m_EditorClassIdentifier: 
+  StudioName: Dorfer
+  GameName: Sling Shot Defense
+  GameId: 5247
+  MayoVersion: 1.8.0
+  IosConfiguration:
+    FacebookAppId: 1054015842409935
+    FacebookClientToken: 
+    GameAnalyticsSecretKey: 
+    GameAnalyticsGameKey: 
+    MediationAppId: 
+    MediationName: Unknown
+    AdMobAppId: 
+    AppOpenId: 
+    RewardedVideoId: 
+    InterstitialId: 
+    BannerId: 
+    AppsflyerApiKey: xXfYJ5TwupQKMEH9uz88uj
+    AppsFlyerAppid: 
+    CrossPromotionBundle: 
+    APSAppId: 
+    APSBannerId: 
+    APSTabletBannerId: 
+    APSInterstitialId: 
+    APSRewardedVideoId: 
+    BundleId: 
+    AndroidManifestValues: []
+    GradleValues: []
+    SdkList:
+    - Version: 7.6.1.0
+      Name: GameAnalytics
+      Extension: unitypackage
+      ToolVersionId: 646
+      Changelog: 
+      Type: 3
+      PackageType: 1
+      PluginPaths:
+      - GameAnalytics
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 1
+      UnityPackageRegistryName: com.ketchapp.gameanalytics
+      UnityPackageRegistryVersion: 7.6.1
+      SDKRegistry:
+        RegistryName: Ketchapp Third Party
+        RegistryUrl: https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-thirdparty-prod/npm/registry/
+        Scopes:
+        - com.ketchapp
+    - Version: 6.12.21.3
+      Name: AppsFlyer
+      Extension: unitypackage
+      ToolVersionId: 662
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - AppsFlyer/Windows/AppsFlyerWindows.cs
+      - AppsFlyer/AppsFlyerObject.prefab
+      - AppsFlyer/Plugins/iOS/AppsFlyerAttribution.m
+      - AppsFlyer/Plugins/iOS/AppsFlyeriOSWrapper.h
+      - AppsFlyer/AppsFlyerAndroid.cs
+      - AppsFlyer/Plugins/iOS/AFUnityUtils.mm
+      - AppsFlyer/Tests/Tests_Suite.cs
+      - AppsFlyer/Tests/Tests.asmdef
+      - AppsFlyer/AppsFlyerObjectScript.cs
+      - AppsFlyer/AppsFlyer.asmdef
+      - AppsFlyer/Plugins/iOS/AppsFlyeriOSWrapper.mm
+      - AppsFlyer/Plugins/iOS/AppsFlyerAppController.mm
+      - AppsFlyer/Tests/System.Runtime.CompilerServices.Unsafe.dll
+      - AppsFlyer/AFInAppEvents.cs
+      - AppsFlyer/IAppsFlyerNativeBridge.cs
+      - AppsFlyer/AppsFlyer.cs
+      - AppsFlyer/Windows/AppsFlyerLib.winmd
+      - AppsFlyer/IAppsFlyerUserInvite.cs
+      - AppsFlyer/IAppsFlyerValidateReceipt.cs
+      - AppsFlyer/Tests/NSubstitute.dll
+      - AppsFlyer/IAppsFlyerIOSBridge.cs
+      - AppsFlyer/Plugins/iOS/AppsFlyer+AppController.m
+      - AppsFlyer/Tests/Castle.Core.dll
+      - AppsFlyer/Plugins/iOS/AppsFlyerAttribution.h
+      - AppsFlyer/Editor/AppsFlyerDependencies.xml
+      - AppsFlyer/AppsFlyerEventArgs.cs
+      - AppsFlyer/package.json
+      - AppsFlyer/AppsFlyeriOS.cs
+      - AppsFlyer/AFMiniJSON.cs
+      - AppsFlyer/Editor/appsflyer_logo.png
+      - AppsFlyer/Windows/AppsFlyerLib.pri
+      - AppsFlyer/IAppsFlyerAndroidBridge.cs
+      - AppsFlyer/Editor/AppsFlyer.Editor.asmdef
+      - AppsFlyer/Windows/AppsFlyerLib.pdb
+      - AppsFlyer/Editor/AppsFlyerObjectEditor.cs
+      - AppsFlyer/IAppsFlyerConversionData.cs
+      - AppsFlyer/Tests/System.Threading.Tasks.Extensions.dll
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 1
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+      SDKRegistry:
+        RegistryName: 
+        RegistryUrl: 
+        Scopes: []
+    - Version: 14.2.1.0
+      Name: FacebookSDK
+      Extension: unitypackage
+      ToolVersionId: 422
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - FacebookSDK
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 0
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+      SDKRegistry:
+        RegistryName: 
+        RegistryUrl: 
+        Scopes: []
+    - Version: 1.2.177.0
+      Name: External Dependency Manager
+      Extension: unitypackage
+      ToolVersionId: 769
+      Changelog: 
+      Type: 4
+      PackageType: 1
+      PluginPaths:
+      - ExternalDependencyManager
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 3
+      UnityPackageRegistryName: com.ketchapp.externaldependencymanager
+      UnityPackageRegistryVersion: 1.2.177
+      SDKRegistry:
+        RegistryName: Ketchapp Third Party
+        RegistryUrl: https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-thirdparty-prod/npm/registry/
+        Scopes:
+        - com.ketchapp
+    MediationAdapters: []
+  AndroidConfiguration:
+    FacebookAppId: 1054015842409935
+    FacebookClientToken: 
+    GameAnalyticsSecretKey: d01bf7b0a506dc1dcfc3876444068e9e071874b3
+    GameAnalyticsGameKey: 6605633847e34beddc732511d5fea395
+    MediationAppId: 
+    MediationName: Unknown
+    AdMobAppId: 
+    AppOpenId: 
+    RewardedVideoId: 
+    InterstitialId: 
+    BannerId: 
+    AppsflyerApiKey: xXfYJ5TwupQKMEH9uz88uj
+    AppsFlyerAppid: com.sling.shot.defense
+    CrossPromotionBundle: com.sling.shot.defense
+    APSAppId: 
+    APSBannerId: 
+    APSTabletBannerId: 
+    APSInterstitialId: 
+    APSRewardedVideoId: 
+    BundleId: com.sling.shot.defense
+    AndroidManifestValues:
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.VIBRATE
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.WRITE_EXTERNAL_STORAGE
+    - ManifestType: 3
+      Name: name
+      Value: android.permission.ACCESS_WIFI_STATE
+    - ManifestType: 2
+      Name: usesCleartextTraffic
+      Value: true
+    - ManifestType: 2
+      Name: debuggable
+      Value: false
+    - ManifestType: 3
+      Name: name
+      Value: com.google.android.gms.permission.AD_ID
+    GradleValues:
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.72'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.google.android.gms:play-services-base:17.4.0'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.google.android.material:material:1.1.0'
+    - ManifestType: 0
+      Name: dependencies
+      Value: implementation 'com.google.code.gson:gson:2.3.1'
+    SdkList:
+    - Version: 7.6.1.0
+      Name: GameAnalytics
+      Extension: unitypackage
+      ToolVersionId: 646
+      Changelog: 
+      Type: 3
+      PackageType: 1
+      PluginPaths:
+      - GameAnalytics
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 1
+      UnityPackageRegistryName: com.ketchapp.gameanalytics
+      UnityPackageRegistryVersion: 7.6.1
+      SDKRegistry:
+        RegistryName: Ketchapp Third Party
+        RegistryUrl: https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-thirdparty-prod/npm/registry/
+        Scopes:
+        - com.ketchapp
+    - Version: 6.12.21.3
+      Name: AppsFlyer
+      Extension: unitypackage
+      ToolVersionId: 662
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - AppsFlyer/Windows/AppsFlyerWindows.cs
+      - AppsFlyer/AppsFlyerObject.prefab
+      - AppsFlyer/Plugins/iOS/AppsFlyerAttribution.m
+      - AppsFlyer/Plugins/iOS/AppsFlyeriOSWrapper.h
+      - AppsFlyer/AppsFlyerAndroid.cs
+      - AppsFlyer/Plugins/iOS/AFUnityUtils.mm
+      - AppsFlyer/Tests/Tests_Suite.cs
+      - AppsFlyer/Tests/Tests.asmdef
+      - AppsFlyer/AppsFlyerObjectScript.cs
+      - AppsFlyer/AppsFlyer.asmdef
+      - AppsFlyer/Plugins/iOS/AppsFlyeriOSWrapper.mm
+      - AppsFlyer/Plugins/iOS/AppsFlyerAppController.mm
+      - AppsFlyer/Tests/System.Runtime.CompilerServices.Unsafe.dll
+      - AppsFlyer/AFInAppEvents.cs
+      - AppsFlyer/IAppsFlyerNativeBridge.cs
+      - AppsFlyer/AppsFlyer.cs
+      - AppsFlyer/Windows/AppsFlyerLib.winmd
+      - AppsFlyer/IAppsFlyerUserInvite.cs
+      - AppsFlyer/IAppsFlyerValidateReceipt.cs
+      - AppsFlyer/Tests/NSubstitute.dll
+      - AppsFlyer/IAppsFlyerIOSBridge.cs
+      - AppsFlyer/Plugins/iOS/AppsFlyer+AppController.m
+      - AppsFlyer/Tests/Castle.Core.dll
+      - AppsFlyer/Plugins/iOS/AppsFlyerAttribution.h
+      - AppsFlyer/Editor/AppsFlyerDependencies.xml
+      - AppsFlyer/AppsFlyerEventArgs.cs
+      - AppsFlyer/package.json
+      - AppsFlyer/AppsFlyeriOS.cs
+      - AppsFlyer/AFMiniJSON.cs
+      - AppsFlyer/Editor/appsflyer_logo.png
+      - AppsFlyer/Windows/AppsFlyerLib.pri
+      - AppsFlyer/IAppsFlyerAndroidBridge.cs
+      - AppsFlyer/Editor/AppsFlyer.Editor.asmdef
+      - AppsFlyer/Windows/AppsFlyerLib.pdb
+      - AppsFlyer/Editor/AppsFlyerObjectEditor.cs
+      - AppsFlyer/IAppsFlyerConversionData.cs
+      - AppsFlyer/Tests/System.Threading.Tasks.Extensions.dll
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 1
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+      SDKRegistry:
+        RegistryName: 
+        RegistryUrl: 
+        Scopes: []
+    - Version: 14.2.1.0
+      Name: FacebookSDK
+      Extension: unitypackage
+      ToolVersionId: 422
+      Changelog: 
+      Type: 3
+      PackageType: 0
+      PluginPaths:
+      - FacebookSDK
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 0
+      UnityPackageRegistryName: 
+      UnityPackageRegistryVersion: 
+      SDKRegistry:
+        RegistryName: 
+        RegistryUrl: 
+        Scopes: []
+    - Version: 1.2.177.0
+      Name: External Dependency Manager
+      Extension: unitypackage
+      ToolVersionId: 769
+      Changelog: 
+      Type: 4
+      PackageType: 1
+      PluginPaths:
+      - ExternalDependencyManager
+      FilesToDelete: []
+      IsPreview: 0
+      PreviewIncrement: 3
+      UnityPackageRegistryName: com.ketchapp.externaldependencymanager
+      UnityPackageRegistryVersion: 1.2.177
+      SDKRegistry:
+        RegistryName: Ketchapp Third Party
+        RegistryUrl: https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-thirdparty-prod/npm/registry/
+        Scopes:
+        - com.ketchapp
+    MediationAdapters: []
+  SKAdNetworksId:
+  - v9wttpbfk9.skadnetwork
+  - n38lu8286q.skadnetwork
+  BannerHeight: 180
+  GameState: 1
+  DebuggerCode: GlqfGxBPII5Rhg==
+  UsercentricsRulesetId: 

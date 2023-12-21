@@ -51,6 +51,9 @@ namespace Source.Scripts.System.Trigger
             foreach (var e in filterBallReachEvent)
             {
                 var ent = pool.ReachEvent.Get(e).Entity;
+                if (pool.Enemy.Has(ent))
+                    continue;
+                
                 Hit(ent);
             }
         }

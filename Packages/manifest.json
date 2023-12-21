@@ -1,4 +1,35 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.akbiggs.unitytimer",
+        "com.azixmcaze.unityserializabledictionary",
+        "com.coffee.ui-effect",
+        "com.coffee.ui-particle",
+        "com.cysharp.unitask",
+        "com.mackysoft.serializereference-extensions",
+        "com.openupm",
+        "com.supyrb.signals",
+        "com.yasirkula.adjustpivot"
+      ]
+    },
+    {
+      "name": "Ketchapp Registry",
+      "url": "https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-mayo-production/npm/registry/",
+      "scopes": [
+        "com.ketchapp.mayo"
+      ]
+    },
+    {
+      "name": "Ketchapp Third Party",
+      "url": "https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-thirdparty-prod/npm/registry/",
+      "scopes": [
+        "com.ketchapp"
+      ]
+    }
+  ],
   "dependencies": {
     "com.akbiggs.unitytimer": "1.1.0",
     "com.azixmcaze.unityserializabledictionary": "1.2.0",
@@ -62,23 +93,9 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
-  },
-  "scopedRegistries": [
-    {
-      "name": "package.openupm.com",
-      "url": "https://package.openupm.com",
-      "scopes": [
-        "com.akbiggs.unitytimer",
-        "com.azixmcaze.unityserializabledictionary",
-        "com.coffee.ui-effect",
-        "com.coffee.ui-particle",
-        "com.cysharp.unitask",
-        "com.mackysoft.serializereference-extensions",
-        "com.openupm",
-        "com.supyrb.signals",
-        "com.yasirkula.adjustpivot"
-      ]
-    }
-  ]
+    "com.unity.modules.xr": "1.0.0",
+    "com.ketchapp.mayo.coresdk": "1.8.0-release",
+    "com.ketchapp.gameanalytics": "7.6.1",
+    "com.ketchapp.externaldependencymanager": "1.2.177"
+  }
 }

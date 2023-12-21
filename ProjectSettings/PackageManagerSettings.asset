@@ -42,11 +42,27 @@ MonoBehaviour:
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4
-  m_UserSelectedRegistryName: package.openupm.com
+  - m_Id: scoped:project:Ketchapp Registry
+    m_Name: Ketchapp Registry
+    m_Url: https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-mayo-production/npm/registry
+    m_Scopes:
+    - com.ketchapp.mayo
+    m_IsDefault: 0
+    m_Capabilities: 0
+    m_ConfigSource: 4
+  - m_Id: scoped:project:Ketchapp Third Party
+    m_Name: Ketchapp Third Party
+    m_Url: https://pkgs.dev.azure.com/ketchapp/KetchappMayo_Deploy/_packaging/ketchapp-thirdparty-prod/npm/registry
+    m_Scopes:
+    - com.ketchapp
+    m_IsDefault: 0
+    m_Capabilities: 0
+    m_ConfigSource: 4
+  m_UserSelectedRegistryName: Ketchapp Third Party
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_Modified: 0
     m_ErrorMessage: 
-    m_UserModificationsInstanceId: -852
-    m_OriginalInstanceId: -856
+    m_UserModificationsInstanceId: -830
+    m_OriginalInstanceId: -834
   m_LoadAssets: 0
