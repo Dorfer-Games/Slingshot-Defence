@@ -30,8 +30,7 @@ namespace Source.Scripts.System
             AddFilter<LvlUpEvent>();
             AddFilter<NextStageEvent>();
             AddFilter<ReachEvent>();
-            AddFilter<AnalyticsEvent>();
-        
+
         }
 
         private void AddFilter<T>() where T: struct

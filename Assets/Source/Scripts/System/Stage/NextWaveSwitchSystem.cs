@@ -1,11 +1,9 @@
-﻿using Kuhpik;
+﻿using Ketchapp.MayoSDK;
+using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Battle;
-using Source.Scripts.Component.Event;
-using Source.Scripts.Component.Movement;
-using Source.Scripts.Component.ViewComponent;
-using UnityEngine;
+
 
 namespace Source.Scripts.System.Move
 {
@@ -36,6 +34,9 @@ namespace Source.Scripts.System.Move
                         //Next Wave
                         stage.CurrentWaveId++;
                         stage.CurrentWaveEnemiesSpawnedCount = 0;
+                        pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                            $"lvl{save.StageToLoad+1}_wave{stage.CurrentWaveId+1-1}_finish";
+                       
                     }
                     else
                     { 

@@ -38,8 +38,29 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
                 save.SlingUps[save.CurrentSling][typeLevel.Key]++;
                 SetSlingUpsUI();
                 screen.SetGold(save.PlayerInventory[ResType.GOLD]);
+
+                SendAnalyticEvent(typeLevel.Key, save.SlingUps[save.CurrentSling][typeLevel.Key]);
             });
         }
+    }
+
+    private void SendAnalyticEvent(UpType upType,int level)
+    {
+        string name = "";
+        switch (upType)
+        {
+            case UpType.DAMAGE:
+                name = "damage";
+                break;
+            case UpType.RELOAD_TIME:
+                name = "cooldown";
+                break;
+            case UpType.GOLD_K:
+                name = "income";
+                break;
+        }
+        pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+            $"upgrade_{name}{level}";
     }
 
     private void SetSlingUpsUI()

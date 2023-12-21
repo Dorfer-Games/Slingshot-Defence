@@ -22,6 +22,7 @@ namespace Source.Scripts.System.Util
             foreach (var e in filterLogEvent)
             {
                 KetchappSDK.Analytics.CustomEvent(pool.AnalyticsEvent.Get(e).Value);
+                pool.AnalyticsEvent.Del(e);
             }
         }
     }

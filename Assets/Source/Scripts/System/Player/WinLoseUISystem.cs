@@ -1,4 +1,5 @@
-﻿using Kuhpik;
+﻿using Ketchapp.MayoSDK;
+using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Event;
@@ -23,6 +24,8 @@ namespace Source.Scripts.System.Player
             
             filterDead = world.Filter<DeadTag>().End();
             filterNextLevel = eventWorld.Filter<NextStageEvent>().End();
+            KetchappSDK.Analytics.GetLevel((save.StageToLoad) + 1)
+                .ProgressionStart();
         }
         
 
@@ -37,6 +40,8 @@ namespace Source.Scripts.System.Player
                     if (game.IsFinished)
                         break;
                     game.IsFinished = true;
+                    KetchappSDK.Analytics.GetLevel((save.StageToLoad) + 1)
+                        .ProgressionFailed();
                     
                     SetUI(false);
                     loseUIScreen.MenuButton.onClick.AddListener(() =>
@@ -59,6 +64,8 @@ namespace Source.Scripts.System.Player
                 save.StageToLoad++;
                 if (save.StageToLoad==config.MaxLevels)
                     save.StageToLoad--;
+                KetchappSDK.Analytics.GetLevel((save.StageToLoad) + 1-1)
+                    .ProgressionComplete();
 
                 SetUI(true);
                 winUIScreen.NextStageButton.onClick.AddListener(() =>

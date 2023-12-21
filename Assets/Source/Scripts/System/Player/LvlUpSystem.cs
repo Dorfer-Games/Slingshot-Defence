@@ -60,6 +60,8 @@ namespace Source.Scripts.System.Player
         {
             var tomes = pool.Tomes.Get(game.PlayerEntity).Value;
             tomes[tomeType]++;
+            pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                $"get_{tomeType.ToString().ToLower()}_{tomes[tomeType]}_lvl{save.StageToLoad+1}";
         }
 
         private void UpgradeBall(ElementType elementType)
@@ -79,14 +81,15 @@ namespace Source.Scripts.System.Player
                         modelID = config.ElementsCount - 1 + (int) elementType;
                         pool.Ult.GetOrCreateRef(ammoBall).Value = (UltType) elementType;
                     }
-
+                    pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                        $"get_{elementType.ToString().ToLower()}_{level}_lvl{save.StageToLoad+1}";
                     pool.ModelChangerComponent.Get(ammoBall).Value.SetModel(modelID);
                     return;
                 }
             }
 
 
-            //if doest have same element - finding active views
+            //if doesnt have same element - finding active views
             foreach (var ammoBall in ammoBalls)
             {
                 ref var el = ref pool.Element.Get(ammoBall).Value;
@@ -96,13 +99,15 @@ namespace Source.Scripts.System.Player
                     {
                         el = elementType;
                         pool.Level.Get(ammoBall).Value++;
+                        pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                            $"get_{elementType.ToString().ToLower()}_{1}_lvl{save.StageToLoad+1}";
                         pool.ModelChangerComponent.Get(ammoBall).Value.SetModel((int) elementType);
                         return;
                     }
                 }
             }
 
-            //if doest have same element - finding nonactive views
+            //if doesnt have same element - finding nonactive views
             foreach (var ammoBall in ammoBalls)
             {
                 ref var el = ref pool.Element.Get(ammoBall).Value;
@@ -110,6 +115,8 @@ namespace Source.Scripts.System.Player
                 {
                     el = elementType;
                     pool.Level.Get(ammoBall).Value++;
+                    pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                        $"get_{elementType.ToString().ToLower()}_{1}_lvl{save.StageToLoad+1}";
                     pool.ModelChangerComponent.Get(ammoBall).Value.SetModel((int) elementType);
                     return;
                 }

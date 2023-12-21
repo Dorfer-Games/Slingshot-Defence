@@ -62,6 +62,9 @@ namespace Source.Scripts.System.Battle
             else
                 pool.EnemySpawnTick.Add(ent).Value =
                     config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level].SpawnDelay;
+            
+            pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
+                $"lvl{save.StageToLoad+1}_wave{stage.CurrentWaveId+1}_start";
         }
     }
 }
