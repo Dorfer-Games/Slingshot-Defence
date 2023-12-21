@@ -8,15 +8,15 @@ namespace Source.Scripts.System.Input
     public class SlingInputSystem : GameSystem
     {
         private Joystick joystick;
-        private float offset;
         private CameraSwitcherView cameraSwitcherView;
         private Animator playerAnimator;
+        private float shotLen;
 
         public override void OnInit()
         {
             base.OnInit();
             joystick = game.Joystick;
-            offset = config.SlingInputOffset;
+           
             cameraSwitcherView = game.CameraSwitcherView;
             playerAnimator = game.PlayerView.StickmanAnimator;
 
@@ -30,7 +30,7 @@ namespace Source.Scripts.System.Input
 
         private void SendShotEvent()
         {
-            pool.ShotEvent.Add(eventWorld.NewEntity());
+            pool.ShotEvent.Add(eventWorld.NewEntity()).ShotLen=shotLen;
         }
 
         private void Load()
@@ -55,10 +55,11 @@ namespace Source.Scripts.System.Input
         {
             Time.timeScale = 1;
             cameraSwitcherView.Switch(CameraPositionType.DEFAULT);
-           
-            
-            if (joystick.Direction.sqrMagnitude >= offset * offset)
+            var lineRenderer = game.PlayerView.LineRenderer;
+
+            if (lineRenderer.positionCount>0)
             {
+                shotLen = lineRenderer.GetPosition(lineRenderer.positionCount - 1).magnitude;
                 playerAnimator.Play("Release");
             }
             else

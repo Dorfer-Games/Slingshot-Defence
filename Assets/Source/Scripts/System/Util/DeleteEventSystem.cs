@@ -29,6 +29,7 @@ namespace Source.Scripts.System
             AddFilter<KnockbackEvent>();
             AddFilter<LvlUpEvent>();
             AddFilter<NextStageEvent>();
+            AddFilter<ReachEvent>();
         
         }
 

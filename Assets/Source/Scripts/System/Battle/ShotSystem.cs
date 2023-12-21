@@ -30,15 +30,16 @@ namespace Source.Scripts.System.Sling.Shot
                 var firstAmmo = ammo.Value[^ammo.Count];
                 pool.View.Get(firstAmmo).Value.ToggleActive(false);
                 ammo.Count--;
-               
-                var ent = SpawnBall(firstAmmo);
+
+                var shotLen = pool.ShotEvent.Get(e).ShotLen;
+                var ent = SpawnBall(firstAmmo,shotLen);
                 if (pool.Ult.Has(firstAmmo))
                 {
                     InitUlt(ent,firstAmmo);
                     return;
                 }
               
-                var ballsInShot = InitTomes(ent,firstAmmo);
+                var ballsInShot = InitTomes(ent,firstAmmo,shotLen);
                 InitBallsElement(ballsInShot,firstAmmo);
             }
         }
@@ -84,7 +85,7 @@ namespace Source.Scripts.System.Sling.Shot
             }
         }
 
-        private List<int> InitTomes(int ent,int firstAmmo)
+        private List<int> InitTomes(int ent,int firstAmmo,float shotLen)
         {
             //add ball perks
             var tomes = pool.Tomes.Get(game.PlayerEntity).Value;
@@ -99,17 +100,17 @@ namespace Source.Scripts.System.Sling.Shot
                 if (mult.AddBallCount == 1)
                 {
                     MoveLocal(ent, new Vector3(-scaleX / 2f, 0, 0));
-                    var addBall = SpawnBall(firstAmmo);
+                    var addBall = SpawnBall(firstAmmo,shotLen);
                     ballsInShot.Add(addBall);
                     MoveLocal(addBall, new Vector3(scaleX / 2f, 0, 0));
                 }
                 else if (mult.AddBallCount == 2)
                 {
-                    var addBall1 = SpawnBall(firstAmmo);
+                    var addBall1 = SpawnBall(firstAmmo,shotLen);
                     ballsInShot.Add(addBall1);
                     MoveLocal(addBall1, new Vector3(-scaleX * 1.5f, 0, 0));
                     RotateLocal(addBall1, -config.MultishotAngle);
-                    var addBall2 = SpawnBall(firstAmmo);
+                    var addBall2 = SpawnBall(firstAmmo,shotLen);
                     ballsInShot.Add(addBall2);
                     MoveLocal(addBall2, new Vector3(scaleX * 1.5f, 0, 0));
                     RotateLocal(addBall2, config.MultishotAngle);
@@ -245,19 +246,22 @@ namespace Source.Scripts.System.Sling.Shot
             ballTr.SetParent(null);
         }
 
-        private int SpawnBall(int firstAmmo)
+        private int SpawnBall(int firstAmmo,float shotLen)
         {
             var elementType = pool.Element.Get(firstAmmo).Value;
-            
+            var speed = (shotLen / config.StageMaxZ) * config.BallSpeed;
+            var dir = game.PlayerView.transform.forward;
+
             var ball = Instantiate(config.BallPrefab);
             ball.transform.position = game.PlayerView.BallSpawnPos.transform.position;
             var ent = game.Fabric.InitView(ball);
-            pool.Dir.Get(ent).Value = game.PlayerView.transform.forward;
-            pool.Speed.Add(ent).Value = config.BallSpeed;
+            pool.Dir.Get(ent).Value = dir;
+            pool.Speed.Add(ent).Value = speed;
             pool.PrevHitTargets.Add(ent).Value = new();
             pool.Radius.Add(ent).Value = config.BallBaseRadius * config.ScaleFactor;
             pool.Knockback.Add(ent).Value = config.BallBaseKnockback;
             pool.Element.Add(ent).Value = elementType;
+            pool.FollowPosition.Add(ent).Value = shotLen * dir;
             //set base damage
             var damageLevel = save.SlingUps[save.CurrentSling][UpType.DAMAGE];
             pool.Damage.Add(ent).Value = config.SlingConfigs[save.CurrentSling].Ups[UpType.DAMAGE][damageLevel];

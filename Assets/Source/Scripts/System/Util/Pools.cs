@@ -81,6 +81,7 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<KnockbackEvent> KnockbackEvent;
         public readonly EcsPool<LvlUpEvent> LvlUpEvent;
         public readonly EcsPool<NextStageEvent> NextStageEvent;
+        public readonly EcsPool<ReachEvent> ReachEvent;
 
         public Pools(EcsWorld world, EcsWorld eventWorld)
         {
@@ -151,6 +152,7 @@ namespace Source.Scripts.System.Util
             KnockbackEvent = eventWorld.GetPool<KnockbackEvent>();
             LvlUpEvent = eventWorld.GetPool<LvlUpEvent>();
             NextStageEvent = eventWorld.GetPool<NextStageEvent>();
+            ReachEvent = eventWorld.GetPool<ReachEvent>();
         }
 
 

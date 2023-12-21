@@ -16,6 +16,7 @@ namespace Kuhpik
     [CreateAssetMenu(menuName = "Config/GameConfig")]
     public sealed class GameConfig : ScriptableObject
     {
+        public float StageMaxZ=30f;
         public int MaxLevels;
         public int ElementsCount = 6;
         public int MaxSimpleBallLevel = 4;
