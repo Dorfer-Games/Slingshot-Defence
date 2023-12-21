@@ -60,6 +60,8 @@ namespace Source.Scripts.System.Loot
 
             if (goldValue > 0)
             {
+                var lvl = save.SlingUps[SlingType.DEFAULT][UpType.GOLD_K];
+                goldValue = (int) (goldValue*config.SlingConfigs[SlingType.DEFAULT].Ups[UpType.GOLD_K][lvl]);
                 save.PlayerInventory[ResType.GOLD] += goldValue;
                 SetGold();
             }

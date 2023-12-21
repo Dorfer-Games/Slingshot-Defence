@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
+using Source.Scripts.Data.Enum;
 using UnityEngine;
 
 namespace Source.Scripts.System.Battle
@@ -28,7 +29,9 @@ namespace Source.Scripts.System.Battle
                 var count = pool.Ammo.Get(ent).Count;
                 if (count==0)
                 {
-                    pool.ReloadTick.Add(ent).Value = config.ReloadTime;
+                    var lvl = save.SlingUps[SlingType.DEFAULT][UpType.RELOAD_TIME];
+                    var reloadTime = config.SlingConfigs[SlingType.DEFAULT].Ups[UpType.RELOAD_TIME][lvl];
+                    pool.ReloadTick.Add(ent).Value = reloadTime;
                     screen.ToggleReload(true);
                 }
             }

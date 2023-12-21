@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Ketchapp.MayoSDK;
 using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
@@ -59,8 +60,7 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
                 name = "income";
                 break;
         }
-        pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
-            $"upgrade_{name}{level}";
+        KetchappSDK.Analytics.CustomEvent($"upgrade_{name}{level}");
     }
 
     private void SetSlingUpsUI()

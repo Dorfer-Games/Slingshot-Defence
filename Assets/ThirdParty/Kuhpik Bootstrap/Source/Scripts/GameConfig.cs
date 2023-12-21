@@ -22,7 +22,7 @@ namespace Kuhpik
         public int MaxSimpleBallLevel = 4;
         public float ScaleFactor;
         public int SlingPointsCount;
-        public float SlingInputOffset;
+        //public float SlingInputOffset;
         public float UnitRotSpeed;
         public float BallSpeed;
         public LayerMask EnemyLayerMask;
@@ -33,7 +33,6 @@ namespace Kuhpik
         public float KnockbackTime;
         public float BallBaseRadius;
         public float BallBaseKnockback;
-        public float ReloadTime;
         public float SlowTimeScale;
         public float HpToDmgK;
 
