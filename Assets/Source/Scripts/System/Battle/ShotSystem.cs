@@ -33,6 +33,7 @@ namespace Source.Scripts.System.Sling.Shot
 
                 var shotLen = pool.ShotEvent.Get(e).ShotLen;
                 var ent = SpawnBall(firstAmmo,shotLen);
+                RotateLocal(ent, 0,shotLen);
                 if (pool.Ult.Has(firstAmmo))
                 {
                     InitUlt(ent,firstAmmo);
@@ -100,20 +101,23 @@ namespace Source.Scripts.System.Sling.Shot
                 if (mult.AddBallCount == 1)
                 {
                     MoveLocal(ent, new Vector3(-scaleX / 2f, 0, 0));
+                    RotateLocal(ent, 0,shotLen);
                     var addBall = SpawnBall(firstAmmo,shotLen);
                     ballsInShot.Add(addBall);
                     MoveLocal(addBall, new Vector3(scaleX / 2f, 0, 0));
+                    RotateLocal(addBall, 0,shotLen);
                 }
                 else if (mult.AddBallCount == 2)
                 {
                     var addBall1 = SpawnBall(firstAmmo,shotLen);
                     ballsInShot.Add(addBall1);
                     MoveLocal(addBall1, new Vector3(-scaleX * 1.5f, 0, 0));
-                    RotateLocal(addBall1, -config.MultishotAngle);
+                    RotateLocal(addBall1, -config.MultishotAngle,shotLen);
+
                     var addBall2 = SpawnBall(firstAmmo,shotLen);
                     ballsInShot.Add(addBall2);
                     MoveLocal(addBall2, new Vector3(scaleX * 1.5f, 0, 0));
-                    RotateLocal(addBall2, config.MultishotAngle);
+                    RotateLocal(addBall2, config.MultishotAngle,shotLen);
                 }
 
                 foreach (var multBall in ballsInShot)
@@ -227,13 +231,14 @@ namespace Source.Scripts.System.Sling.Shot
             damage += damage * addDamagePercent / 100f;
         }
 
-        private void RotateLocal(int ent, float degree)
+        private void RotateLocal(int ent, float degree,float shotLen)
         {
             var playerViewTransform = game.PlayerView.transform;
             var ballTr = pool.View.Get(ent).Value.transform;
             ballTr.SetParent(playerViewTransform);
             ballTr.localRotation = Quaternion.Euler(ballTr.localRotation.x, degree, ballTr.localRotation.z);
             pool.Dir.Get(ent).Value = ballTr.forward;
+            pool.FollowPosition.Get(ent).Value = ballTr.position+shotLen * ballTr.forward;
             ballTr.SetParent(null);
         }
 

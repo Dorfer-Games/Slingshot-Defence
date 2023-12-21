@@ -12,6 +12,8 @@ namespace Source.Scripts.System.Util
 {
     public class CheatsSystem : GameSystem
     {
+        [SerializeField] private Button toggle;
+        [SerializeField] private GameObject cheatsUI;
         [SerializeField] private Button lvlup;
         [SerializeField] private Button nextStage;
         [SerializeField] private SerializedDictionary<ElementType, Button> buttons;
@@ -22,6 +24,10 @@ namespace Source.Scripts.System.Util
         public override void OnInit()
         {
             base.OnInit();
+            toggle.onClick.AddListener(()=>
+            {
+                cheatsUI.gameObject.SetActive(!cheatsUI.activeSelf);
+            });
             lvlup.onClick.AddListener(()=>
             {
                 pool.LvlUpEvent.Add(eventWorld.NewEntity());
