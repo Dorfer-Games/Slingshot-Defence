@@ -1,15 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+
 using Ketchapp.MayoSDK;
 using Kuhpik;
-using Leopotam.EcsLite;
-using Source.Scripts.Component;
-using Source.Scripts.Component.Movement;
-using Source.Scripts.Data;
+
 using Source.Scripts.Data.Enum;
-using Source.Scripts.View;
-using UnityEngine;
+
 
 public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
 {
@@ -77,16 +71,19 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
 
     private void SetSlingUpCost(UpType upType)
     {
-        var ups = save.SlingUps[save.CurrentSling];
+        var upsLevels = save.SlingUps[save.CurrentSling];
         var upsCosts = config.SlingConfigs[save.CurrentSling].UpCosts;
-        var upLevel = ups[upType];
+        var ups = config.SlingConfigs[save.CurrentSling].Ups;
+        var upLevel = upsLevels[upType];
+        var screenSlingUp = screen.SlingUps[upType];
         if (upLevel+1<upsCosts[upType].Length)
         {
-            screen.SlingUps[upType].SetCost(upsCosts[upType][upLevel+1],save.PlayerInventory[ResType.GOLD]);
+            screenSlingUp.SetCost(upsCosts[upType][upLevel+1],save.PlayerInventory[ResType.GOLD]);
+            screenSlingUp.SetValues(ups[upType][upLevel],ups[upType][upLevel+1]);
         }
         else
         {
-            screen.SlingUps[upType].SetMax();
+            screenSlingUp.SetMax();
         }
     }
 
