@@ -35,7 +35,7 @@ namespace Source.Scripts.UI
             levelText.text = $"LVL {lvl+1}";
             bg.sprite = config.ElementBG;
             icon.sprite = config.ElementIcons[elementType];
-            icon.SetNativeSize();
+            IncSizeHard();
         }
         
         public void SetUlt(ElementType elementType)
@@ -45,7 +45,7 @@ namespace Source.Scripts.UI
             levelText.text = $"EVOLUTION";
             bg.sprite = config.UltBG;
             icon.sprite = config.UltIcons[elementType];
-            icon.SetNativeSize();
+            IncSizeHard();
         }
         
         public void SetTome(TomeType tomeType,int lvl)
@@ -56,7 +56,14 @@ namespace Source.Scripts.UI
             bg.sprite = config.TomeBG;
             icon.sprite = config.TomeIcons[tomeType];
             tomeBallicon.sprite = config.TomeBallIcons[tomeType];
-            icon.SetNativeSize();
+            IncSizeHard();
+        }
+
+        private void IncSizeHard()
+        {
+            icon.SetNativeSize(); 
+            icon.rectTransform.sizeDelta =
+                new Vector2(icon.rectTransform.sizeDelta.x, icon.rectTransform.sizeDelta.y) * 1.3f;
         }
     }
 }
