@@ -80,6 +80,8 @@ namespace Source.Scripts.System.Trigger
             var hitRadius = pool.Radius.Get(senderE).Value;
             var targets = game.PositionService.GetEnemiesInRadius(senderE, hitRadius);
             
+            var vfx = Instantiate(config.BaseHitVFXPrefab);
+            vfx.transform.position = pool.View.Get(senderE).Value.transform.position;
             //hit only obstacle
             if (targets.Count==0)
             {
