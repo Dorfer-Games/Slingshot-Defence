@@ -14,8 +14,13 @@ namespace Source.Scripts.Data
         public SerializedDictionary<TomeType, Sprite> TomeBallIcons;
         
         public SerializedDictionary<ElementType, string> ElementNames;
+        public SerializedDictionary<ElementType, string> ElementDescs;
+        
         public SerializedDictionary<ElementType, string> UltNames;
+        public SerializedDictionary<ElementType, string> UltDescs;
+
         public SerializedDictionary<TomeType, string> TomeNames;
+        public SerializedDictionary<TomeType, string> TomeDescs;
 
         public Sprite ElementBG;
         public Sprite UltBG;

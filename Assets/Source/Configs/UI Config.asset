@@ -72,6 +72,18 @@ MonoBehaviour:
       Value: boulder
     - Key: 5
       Value: slime
+  ElementDescs:
+    _serializedList:
+    - Key: 1
+      Value: burns enemies
+    - Key: 2
+      Value: explodes in area
+    - Key: 3
+      Value: creates a chain lightning
+    - Key: 4
+      Value: pushes enemies back
+    - Key: 5
+      Value: slows enemies down
   UltNames:
     _serializedList:
     - Key: 1
@@ -84,6 +96,18 @@ MonoBehaviour:
       Value: super boulder
     - Key: 5
       Value: super slime
+  UltDescs:
+    _serializedList:
+    - Key: 1
+      Value: creates burning areas
+    - Key: 2
+      Value: increases damage to enemies
+    - Key: 3
+      Value: summons lightning strikes
+    - Key: 4
+      Value: pushes enemies back with a shockwave
+    - Key: 5
+      Value: creates slime areas
   TomeNames:
     _serializedList:
     - Key: 0
@@ -96,6 +120,18 @@ MonoBehaviour:
       Value: pushback
     - Key: 4
       Value: multiball
+  TomeDescs:
+    _serializedList:
+    - Key: 0
+      Value: makes balls to hit through enemies
+    - Key: 1
+      Value: increases balls hit radius
+    - Key: 2
+      Value: makes balls to ricochet from enemies
+    - Key: 3
+      Value: increases balls pushback
+    - Key: 4
+      Value: increases balls number in a shot
   ElementBG: {fileID: 21300000, guid: 955973ce6faedb6448c7ab0cc9129418, type: 3}
   UltBG: {fileID: 21300000, guid: 67c1f28ea17f19f40ade031b45172f98, type: 3}
   TomeBG: {fileID: 21300000, guid: 4e32ecb6eb1566f44898eeed069c86ee, type: 3}

@@ -12,6 +12,7 @@ namespace Source.Scripts.UI
         public Button Button;
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI levelText;
+        [SerializeField] private TextMeshProUGUI descText;
         [SerializeField] private Image bg;
         [SerializeField] private Image icon;
         [SerializeField] private Image tomeBallicon;
@@ -32,6 +33,7 @@ namespace Source.Scripts.UI
         {
             tomeBallicon.gameObject.SetActive(false);
             nameText.text = config.ElementNames[elementType];
+            descText.text = config.ElementDescs[elementType];
             levelText.text = $"LVL {lvl+1}";
             bg.sprite = config.ElementBG;
             icon.sprite = config.ElementIcons[elementType];
@@ -42,6 +44,7 @@ namespace Source.Scripts.UI
         {
             tomeBallicon.gameObject.SetActive(false);
             nameText.text = config.UltNames[elementType];
+            descText.text = config.UltDescs[elementType];
             levelText.text = $"EVOLUTION";
             bg.sprite = config.UltBG;
             icon.sprite = config.UltIcons[elementType];
@@ -52,6 +55,7 @@ namespace Source.Scripts.UI
         {
             tomeBallicon.gameObject.SetActive(true);
             nameText.text = config.TomeNames[tomeType];
+            descText.text = config.TomeDescs[tomeType];
             levelText.text = $"LVL {lvl+1}";
             bg.sprite = config.TomeBG;
             icon.sprite = config.TomeIcons[tomeType];
