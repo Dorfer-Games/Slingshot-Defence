@@ -40,6 +40,12 @@ public class MenuUIScreen : UIScreen
                 menuItem.ToggleSelected(true);
                 menuItem.transform.SetAsLastSibling();
             });
+
+            var goldCounterActive = !menuItem.Equals(LibItem);
+            menuItem.Button.onClick.AddListener(() =>
+            {
+                goldCounter.gameObject.SetActive(goldCounterActive);
+            });
         }
     }
 
