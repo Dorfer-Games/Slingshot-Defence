@@ -23,6 +23,7 @@ MonoBehaviour:
   EnemyLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  SlingPullPercentToCrit: 90
   MultishotAngle: 30
   KnockbackTime: 0.36
   BallBaseRadius: 0.375

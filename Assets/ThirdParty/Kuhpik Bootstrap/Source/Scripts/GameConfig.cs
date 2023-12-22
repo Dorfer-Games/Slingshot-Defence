@@ -28,7 +28,8 @@ namespace Kuhpik
         public LayerMask EnemyLayerMask;
 
 
-        [Header("Settable")]
+        [Header("Settable")] 
+        public float SlingPullPercentToCrit;
         public float MultishotAngle;
         public float KnockbackTime;
         public float BallBaseRadius;

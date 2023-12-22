@@ -11,12 +11,13 @@ namespace Source.Scripts.System.Input
         private CameraSwitcherView cameraSwitcherView;
         private Animator playerAnimator;
         private float shotLen;
+        private bool isCrit;
 
         public override void OnInit()
         {
             base.OnInit();
             joystick = game.Joystick;
-           
+
             cameraSwitcherView = game.CameraSwitcherView;
             playerAnimator = game.PlayerView.StickmanAnimator;
 
@@ -24,13 +25,15 @@ namespace Source.Scripts.System.Input
             joystick.PointerUpEvent += Release;
             joystick.PointerDownEvent += Load;
             joystick.DragEvent += Drag;
-            
+
             cameraSwitcherView.Switch(CameraPositionType.DEFAULT);
         }
 
         private void SendShotEvent()
         {
-            pool.ShotEvent.Add(eventWorld.NewEntity()).ShotLen=shotLen;
+            ref var shotEvent = ref pool.ShotEvent.Add(eventWorld.NewEntity());
+            shotEvent.ShotLen = shotLen;
+            shotEvent.IsCrit = isCrit;
         }
 
         private void Load()
@@ -38,14 +41,14 @@ namespace Source.Scripts.System.Input
             ref var ammo = ref pool.Ammo.Get(game.PlayerEntity);
             if (ammo.Count == 0)
                 return;
-            
+
             var firstAmmo = ammo.Value[^ammo.Count];
-            var elID = (int)pool.Element.Get(firstAmmo).Value;
+            var elID = (int) pool.Element.Get(firstAmmo).Value;
             if (pool.Ult.Has(firstAmmo))
                 elID += config.ElementsCount - 1;
-            
+
             game.PlayerView.SlingBall.SetModel(elID);
-            
+
             Time.timeScale = config.SlowTimeScale;
             cameraSwitcherView.Switch(CameraPositionType.AIMING);
             playerAnimator.Play("Pull");
@@ -57,9 +60,12 @@ namespace Source.Scripts.System.Input
             cameraSwitcherView.Switch(CameraPositionType.DEFAULT);
             var lineRenderer = game.PlayerView.LineRenderer;
 
-            if (lineRenderer.positionCount>0)
+            if (lineRenderer.positionCount > 0)
             {
+                var slingPullPercent = 100 * lineRenderer.positionCount / (float) config.SlingPointsCount;
+
                 shotLen = lineRenderer.GetPosition(lineRenderer.positionCount - 1).magnitude;
+                isCrit = slingPullPercent >= config.SlingPullPercentToCrit;
                 playerAnimator.Play("Release");
             }
             else
