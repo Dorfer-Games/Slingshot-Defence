@@ -17,6 +17,8 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
     {
         base.OnInit();
         screen.SelectItem(screen.WorldItem);
+        screen.LibItem.Button.interactable = save.AnalyticsProgress.IsLoggedTutorialCompleted;
+        screen.UpsItem.Button.interactable = save.AnalyticsProgress.IsLoggedTutorialCompleted;
         
         SetWorldStagesUI();
         
@@ -58,6 +60,9 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
                 break;
             case UpType.GOLD_K:
                 name = "income";
+                break;
+            case UpType.CRIT_K:
+                name = "crit";
                 break;
         }
         KetchappSDK.Analytics.CustomEvent($"upgrade_{name}{level}");
