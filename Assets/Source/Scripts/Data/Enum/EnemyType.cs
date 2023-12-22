@@ -4,6 +4,12 @@
     {
         SKELETON,
         ORC,
-        BAT
+        BAT,
+        SPIDER,
+        TURTLE,
+        FLOWER,
+        GOLEM,
+        MAGE,
+        DRAKE
     }
 }

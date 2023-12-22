@@ -4,6 +4,8 @@ using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Battle;
+using Source.Scripts.Data;
+using Source.Scripts.View;
 using UnityEngine;
 
 namespace Source.Scripts.System.Battle
@@ -59,15 +61,27 @@ namespace Source.Scripts.System.Battle
             }
         }
 
+        private void SetMaterial(BaseView baseView,EnemyConfig enemyConfig,int lvl)
+        {
+            var meshRenderers = baseView.GetComponentsInChildren<SkinnedMeshRenderer>();
+            foreach (var meshRenderer in meshRenderers)
+            {
+                meshRenderer.materials[0] = enemyConfig.Materials[lvl];
+            }
+        }
+
         private void SpawnNextEnemy(int ent)
         {
             ref var stage = ref pool.Stage.Get(ent);
+            
             var enemy = stage.CurrentWave.Enemies[stage.CurrentWaveEnemiesSpawnedCount];
-            var baseView = Instantiate(config.EnemyConfigs[enemy.EnemyType].Prefab);
+            var enemyConfig = config.EnemyConfigs[enemy.EnemyType];
+            var baseView = Instantiate(enemyConfig.Prefab);
             baseView.transform.position = stage.SpawnPositions[Random.Range(0,stage.SpawnPositions.Length)].position;
             baseView.transform.rotation = Quaternion.Euler(0, 180, 0);
             var enemyEnt = game.Fabric.InitView(baseView);
-            var stats = config.EnemyConfigs[enemy.EnemyType].LevelStats[enemy.Level];
+            var stats = enemyConfig.LevelStats[enemy.Level];
+            SetMaterial(baseView,enemyConfig,enemy.Level);
 
             //add other stats
             pool.Enemy.Add(enemyEnt).EnemyType=enemy.EnemyType;

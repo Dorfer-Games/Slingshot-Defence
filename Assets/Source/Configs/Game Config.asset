@@ -222,6 +222,18 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: 25592fc073910274b8ae09c3306b5789, type: 2}
     - Key: 2
       Value: {fileID: 11400000, guid: 003089294539751449b24b4d40246424, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: 3e28acb9c0c1f5a4f84c978962722287, type: 2}
+    - Key: 4
+      Value: {fileID: 11400000, guid: 20cccbe9c88caf342ba4fac8e2ad6cac, type: 2}
+    - Key: 5
+      Value: {fileID: 11400000, guid: 112b86764423605428b6ad932418d061, type: 2}
+    - Key: 6
+      Value: {fileID: 11400000, guid: 71eb1daf3bc5fda4fa200966f796afae, type: 2}
+    - Key: 7
+      Value: {fileID: 11400000, guid: 20ba3fc096ec97b4e9d74681eb7a2a06, type: 2}
+    - Key: 8
+      Value: {fileID: 11400000, guid: aab34927f352e1e4ab07c9da69caa84a, type: 2}
   SlingConfigs:
     _serializedList:
     - Key: 0

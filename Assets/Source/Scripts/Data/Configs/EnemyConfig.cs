@@ -9,5 +9,6 @@ namespace Source.Scripts.Data
     {
         public Stats[] LevelStats;
         public BaseView Prefab;
+        public Material[] Materials;
     }
 }

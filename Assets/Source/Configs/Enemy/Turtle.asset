@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693693b22e604c13a8278581c6b397e7, type: 3}
+  m_Name: Turtle
+  m_EditorClassIdentifier: 
+  LevelStats:
+  - Hp: 10
+    Speed: 2
+    Exp: 5
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 2
+  - Hp: 15
+    Speed: 2.5
+    Exp: 6
+    SpawnDelay: 1
+    Inventory:
+      _serializedList:
+      - Key: 0
+        Value: 3
+  Prefab: {fileID: 6317693359021089618, guid: d60f24d2420eb2b4a9041e338956da28, type: 3}
+  Materials:
+  - {fileID: 2100000, guid: 94d5d665d0a8c574597f451ca909d580, type: 2}
+  - {fileID: 2100000, guid: 84a35ed47a26a3c4497e41c74ea09bf5, type: 2}
