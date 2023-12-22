@@ -4,6 +4,7 @@
     {
         DAMAGE=0,
         RELOAD_TIME=1,
-        GOLD_K=2
+        GOLD_K=2,
+        CRIT_K=3
     }
 }
