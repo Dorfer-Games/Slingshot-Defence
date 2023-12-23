@@ -363,13 +363,18 @@ namespace Source.Scripts.System.Player
             {
                 var elementType = GetSameBall(ammoBalls, allElements);
                 if (elementType != ElementType.DEFAULT)
+                {
                     resElements.Add(elementType);
+                    allElements.Remove(elementType);
+                }
+                    
             }
 
             if (sameTomeChance <= config.SameTomeInRollChancePercent)
             {
                 var tomeType = GetSameTome(tomes, allTomes);
                 resTomes.Add(tomeType);
+                allTomes.Remove(tomeType);
             }
         }
 
