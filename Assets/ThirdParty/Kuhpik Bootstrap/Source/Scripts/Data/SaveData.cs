@@ -1,7 +1,4 @@
 ﻿using System;
-using UnityEngine;
-using NaughtyAttributes;
-using System.Collections;
 using System.Collections.Generic;
 using Source.Scripts.Data;
 using Source.Scripts.Data.Enum;
@@ -18,6 +15,10 @@ namespace Kuhpik
         public Dictionary<SlingType,Dictionary<UpType, int>> SlingUps;
         public SlingType CurrentSling;
         public List<SlingType> Slings;
+        public List<ElementType> UnlockedElements;
+        public List<ElementType> UnlockedUlts;
+        public List<TomeType> UnlockedTomes;
+        
         public int StageToLoad;
         public bool SkipMenu;
         

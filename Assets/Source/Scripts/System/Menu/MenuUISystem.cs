@@ -15,10 +15,21 @@ public class MenuUISystem : GameSystemWithScreen<MenuUIScreen>
         screen.UpsItem.Button.interactable = save.AnalyticsProgress.IsLoggedTutorialCompleted;
         
         SetWorldStagesUI();
+        SetUnlockedCards();
         
         SubscribeSlingUpsUI();
         SetSlingUpsUI();
         screen.SetGold(save.PlayerInventory[ResType.GOLD]);
+    }
+
+    private void SetUnlockedCards()
+    {
+        foreach (var elementType in save.UnlockedElements)
+            screen.LockedElements[elementType].gameObject.SetActive(false);
+        foreach (var elementType in save.UnlockedUlts)
+            screen.LockedUlts[elementType].gameObject.SetActive(false);
+        foreach (var tomeType in save.UnlockedTomes)
+            screen.LockedTomes[tomeType].gameObject.SetActive(false);
     }
 
     private void SubscribeSlingUpsUI()

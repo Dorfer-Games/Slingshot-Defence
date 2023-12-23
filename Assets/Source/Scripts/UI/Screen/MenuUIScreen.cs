@@ -18,6 +18,9 @@ public class MenuUIScreen : UIScreen
     public MenuItemView UpsItem;
     public MenuItemView[] MenuItems;
     public SerializedDictionary<UpType, SlingUpView> SlingUps;
+    public SerializedDictionary<ElementType, GameObject> LockedElements;
+    public SerializedDictionary<ElementType, GameObject> LockedUlts;
+    public SerializedDictionary<TomeType, GameObject> LockedTomes;
 
     public override void Subscribe()
     {

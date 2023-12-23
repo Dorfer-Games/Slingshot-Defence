@@ -123,11 +123,11 @@ MonoBehaviour:
   TomeDescs:
     _serializedList:
     - Key: 0
-      Value: makes balls to hit through enemies
+      Value: makes balls hit through enemies
     - Key: 1
       Value: increases balls hit radius
     - Key: 2
-      Value: makes balls to ricochet from enemies
+      Value: makes balls ricochet from enemies
     - Key: 3
       Value: increases balls pushback
     - Key: 4

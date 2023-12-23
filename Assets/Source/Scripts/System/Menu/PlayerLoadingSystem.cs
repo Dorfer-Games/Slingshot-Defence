@@ -23,6 +23,9 @@ public class PlayerLoadingSystem : GameSystem
 
         save.Slings ??= new() {SlingType.DEFAULT};
         save.AnalyticsProgress ??= new AnalyticsProgress();
+        save.UnlockedElements ??= new ();
+        save.UnlockedTomes ??= new ();
+        save.UnlockedUlts ??= new ();
         if (!save.AnalyticsProgress.IsLoggedTutorialCompleted)
         {
             save.AnalyticsProgress = new AnalyticsProgress();

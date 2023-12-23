@@ -60,6 +60,10 @@ namespace Source.Scripts.System.Player
         {
             var tomes = pool.Tomes.Get(game.PlayerEntity).Value;
             tomes[tomeType]++;
+            
+            if (!save.UnlockedTomes.Contains(tomeType))
+                save.UnlockedTomes.Add(tomeType);
+
             pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
                 $"get_{tomeType.ToString().ToLower()}_{tomes[tomeType]}_lvl{save.StageToLoad+1}";
         }
@@ -80,7 +84,16 @@ namespace Source.Scripts.System.Player
                     {
                         modelID = config.ElementsCount - 1 + (int) elementType;
                         pool.Ult.GetOrCreateRef(ammoBall).Value = (UltType) elementType;
+                        
+                        if (!save.UnlockedUlts.Contains(elementType))
+                            save.UnlockedUlts.Add(elementType);
                     }
+                    else
+                    {
+                        if (!save.UnlockedElements.Contains(elementType))
+                            save.UnlockedElements.Add(elementType);
+                    }
+                    
                     pool.AnalyticsEvent.Add(eventWorld.NewEntity()).Value =
                         $"get_{elementType.ToString().ToLower()}_{level}_lvl{save.StageToLoad+1}";
                     pool.ModelChangerComponent.Get(ammoBall).Value.SetModel(modelID);
