@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelStats:
   - Hp: 10
-    Speed: 2
+    Speed: 3
     Exp: 5
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 2
-  - Hp: 15
-    Speed: 2.5
+        Value: 5
+  - Hp: 13
+    Speed: 3.5
     Exp: 6
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 3
+        Value: 7
   Prefab: {fileID: 6317693359021089618, guid: 85c259a65b86d1948842d1147921d615, type: 3}
   Materials:
   - {fileID: 2100000, guid: 94d5d665d0a8c574597f451ca909d580, type: 2}

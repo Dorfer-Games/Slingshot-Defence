@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Orc
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 13
+  - Hp: 8
     Speed: 1
     Exp: 8
     SpawnDelay: 1
@@ -21,14 +21,14 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 18
+  - Hp: 11
     Speed: 1
-    Exp: 9
+    Exp: 10
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 5
+        Value: 7
   Prefab: {fileID: 2592167897373029447, guid: 4a879af8bccb1744cb60e91e85a2e2aa, type: 3}
   Materials:
   - {fileID: 2100000, guid: 94d5d665d0a8c574597f451ca909d580, type: 2}

@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 10
-    Speed: 2
-    Exp: 5
+  - Hp: 12
+    Speed: 1
+    Exp: 8
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 2
+        Value: 10
   - Hp: 15
-    Speed: 2.5
-    Exp: 6
+    Speed: 1
+    Exp: 10
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 3
+        Value: 12
   Prefab: {fileID: 6317693359021089618, guid: 241180316b8276841aba4eefbe78ef7d, type: 3}
   Materials:
   - {fileID: 2100000, guid: 4a97eb7c27f3d074595178cec1173075, type: 2}

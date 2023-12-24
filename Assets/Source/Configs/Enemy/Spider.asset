@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: Spider
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 10
-    Speed: 2
+  - Hp: 8
+    Speed: 5
     Exp: 5
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 2
-  - Hp: 15
-    Speed: 2.5
+        Value: 5
+  - Hp: 11
+    Speed: 5.5
     Exp: 6
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 3
+        Value: 7
   Prefab: {fileID: 6317693359021089618, guid: 16085b980154d35418590084a4919c02, type: 3}
   Materials:
   - {fileID: 2100000, guid: 94d5d665d0a8c574597f451ca909d580, type: 2}
