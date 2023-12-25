@@ -32,4 +32,4 @@ MonoBehaviour:
   Prefab: {fileID: 6317693359021089618, guid: 241180316b8276841aba4eefbe78ef7d, type: 3}
   Materials:
   - {fileID: 2100000, guid: 4a97eb7c27f3d074595178cec1173075, type: 2}
-  - {fileID: 2100000, guid: 9c3d6d3823333cc41b44d75061b39633, type: 2}
+  - {fileID: 2100000, guid: 4a3fab4c6b9fe534fab47f1d6619156b, type: 2}

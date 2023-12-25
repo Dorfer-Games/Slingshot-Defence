@@ -66,7 +66,8 @@ namespace Source.Scripts.System.Battle
             var meshRenderers = baseView.GetComponentsInChildren<SkinnedMeshRenderer>();
             foreach (var meshRenderer in meshRenderers)
             {
-                meshRenderer.materials[0] = enemyConfig.Materials[lvl];
+                meshRenderer.material = enemyConfig.Materials[lvl];
+                //meshRenderer.materials[0] = enemyConfig.Materials[lvl];
             }
         }
 
