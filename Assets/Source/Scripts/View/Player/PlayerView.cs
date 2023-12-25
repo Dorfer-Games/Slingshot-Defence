@@ -16,6 +16,8 @@ namespace Source.Scripts.View
         public ModelChangerView SlingBall;
         public PlayerAnimatorView PlayerAnimatorView;
         public ParticleSystem LvlUpVFX;
+        public Material Blue;
+        public Material Red;
 
 
     }

@@ -17,6 +17,7 @@ namespace Source.Scripts.System.Input
             joystick.PointerUpEvent += ()=>
             {
                 ToggleRed(false);
+                PaintPlayer();
             };
             lineRenderer=game.PlayerView.LineRenderer;
             playerMesh = game.PlayerView.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -37,6 +38,7 @@ namespace Source.Scripts.System.Input
             
             ToggleRed(slingPullPercent >= config.SlingPullPercentToCrit);
             SetPoints(pointsCount);
+            PaintPlayer();
         }
 
         private void SetPoints(int pointsCount)
@@ -55,18 +57,23 @@ namespace Source.Scripts.System.Input
             lineRenderer.SetPositions(list);
         }
 
+        private void PaintPlayer()
+        {
+            //playerMesh.material.SetColor("_MainColor",color);
+            playerMesh.material.Lerp(game.PlayerView.Blue,game.PlayerView.Red,lineRenderer.positionCount/(float)config.SlingPointsCount);
+        }
+
         private void ToggleRed(bool a)
         {
-           
             if (a)
             {
-                playerMesh.material.SetColor("_MainColor",Color.red);
+                //playerMesh.material.SetColor("_MainColor",Color.red);
                 lineRenderer.endColor=Color.red;
                 lineRenderer.startColor=Color.red;
             }
             else
             {
-                playerMesh.material.SetColor("_MainColor",Color.white);
+               // playerMesh.material.SetColor("_MainColor",Color.white);
                 lineRenderer.endColor=Color.red;
                 lineRenderer.startColor=Color.white;
             }
