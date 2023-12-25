@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mage
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 10
+  - Hp: 23
     Speed: 3.5
     Exp: 5
     SpawnDelay: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 13
+  - Hp: 33
     Speed: 4
     Exp: 6
     SpawnDelay: 1

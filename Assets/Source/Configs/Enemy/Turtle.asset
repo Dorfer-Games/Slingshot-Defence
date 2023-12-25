@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Turtle
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 10
-    Speed: 2
+  - Hp: 21
+    Speed: 4
     Exp: 5
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 13
-    Speed: 3
+  - Hp: 31
+    Speed: 5.5
     Exp: 8
     SpawnDelay: 1
     Inventory:

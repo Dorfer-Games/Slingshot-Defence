@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 12
-    Speed: 1
+  - Hp: 25
+    Speed: 2
     Exp: 8
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
         Value: 10
-  - Hp: 15
-    Speed: 1
+  - Hp: 35
+    Speed: 3
     Exp: 10
     SpawnDelay: 1
     Inventory:

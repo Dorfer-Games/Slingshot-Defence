@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spider
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 8
+  - Hp: 11
     Speed: 5
     Exp: 5
     SpawnDelay: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 5
-  - Hp: 11
+  - Hp: 16
     Speed: 5.5
     Exp: 6
     SpawnDelay: 1

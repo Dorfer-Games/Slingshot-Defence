@@ -21,7 +21,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 2
-  - Hp: 6
+  - Hp: 8
     Speed: 5
     Exp: 6
     SpawnDelay: 1
