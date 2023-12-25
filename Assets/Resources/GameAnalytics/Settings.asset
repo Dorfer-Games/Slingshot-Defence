@@ -30,8 +30,12 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
   secretKey:
   - d01bf7b0a506dc1dcfc3876444068e9e071874b3
+  - 
+  - 
   - 
   - 
   - 
@@ -43,16 +47,18 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
   SelectedPlatformStudio:
   - 
   - 
   SelectedPlatformGame:
   - 
   - 
-  SelectedPlatformGameID: ffffffffffffffffffffffffffffffff
-  SelectedOrganization: 00000000000000000000000000000000
-  SelectedStudio: 00000000000000000000000000000000
-  SelectedGame: 00000000000000000000000000000000
+  SelectedPlatformGameID: ffffffffffffffffffffffffffffffffffffffffffffffff
+  SelectedOrganization: 000000000000000000000000000000000000000000000000
+  SelectedStudio: 000000000000000000000000000000000000000000000000
+  SelectedGame: 000000000000000000000000000000000000000000000000
   NewVersion: 
   Changes: 
   SignUpOpen: 1
