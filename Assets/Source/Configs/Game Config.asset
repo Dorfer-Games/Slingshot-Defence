@@ -29,7 +29,7 @@ MonoBehaviour:
   BallBaseRadius: 0.375
   BallBaseKnockback: 2
   SlowTimeScale: 0.4
-  HpToDmgK: 1
+  HpToDmgK: 2
   ExpProgression: 000000000a000000140000001e0000003c00000046000000500000005a00000064000000780000008c000000a0000000b4000000c8000000
   SameTomeInRollChancePercent: 5
   SameBallInRollChancePercent: 20

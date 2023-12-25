@@ -20,15 +20,15 @@ MonoBehaviour:
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 2
-  - Hp: 15
-    Speed: 2.5
-    Exp: 6
+        Value: 5
+  - Hp: 13
+    Speed: 3
+    Exp: 8
     SpawnDelay: 1
     Inventory:
       _serializedList:
       - Key: 0
-        Value: 3
+        Value: 7
   Prefab: {fileID: 6317693359021089618, guid: d60f24d2420eb2b4a9041e338956da28, type: 3}
   Materials:
   - {fileID: 2100000, guid: 94d5d665d0a8c574597f451ca909d580, type: 2}

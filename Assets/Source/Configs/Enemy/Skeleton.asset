@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   LevelStats:
-  - Hp: 10
+  - Hp: 5
     Speed: 2
     Exp: 5
     SpawnDelay: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
       _serializedList:
       - Key: 0
         Value: 2
-  - Hp: 15
+  - Hp: 8
     Speed: 2.5
     Exp: 6
     SpawnDelay: 1

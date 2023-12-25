@@ -9723,7 +9723,7 @@ PrefabInstance:
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: StartReward
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
@@ -9853,7 +9853,7 @@ PrefabInstance:
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: Waves.Array.data[2].Enemies.Array.data[2].EnemyType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4683421585146075326, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
