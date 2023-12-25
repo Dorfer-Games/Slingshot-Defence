@@ -230,6 +230,8 @@ MonoBehaviour:
   SlingBall: {fileID: 8748718845027582844}
   PlayerAnimatorView: {fileID: 5317047464149546733}
   LvlUpVFX: {fileID: 5891257799271813589}
+  Blue: {fileID: 2100000, guid: 4e31cbcd1d3d724428c7fef303162929, type: 2}
+  Red: {fileID: 2100000, guid: 79cec54cfc85965478a04babc5becd06, type: 2}
 --- !u!114 &5396876730062300155
 MonoBehaviour:
   m_ObjectHideFlags: 0

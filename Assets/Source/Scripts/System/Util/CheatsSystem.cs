@@ -20,7 +20,7 @@ namespace Source.Scripts.System.Util
 
         [SerializeField] private SerializedDictionary<TomeType, Button> tomeButtons;
         //[SerializeField] private Button rndButton;
-
+#if UNITY_EDITOR
         public override void OnInit()
         {
             base.OnInit();
@@ -85,7 +85,7 @@ namespace Source.Scripts.System.Util
                  pool.ModelChangerComponent.Get(firstAmmo).Value.SetModel((int)value);
              });*/
         }
-#if UNITY_EDITOR
+
         public override void OnUpdate()
         {
             base.OnUpdate();
