@@ -63,6 +63,7 @@ namespace Source.Scripts.System.Battle
                 {
                     bool sendVFX = true;
 
+                    CritVfx(sender, target);
                     SendDamage(sender, target, baseDamage);
                     //proc element
                     if (pool.Fire.Has(sender))
@@ -106,6 +107,16 @@ namespace Source.Scripts.System.Battle
             }
 
             list.Clear();
+        }
+
+        private void CritVfx(int sender, int target)
+        {
+            if (pool.CritTag.Has(sender))
+            {
+                var targetT = pool.View.Get(target).Value.transform;
+                var critVFX = Instantiate(config.CritVFXPrefab);
+                critVFX.transform.position = targetT.position+new Vector3(0,3,0);
+            }
         }
 
         private void ProcKnockbackWave(int sender, int target)

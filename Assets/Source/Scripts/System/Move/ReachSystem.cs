@@ -27,7 +27,7 @@ namespace Source.Scripts.System.Move
                 if ((targetPos - entPos).sqrMagnitude < 1f)
                 {
                     pool.FollowPosition.Del(ent);
-                    pool.Speed.Del(ent);
+                    //pool.Speed.Del(ent);
                     pool.ReachEvent.Add(eventWorld.NewEntity()).Entity = ent;
                 }
                

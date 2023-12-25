@@ -262,3 +262,5 @@ MonoBehaviour:
         type: 3}
   BaseHitVFXPrefab: {fileID: 2741651256500912141, guid: f7fcd811d4c60f443b3f7576536fafc1,
     type: 3}
+  CritVFXPrefab: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0,
+    type: 3}

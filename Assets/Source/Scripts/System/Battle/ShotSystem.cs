@@ -268,6 +268,8 @@ namespace Source.Scripts.System.Sling.Shot
             pool.Knockback.Add(ent).Value = config.BallBaseKnockback;
             pool.Element.Add(ent).Value = elementType;
             pool.FollowPosition.Add(ent).Value = shotLen * dir;
+            if (isCrit)
+                pool.CritTag.Add(ent);
             //set base damage
             var damageLevel = save.SlingUps[save.CurrentSling][UpType.DAMAGE];
             var baseDamage = config.SlingConfigs[save.CurrentSling].Ups[UpType.DAMAGE][damageLevel];

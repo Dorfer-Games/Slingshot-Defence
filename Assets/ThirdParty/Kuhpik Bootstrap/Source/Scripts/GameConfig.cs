@@ -75,5 +75,6 @@ namespace Kuhpik
         [BoxGroup("Prefabs")] public SerializedDictionary<ElementType,BaseView> ZonesPrefabs;
         [BoxGroup("Prefabs")] public SerializedDictionary<ElementType,GameObject> ZoneSpreadPrefabs;
         [BoxGroup("Prefabs")] public GameObject BaseHitVFXPrefab;
+        [BoxGroup("Prefabs")] public GameObject CritVFXPrefab;
     }
 }

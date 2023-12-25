@@ -63,6 +63,8 @@ namespace Source.Scripts.System.Util
         public readonly EcsPool<KnockbackWave> KnockbackWave;
         public readonly EcsPool<DeathAnimTick> DeathAnimTick;
         public readonly EcsPool<FollowPosition> FollowPosition;
+        public readonly EcsPool<CritTag> CritTag;
+        public readonly EcsPool<BallTag> BallTag;
 
 
 
@@ -135,6 +137,8 @@ namespace Source.Scripts.System.Util
             KnockbackWave = world.GetPool<KnockbackWave>();
             DeathAnimTick = world.GetPool<DeathAnimTick>();
             FollowPosition = world.GetPool<FollowPosition>();
+            CritTag = world.GetPool<CritTag>();
+            BallTag = world.GetPool<BallTag>();
 
 
 
