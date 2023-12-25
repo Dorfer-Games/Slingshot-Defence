@@ -32,7 +32,7 @@ public class StageInitSystem : GameSystem
         {
             surface.BuildNavMesh();
         }*/
-        Bootstrap.Instance.ChangeGameState(GameStateID.Game);
+       Bootstrap.Instance.ChangeGameState(GameStateID.Game);
       
     }
     

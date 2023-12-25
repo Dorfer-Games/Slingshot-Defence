@@ -1,5 +1,6 @@
 ﻿using Kuhpik;
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Source.Scripts.UI.Screen
 {
@@ -7,6 +8,7 @@ namespace Source.Scripts.UI.Screen
     {
         [SerializeField] private GameObject controlsScreen;
         [SerializeField] private GameObject ammoScreen;
+        [SerializeField] private GameObject lockScreen;
         
         public void ToggleControlsScreen(bool a)
         {
@@ -16,6 +18,11 @@ namespace Source.Scripts.UI.Screen
         public void ToggleAmmoScreen(bool a)
         {
             ammoScreen.gameObject.SetActive(a);
+        }
+
+        public void ToggleLockInput(bool a)
+        {
+            lockScreen.gameObject.SetActive(a);
         }
     }
 }

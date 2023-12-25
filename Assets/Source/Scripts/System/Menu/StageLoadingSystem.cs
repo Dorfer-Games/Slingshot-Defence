@@ -23,6 +23,7 @@ public class StageLoadingSystem : GameSystem
         if (save.SkipMenu)
         {
             save.SkipMenu = false;
+            Bootstrap.Instance.SaveGame();
             StartCoroutine(WaitForStageInit(go.gameObject));
         }
     }

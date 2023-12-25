@@ -26,7 +26,8 @@ namespace Source.Scripts.System.Tutor
                 return;
             var curStep = save.AnalyticsProgress.TutorStepType;
             if (curStep==TutorStepType.FIRST_ENEMY_RUN)
-            {
+            { 
+                screen.ToggleLockInput(true);
                 var stage = pool.Stage.Get(game.StageEntity);
                 
                 //first enemy spawned
@@ -37,8 +38,11 @@ namespace Source.Scripts.System.Tutor
                     {
                         pool.Exp.Get(ent).Value = config.ExpProgression[1];
 
-                        if (pool.View.Get(ent).Value.transform.position.z<25)
+                        if (pool.View.Get(ent).Value.transform.position.z < 27)
+                        {
                             NextStep();
+                            screen.ToggleLockInput(false);
+                        }
                         break;
                     }
                 }

@@ -1,4 +1,5 @@
-﻿using Kuhpik;
+﻿using System.Collections.Generic;
+using Kuhpik;
 using Leopotam.EcsLite;
 using Source.Scripts.Component;
 using Source.Scripts.Component.Event;
@@ -10,17 +11,15 @@ namespace Source.Scripts.System.Ui
 {
    public class WorldUpdateUISystem : GameSystem
    {
-       private EcsFilter filterPlayerDataChanged;
-        private EcsFilter filterHpView;
-        private EcsFilter filterStorageCounter;
-        private EcsFilter filterDamageEvent;
-        private EcsFilter filterResGet;
-        private EcsFilter filterPlayerResGet;
+       private EcsFilter filterHpView;
+       private EcsFilter filterDamageEvent;
 
-        public override void OnInit()
+       private List<int> deadList;
+
+       public override void OnInit()
         {
             base.OnInit();
-            
+            deadList = new();
             filterHpView = world.Filter<HpViewComponent>().Inc<Hp>().End();
             filterDamageEvent = eventWorld.Filter<DamageEvent>().End();
             UpdateUI();
@@ -55,20 +54,23 @@ namespace Source.Scripts.System.Ui
             {
                 var damageEvent = pool.DamageEvent.Get(e);
                 var target = damageEvent.Target;
+              
                 if (pool.HpViewComponent.Has(target))
                 {
                     var hpBarUIView = pool.HpViewComponent.Get(target).Value;
                     var link = pool.View.Get(target).Value.gameObject;
                     hpBarUIView.AnimateDamageFadeNumber(Mathf.CeilToInt(damageEvent.Damage),link);
 
-                    if (pool.Dead.Has(target))
+                    if (pool.Dead.Has(target) && !deadList.Contains(target))
                     {
                         hpBarUIView.AnimateGoldFadeNumber(pool.Inventory.Get(target).Value[ResType.GOLD],link);
+                        deadList.Add(target);
                     }
-                } 
-                
+                }
+               
             }
             
+            deadList.Clear();
         }
     }
 }

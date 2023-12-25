@@ -74,12 +74,15 @@ namespace Source.Scripts.System.Battle
         private void SpawnNextEnemy(int ent)
         {
             ref var stage = ref pool.Stage.Get(ent);
-            
             var enemy = stage.CurrentWave.Enemies[stage.CurrentWaveEnemiesSpawnedCount];
             var enemyConfig = config.EnemyConfigs[enemy.EnemyType];
+            
             var baseView = Instantiate(enemyConfig.Prefab);
             baseView.transform.position = stage.SpawnPositions[Random.Range(0,stage.SpawnPositions.Length)].position;
             baseView.transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (enemy.Level>0)
+                baseView.transform.localScale=Vector3.one*1.3f;
+
             var enemyEnt = game.Fabric.InitView(baseView);
             var stats = enemyConfig.LevelStats[enemy.Level];
             SetMaterial(baseView,enemyConfig,enemy.Level);

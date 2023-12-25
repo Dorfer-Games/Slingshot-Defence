@@ -192,5 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7214428491330965532, guid: dd8c925fc36cc88449e814a089613061,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd8c925fc36cc88449e814a089613061, type: 3}

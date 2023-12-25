@@ -77,7 +77,7 @@ AnimatorController:
       m_State: {fileID: -6754204018019435836}
       m_Motion: {fileID: 7400000, guid: f4e887d5220a3954581dddd41dd2380a, type: 2}
     - serializedVersion: 2
-      m_State: {fileID: 0}
+      m_State: {fileID: 2157686945947199591}
       m_Motion: {fileID: 7400000, guid: f4e887d5220a3954581dddd41dd2380a, type: 2}
     - serializedVersion: 2
       m_State: {fileID: 7871216757584403927}
@@ -90,6 +90,33 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 1
     m_Controller: {fileID: 9100000}
+--- !u!1102 &2157686945947199591
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Run
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -203655887218126122, guid: 253f94cd17546ae4dace7634e2f5c4aa,
+    type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &7871216757584403927
 AnimatorState:
   serializedVersion: 6
@@ -98,7 +125,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GetHit
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -131,10 +158,13 @@ AnimatorStateMachine:
     m_Position: {x: 70, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9180688669060380804}
-    m_Position: {x: 290, y: 160, z: 0}
+    m_Position: {x: 280, y: 160, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 2157686945947199591}
+    m_Position: {x: 60, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7871216757584403927}
-    m_Position: {x: 290, y: 100, z: 0}
+    m_Position: {x: 280, y: 100, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
