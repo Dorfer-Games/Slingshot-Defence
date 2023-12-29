@@ -3093,6 +3093,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 766974988534032799, guid: 37701e612a242b342ab86eceb7905b4d,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 05ab2a48284a9f04689df4b04fb04565,
+        type: 2}
     - target: {fileID: 800771686259326152, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3153,8 +3159,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 05ab2a48284a9f04689df4b04fb04565,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2588642036338339707, guid: 37701e612a242b342ab86eceb7905b4d,
         type: 3}
       propertyPath: m_Layer

@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 5678502593076910194}
   - component: {fileID: 6297892309029203496}
   - component: {fileID: 4683421585146075326}
-  - component: {fileID: 2238866594501531424}
+  - component: {fileID: 766974988534032799}
   m_Layer: 0
   m_Name: Stage base
   m_TagString: Untagged
@@ -844,7 +844,7 @@ MonoBehaviour:
   - {fileID: 1837268072183471951}
   - {fileID: 6548965711232796283}
   - {fileID: 1969701698414614797}
---- !u!114 &2238866594501531424
+--- !u!114 &766974988534032799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5678502593076910195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Script: {fileID: 11500000, guid: 678126c8d3868fb419c3615241b2c90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2800a2b4a4f4620408a52483986c4d6a, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &5901364656172538888
 GameObject:
   m_ObjectHideFlags: 0
